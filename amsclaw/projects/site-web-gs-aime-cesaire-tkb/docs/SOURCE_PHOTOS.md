@@ -76,12 +76,39 @@ Coordonnees historiques visibles dans les sources :
 - panneau d'entree : numero et email visibles mais a relire/valider manuellement
 - plaquette : `gsac.samatra@gmail.com`
 
+## Deuxieme lot de photos (2026-06-20 soir)
+
+Date de reception : 2026-06-20 soir
+
+Origine : `amsclaw/inbox/site-web-gs-aime-cesaire-tkb/`
+
+Emplacement projet : `data/photos-source/inbox-2026-06-20-2/`
+
+### Inventaire
+
+| Fichier | Contenu | Usage possible |
+|---------|---------|----------------|
+| `469816621_553563167468533_...` | Salle de classe maternelle, déco chenille chiffres 1-10 | Redondant avec photo existante, garder pour réserve |
+| `469884342_553579694133547_...` | Bâtiment scolaire vue extérieure basse altitude, cour | Paysage / contexte école |
+| `469944200_553579660800217_...` | Couloir extérieur avec colonnes roses + caméra | Peu intéressant visuellement, garder pour réserve |
+| `469977057_553571270801056_...` | Enfants + animateur sur terrain extérieur, jeu encadré | Section activités / vie scolaire ✅ |
+| `475658680_589232617234921_...` | Bibliothèque / BD (Falka, Soul Hunters), fresque lecteur | Complément bibliothèque existante ✅ |
+| `476091216_593411353483714_...` | Trophée + match de foot jeunes en arrière-plan | Sport / événements ✅ |
+| `équipe enseignate.jpg` | **15 membres du personnel** (8 femmes, 7 hommes) devant l'école | **Section Notre équipe** — utilisée ✅ |
+
+### Photos utilisees dans le site
+
+| Photo source | Destination | Page |
+|-------------|-------------|------|
+| `équipe enseignate.jpg` → renommée `equipe-enseignante.jpg` | `src/assets/photos/equipe-enseignante.jpg` | Notre école |
+
 ## Recommandation d'usage V1
 
 - Hero : utiliser une photo de l'entree ou de la cour, selon le rendu visuel.
 - Section Maternelle : salle maternelle.
 - Section Cadre de vie : cour de recreation.
 - Section Pedagogie : bibliotheque et salle informatique.
+- Section Equipe : photo d'equipe enseignante avec accroche (ajoutee le 2026-06-20 soir).
 
 ## Garde-fous
 

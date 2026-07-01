@@ -91,7 +91,7 @@ Logo :
 
 - Facebook : `https://www.facebook.com/share/1CvNrkTWhy/?mibextid=wwXIfr`
 - Messenger : `https://www.facebook.com/messages/t/100084445643251/`
-- Google Maps : petit bloc de carte integree avec coordonnees `9.675889, -13.542859`, plus lien externe `https://maps.app.goo.gl/xNSVErC1EoUhQYqr9`
+- Google Maps : petit bloc de carte integree avec coordonnees `9.691250, -13.560333`, plus lien externe `https://www.google.com/maps?q=9.691250,-13.560333`
 
 ## Flux principal
 
@@ -133,13 +133,13 @@ Implementation prevue :
 Coordonnees cible :
 
 ```text
-9.675889, -13.542859
+9.691250, -13.560333
 ```
 
 Lien externe cible :
 
 ```text
-https://maps.app.goo.gl/xNSVErC1EoUhQYqr9
+https://www.google.com/maps?q=9.691250,-13.560333
 ```
 
 ## Preparation des photos

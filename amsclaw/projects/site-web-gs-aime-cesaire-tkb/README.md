@@ -8,13 +8,17 @@ Créer le site web de l'école **GS Aimé Césaire TKB** en Guinée Conakry : vi
 
 Projet cree le 2026-06-20.
 
-Phase : recette (Phase 5 du process AAS leger).
+Phase : V1 figee et validee par Ams le 2026-06-20.
 
 Processus applique : AAS V0.1 mode leger.
 
 ## Prochaine action
 
-Faire la revue locale de la V1 avec `docs/CAHIER_RECETTE_LIGHT.md`, puis corriger les ajustements avant toute mise en production.
+Faire valider le site par l'ecole cliente avant toute mise en production definitive.
+
+Support de validation :
+- URL de test : https://amsclaw.github.io/site-web-gs-aime-cesaire-tkb/
+- Fiche de validation : `docs/VALIDATION_ECOLE.md`
 
 ## Périmètre V1
 
@@ -54,13 +58,14 @@ Processus AAS V0.1 mode leger :
 2. Mini spec → `docs/MINI_SPEC.md` ✅ validee le 2026-06-20
 3. Plan dev → `docs/PLAN_DEV.md` ✅ valide le 2026-06-20
 4. Developpement ✅ realise le 2026-06-20
-5. Recette → `docs/CAHIER_RECETTE_LIGHT.md` ← nous sommes ici
+5. Recette → `docs/CAHIER_RECETTE_LIGHT.md` ✅ V1 figee et validee par Ams le 2026-06-20
 
 Validations Ams attendues :
 - Valider le besoin (IDEE.md) ✅ fait le 2026-06-20
 - Valider la mini spec (MINI_SPEC.md) ✅ fait le 2026-06-20
 - Valider le plan dev (PLAN_DEV.md) ✅ fait le 2026-06-20
-- Valider la recette finale ← prochaine validation attendue
+- Valider la recette finale ✅ fait le 2026-06-20
+- Faire valider le site par l'ecole cliente ← prochaine validation attendue
 
 ## Organisation
 
@@ -95,9 +100,11 @@ Depot GitHub :
 - 2026-06-20 : Ams valide `docs/IDEE.md`; `docs/MINI_SPEC.md` creee.
 - 2026-06-20 : Ams valide `docs/MINI_SPEC.md`; `docs/PLAN_DEV.md` cree.
 - 2026-06-20 : Ams valide `docs/PLAN_DEV.md`; lancement de la Phase 4 developpement.
-- 2026-06-20 : Ams fournit le lien Google Maps confirme ; carte contact mise a jour avec les coordonnees `9.675889, -13.542859`.
+- 2026-06-20 : Ams fournit le lien Google Maps confirme ; carte contact mise a jour avec les coordonnees `9.691250, -13.560333`.
 - 2026-06-20 : V1 locale statique creee dans `src/` ; `docs/CAHIER_RECETTE_LIGHT.md` produit.
 - 2026-06-20 : V1 de test publiee sur GitHub Pages : https://amsclaw.github.io/site-web-gs-aime-cesaire-tkb/
+- 2026-06-20 : V1 figee et validee par Ams apres corrections hero/logo, icones Facebook/Messenger, galerie, photo equipe et retrait WhatsApp.
+- 2026-06-21 : reprise projet ; site public verifie en HTTP 200 et prochaine action recentree sur la validation par l'ecole.
 
 ## Risques et points de vigilance
 

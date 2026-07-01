@@ -32,8 +32,8 @@ Le site doit :
 - Email : `aimecesairetkb@gmail.com`
 - Telephones : `+224 628 780 205` / `+224 614 639 274`
 - Photos : droit d'usage confirme par Ams
-- Localisation Google Maps confirmee : `https://maps.app.goo.gl/xNSVErC1EoUhQYqr9`
-- Coordonnees GPS extraites : `9.675889, -13.542859`
+- Localisation Google Maps confirmee : `https://www.google.com/maps?q=9.691250,-13.560333`
+- Coordonnees GPS extraites : `9.691250, -13.560333`
 - Localisation : prevoir un petit bloc de carte Google Maps integree sur la page contact, avec lien externe en secours
 
 ## Pages V1
@@ -155,8 +155,8 @@ Ces elements restent a valider avec Ams avant publication.
   - afficher un petit carre de carte integree directement dans la page ;
   - format cible : bloc compact, environ carre sur mobile et desktop ;
   - garder un lien `Ouvrir dans Google Maps` en dessous ;
-  - lien externe cible : `https://maps.app.goo.gl/xNSVErC1EoUhQYqr9` ;
-  - coordonnees cible iframe : `9.675889, -13.542859`.
+  - lien externe cible : `https://www.google.com/maps?q=9.691250,-13.560333` ;
+  - coordonnees cible iframe : `9.691250, -13.560333`.
 
 ### Garde-fou
 

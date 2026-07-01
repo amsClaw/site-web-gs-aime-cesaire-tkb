@@ -69,8 +69,8 @@ Cette plaquette sert de source principale pour la Phase 2 - Mini spec :
 - Telephones : `+224 628 780 205` / `+224 614 639 274`.
 - Le site n'est pas destine a une mise en production immediate tant que les coordonnees definitives ne sont pas confirmees.
 - Possibilite d'utiliser les photos transmises pour le site : oui, droit d'usage confirme par Ams.
-- Localisation Google Maps confirmee par Ams : `https://maps.app.goo.gl/xNSVErC1EoUhQYqr9`.
-- Coordonnees extraites : `9.675889, -13.542859`.
+- Localisation Google Maps confirmee par Ams : `https://www.google.com/maps?q=9.691250,-13.560333`.
+- Coordonnees extraites : `9.691250, -13.560333`.
 
 ## Points restant a confirmer
 

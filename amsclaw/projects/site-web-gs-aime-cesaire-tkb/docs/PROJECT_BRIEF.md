@@ -32,10 +32,19 @@ Une V1 site vitrine de 3-4 pages apportera une présence en ligne à l'école ra
 
 ## Critères de succès
 
-- Le site est en ligne
-- Il est accessible depuis un mobile
-- Il contient les informations essentielles (présentation, contact, admissions)
-- Les visiteurs peuvent contacter l'école via le formulaire
+- Le site est en ligne : **OK** (GitHub Pages)
+- Il est accessible depuis un mobile : **OK** (responsive mobile-first)
+- Il contient les informations essentielles (présentation, contact, admissions) : **OK**
+- Les visiteurs peuvent contacter l'école : **OK** (email, Facebook, Messenger, telephone)
+
+## Statut V1
+
+**V1 fige et validee par Ams le 2026-06-20.**
+
+URL de test : https://amsclaw.github.io/site-web-gs-aime-cesaire-tkb/
+Depot GitHub : https://github.com/amsClaw/site-web-gs-aime-cesaire-tkb
+
+Prochaine etape : faire valider le site par l'ecole cliente avant mise en production definitive.
 
 ## Limites V1
 
