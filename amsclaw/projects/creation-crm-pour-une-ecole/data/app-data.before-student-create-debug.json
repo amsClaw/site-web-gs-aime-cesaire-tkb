@@ -1,0 +1,73 @@
+{
+  "metadata": {
+    "name": "CRM ecole GS AIME CESAIRE TKB",
+    "version": "0.1.0",
+    "updatedAt": "2026-06-14T12:17:04.783Z"
+  },
+  "users": [
+    {
+      "id": "usr-ebe1b6b9-d162-4fca-b403-fbe23d62b5a3",
+      "username": "admin_test",
+      "name": "Direction test",
+      "role": "admin",
+      "active": true,
+      "passwordHash": "43c27b4e263fa191a6a7ec198cd4d5b47d17413c49d77dc533a01720707e3202",
+      "createdAt": "2026-06-14T10:57:19.078Z",
+      "updatedAt": "2026-06-14T10:57:19.078Z"
+    },
+    {
+      "id": "usr-0d386bc5-f05d-404f-b08e-1848e36d837f",
+      "username": "secretariat_test",
+      "name": "Secretariat test",
+      "role": "secretariat",
+      "active": true,
+      "passwordHash": "43c27b4e263fa191a6a7ec198cd4d5b47d17413c49d77dc533a01720707e3202",
+      "createdAt": "2026-06-14T10:57:19.078Z",
+      "updatedAt": "2026-06-14T10:57:19.078Z"
+    },
+    {
+      "id": "usr-c26c31e6-d54d-427e-9026-1ccc123dacba",
+      "username": "instructeur_test",
+      "name": "Instructeur test",
+      "role": "instructeur",
+      "active": true,
+      "passwordHash": "43c27b4e263fa191a6a7ec198cd4d5b47d17413c49d77dc533a01720707e3202",
+      "createdAt": "2026-06-14T10:57:19.078Z",
+      "updatedAt": "2026-06-14T10:57:19.078Z"
+    }
+  ],
+  "classes": [
+    {
+      "id": "cls-05f08161-e2fa-4cf1-98a0-5a69bcb8b21b",
+      "name": "6eme A",
+      "level": "College",
+      "active": true,
+      "instructorIds": [
+        "usr-c26c31e6-d54d-427e-9026-1ccc123dacba"
+      ],
+      "createdAt": "2026-06-14T10:57:19.078Z",
+      "updatedAt": "2026-06-14T10:57:19.078Z"
+    },
+    {
+      "id": "cls-2ddf4ecc-d3c3-4d8b-8b94-9e55ab020830",
+      "name": "5eme A",
+      "level": "College",
+      "active": true,
+      "instructorIds": [],
+      "createdAt": "2026-06-14T10:57:19.078Z",
+      "updatedAt": "2026-06-14T10:57:19.078Z"
+    },
+    {
+      "id": "cls-15998c89-5b76-4280-9fb0-18dfc7e16e36",
+      "name": "7eme A",
+      "level": "Collège",
+      "active": true,
+      "instructorIds": [
+        "usr-c26c31e6-d54d-427e-9026-1ccc123dacba"
+      ],
+      "createdAt": "2026-06-14T12:17:04.783Z",
+      "updatedAt": "2026-06-14T12:17:04.783Z"
+    }
+  ],
+  "students": []
+}

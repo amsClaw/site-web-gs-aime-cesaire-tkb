@@ -1,0 +1,598 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Comprendre les agents IA</title>
+  <style>
+    :root {
+      --ink: #17212b;
+      --muted: #5a6673;
+      --line: #d8dee6;
+      --soft: #f5f7fa;
+      --paper: #ffffff;
+      --blue: #2563eb;
+      --green: #17803d;
+      --amber: #b45309;
+      --red: #b42318;
+      --violet: #6d28d9;
+      --shadow: 0 16px 40px rgba(23, 33, 43, .10);
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: var(--ink);
+      background: var(--paper);
+      line-height: 1.55;
+    }
+
+    header {
+      background:
+        linear-gradient(110deg, rgba(37, 99, 235, .92), rgba(23, 128, 61, .82)),
+        url("data:image/svg+xml,%3Csvg width='1400' height='780' viewBox='0 0 1400 780' xmlns='http://www.w3.org/2000/svg'%3E%3Crect width='1400' height='780' fill='%2317212b'/%3E%3Cg fill='none' stroke='%23ffffff' stroke-opacity='.16' stroke-width='2'%3E%3Cpath d='M110 120h170v100H110zM430 92h220v128H430zM820 126h170v100H820zM1130 88h160v116h-160zM184 392h210v124H184zM594 344h240v148H594zM980 372h230v132H980zM116 616h190v92H116zM486 594h230v104H486zM898 604h260v100H898z'/%3E%3Cpath d='M280 170h150M650 156h170M990 176h140M394 454h200M834 418h146M306 662h180M716 646h182'/%3E%3C/g%3E%3Ccircle cx='715' cy='420' r='58' fill='%23ffffff' fill-opacity='.12'/%3E%3Ccircle cx='715' cy='420' r='26' fill='%23ffffff' fill-opacity='.18'/%3E%3C/svg%3E");
+      background-size: cover;
+      color: #fff;
+      min-height: 72vh;
+      display: grid;
+      align-items: center;
+      padding: 56px 22px 92px;
+    }
+
+    .wrap {
+      width: min(1120px, 100%);
+      margin: 0 auto;
+    }
+
+    .hero {
+      max-width: 820px;
+    }
+
+    .eyebrow {
+      font-size: .82rem;
+      text-transform: uppercase;
+      letter-spacing: .08em;
+      font-weight: 800;
+      opacity: .92;
+      margin: 0 0 14px;
+    }
+
+    h1, h2, h3 {
+      line-height: 1.1;
+      letter-spacing: 0;
+      margin: 0;
+    }
+
+    h1 {
+      font-size: clamp(2.2rem, 7vw, 5.25rem);
+      max-width: 900px;
+    }
+
+    .lead {
+      max-width: 740px;
+      font-size: clamp(1.05rem, 2vw, 1.35rem);
+      margin: 22px 0 0;
+      color: rgba(255, 255, 255, .92);
+    }
+
+    nav {
+      background: #0f1720;
+      color: #fff;
+      padding: 12px 22px;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      box-shadow: 0 8px 22px rgba(0,0,0,.15);
+    }
+
+    nav .wrap {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      font-size: .92rem;
+      padding: 7px 10px;
+      border: 1px solid rgba(255,255,255,.18);
+      border-radius: 6px;
+    }
+
+    main {
+      padding: 34px 22px 70px;
+    }
+
+    section {
+      padding: 34px 0;
+      border-bottom: 1px solid var(--line);
+    }
+
+    section:last-child { border-bottom: 0; }
+
+    h2 {
+      font-size: clamp(1.7rem, 3vw, 2.55rem);
+      margin-bottom: 14px;
+    }
+
+    h3 {
+      font-size: 1.2rem;
+      margin-bottom: 10px;
+    }
+
+    p { margin: 0 0 14px; }
+
+    .sub {
+      color: var(--muted);
+      max-width: 840px;
+      font-size: 1.05rem;
+    }
+
+    .grid {
+      display: grid;
+      gap: 18px;
+      margin-top: 22px;
+    }
+
+    .two { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .three { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+
+    .card {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 20px;
+      background: #fff;
+      box-shadow: 0 8px 22px rgba(23, 33, 43, .06);
+    }
+
+    .callout {
+      margin-top: 18px;
+      padding: 18px 20px;
+      border-left: 5px solid var(--blue);
+      background: #eef5ff;
+      border-radius: 6px;
+    }
+
+    .example {
+      background: #101820;
+      color: #e8eef7;
+      border-radius: 8px;
+      padding: 18px;
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+      font-size: .95rem;
+      overflow-x: auto;
+      margin: 16px 0 0;
+      white-space: pre-wrap;
+    }
+
+    .label {
+      display: inline-block;
+      font-size: .76rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: .06em;
+      color: #fff;
+      padding: 3px 8px;
+      border-radius: 4px;
+      margin-bottom: 10px;
+    }
+
+    .blue { background: var(--blue); }
+    .green { background: var(--green); }
+    .amber { background: var(--amber); }
+    .violet { background: var(--violet); }
+    .red { background: var(--red); }
+
+    .diagram {
+      background: var(--soft);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 18px;
+      margin-top: 22px;
+      overflow-x: auto;
+    }
+
+    .flow {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(130px, 1fr));
+      gap: 12px;
+      min-width: 760px;
+      align-items: stretch;
+    }
+
+    .step {
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 14px;
+      min-height: 118px;
+      position: relative;
+    }
+
+    .step:not(:last-child)::after {
+      content: "→";
+      position: absolute;
+      right: -14px;
+      top: 42%;
+      color: var(--blue);
+      font-weight: 900;
+      font-size: 1.4rem;
+    }
+
+    .step strong {
+      display: block;
+      margin-bottom: 6px;
+    }
+
+    .compare {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      overflow: hidden;
+      margin-top: 22px;
+    }
+
+    .compare > div {
+      padding: 20px;
+    }
+
+    .compare > div:first-child {
+      background: #f8fafc;
+      border-right: 1px solid var(--line);
+    }
+
+    ul {
+      margin: 10px 0 0;
+      padding-left: 20px;
+    }
+
+    li { margin: 7px 0; }
+
+    .score {
+      display: grid;
+      gap: 12px;
+      margin-top: 18px;
+    }
+
+    .bar {
+      display: grid;
+      grid-template-columns: 190px 1fr 48px;
+      gap: 12px;
+      align-items: center;
+      font-size: .95rem;
+    }
+
+    .track {
+      height: 14px;
+      background: #e8edf3;
+      border-radius: 999px;
+      overflow: hidden;
+    }
+
+    .fill {
+      height: 100%;
+      border-radius: 999px;
+      background: linear-gradient(90deg, var(--green), var(--blue));
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 18px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      overflow: hidden;
+      display: table;
+    }
+
+    th, td {
+      padding: 13px 14px;
+      border-bottom: 1px solid var(--line);
+      text-align: left;
+      vertical-align: top;
+    }
+
+    th {
+      background: #f1f5f9;
+      font-size: .92rem;
+    }
+
+    tr:last-child td { border-bottom: 0; }
+
+    footer {
+      padding: 26px 22px 42px;
+      background: #101820;
+      color: #d8dee6;
+    }
+
+    footer p { margin: 0; }
+
+    @media (max-width: 820px) {
+      header { min-height: 66vh; padding-bottom: 64px; }
+      nav { position: static; }
+      .two, .three, .compare { grid-template-columns: 1fr; }
+      .compare > div:first-child {
+        border-right: 0;
+        border-bottom: 1px solid var(--line);
+      }
+      .bar { grid-template-columns: 1fr; gap: 6px; }
+      table, thead, tbody, th, td, tr { display: block; }
+      th { display: none; }
+      td { border-bottom: 0; padding: 10px 14px; }
+      tr { border-bottom: 1px solid var(--line); }
+      tr:last-child { border-bottom: 0; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="wrap hero">
+      <p class="eyebrow">Guide simple pour Xavier</p>
+      <h1>Comprendre ce qu’est un agent IA</h1>
+      <p class="lead">Un chatbot répond. Un agent IA peut poursuivre un objectif, choisir des étapes, utiliser des outils et produire un résultat concret sous contrôle humain.</p>
+    </div>
+  </header>
+
+  <nav aria-label="Sommaire">
+    <div class="wrap">
+      <a href="#idee">Idée clé</a>
+      <a href="#chatbot-agent">Chatbot vs agent</a>
+      <a href="#fonctionnement">Fonctionnement</a>
+      <a href="#exemples">Exemples</a>
+      <a href="#limites">Limites</a>
+      <a href="#retenir">À retenir</a>
+    </div>
+  </nav>
+
+  <main>
+    <section id="idee">
+      <div class="wrap">
+        <h2>L’idée clé en une phrase</h2>
+        <p class="sub">Un agent IA est un assistant numérique qui ne se contente pas de discuter : il peut aider à réaliser une mission en plusieurs étapes.</p>
+
+        <div class="grid three">
+          <article class="card">
+            <span class="label blue">Chatbot</span>
+            <h3>Il répond à une question</h3>
+            <p>Tu écris une demande, il te donne une réponse. Exemple : “Explique-moi ce qu’est une facture.”</p>
+          </article>
+
+          <article class="card">
+            <span class="label green">Agent IA</span>
+            <h3>Il avance vers un objectif</h3>
+            <p>Tu lui donnes une mission, il peut organiser les étapes. Exemple : “Prépare-moi un modèle de facture et vérifie les mentions utiles.”</p>
+          </article>
+
+          <article class="card">
+            <span class="label amber">Humain</span>
+            <h3>Il garde le contrôle</h3>
+            <p>L’agent propose, exécute certaines actions autorisées et demande validation pour les décisions sensibles.</p>
+          </article>
+        </div>
+
+        <div class="callout">
+          <strong>Image mentale utile :</strong> ChatGPT en mode conversation ressemble à un conseiller. Un agent IA ressemble davantage à un assistant de projet junior à qui tu confies une tâche, avec des règles et des limites.
+        </div>
+      </div>
+    </section>
+
+    <section id="chatbot-agent">
+      <div class="wrap">
+        <h2>La différence entre un chatbot et un agent IA</h2>
+        <p class="sub">Les deux utilisent de l’intelligence artificielle, mais leur rôle n’est pas le même.</p>
+
+        <div class="compare">
+          <div>
+            <span class="label blue">Chatbot type ChatGPT</span>
+            <h3>Conversation</h3>
+            <ul>
+              <li>Répond à une question ou à une instruction.</li>
+              <li>Attend souvent que l’utilisateur donne la prochaine étape.</li>
+              <li>Produit surtout du texte, des idées, du code ou des explications.</li>
+              <li>Très utile pour apprendre, rédiger, brainstormer, reformuler.</li>
+            </ul>
+          </div>
+          <div>
+            <span class="label green">Agent IA</span>
+            <h3>Mission</h3>
+            <ul>
+              <li>Comprend un objectif et le découpe en étapes.</li>
+              <li>Peut utiliser des outils : fichiers, agenda, navigateur, base de données, email, scripts.</li>
+              <li>Peut vérifier son travail et corriger certaines erreurs.</li>
+              <li>Très utile pour exécuter un processus répétable ou un petit projet.</li>
+            </ul>
+          </div>
+        </div>
+
+        <table>
+          <thead>
+            <tr>
+              <th>Situation</th>
+              <th>Chatbot</th>
+              <th>Agent IA</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Tu veux comprendre un sujet</td>
+              <td>Très adapté</td>
+              <td>Utile, mais pas toujours nécessaire</td>
+            </tr>
+            <tr>
+              <td>Tu veux produire un document</td>
+              <td>Peut rédiger le contenu</td>
+              <td>Peut rédiger, structurer, sauvegarder et préparer la version finale</td>
+            </tr>
+            <tr>
+              <td>Tu veux suivre un projet</td>
+              <td>Peut proposer un plan</td>
+              <td>Peut tenir une liste d’actions, mettre à jour des fichiers et relancer les étapes</td>
+            </tr>
+            <tr>
+              <td>Tu veux automatiser une tâche</td>
+              <td>Peut expliquer comment faire</td>
+              <td>Peut exécuter certaines actions si les outils sont connectés</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section id="fonctionnement">
+      <div class="wrap">
+        <h2>Comment fonctionne un agent IA ?</h2>
+        <p class="sub">Un agent IA fonctionne comme une boucle de travail : comprendre, planifier, agir, vérifier, puis rendre compte.</p>
+
+        <div class="diagram" aria-label="Schéma de fonctionnement d'un agent IA">
+          <div class="flow">
+            <div class="step">
+              <strong>1. Objectif</strong>
+              L’humain donne une mission claire.
+            </div>
+            <div class="step">
+              <strong>2. Plan</strong>
+              L’agent découpe le travail en étapes.
+            </div>
+            <div class="step">
+              <strong>3. Outils</strong>
+              Il utilise les outils autorisés.
+            </div>
+            <div class="step">
+              <strong>4. Vérification</strong>
+              Il contrôle le résultat.
+            </div>
+            <div class="step">
+              <strong>5. Livraison</strong>
+              Il explique ce qui a été fait.
+            </div>
+          </div>
+        </div>
+
+        <div class="score" aria-label="Graphique comparatif">
+          <div class="bar">
+            <strong>Répondre à une question</strong>
+            <div class="track"><div class="fill" style="width: 95%"></div></div>
+            <span>fort</span>
+          </div>
+          <div class="bar">
+            <strong>Exécuter plusieurs étapes</strong>
+            <div class="track"><div class="fill" style="width: 82%"></div></div>
+            <span>fort</span>
+          </div>
+          <div class="bar">
+            <strong>Décider seul</strong>
+            <div class="track"><div class="fill" style="width: 28%"></div></div>
+            <span>limité</span>
+          </div>
+        </div>
+
+        <div class="callout">
+          <strong>Important :</strong> un bon agent IA n’est pas “autonome sans contrôle”. Il est autonome dans l’exécution de petites étapes, mais il doit demander validation pour les actions sensibles : envoyer un email, publier, payer, supprimer un fichier, prendre un engagement.
+        </div>
+      </div>
+    </section>
+
+    <section id="exemples">
+      <div class="wrap">
+        <h2>Petits exemples concrets</h2>
+        <p class="sub">Voici des exemples simples pour sentir la différence.</p>
+
+        <div class="grid two">
+          <article class="card">
+            <span class="label blue">Exemple 1</span>
+            <h3>Préparer un voyage</h3>
+            <p><strong>Chatbot :</strong> “Donne-moi des idées de visites à Lisbonne.”</p>
+            <p><strong>Agent IA :</strong> “Prépare-moi un planning de 3 jours à Lisbonne, compare les quartiers, estime le budget, puis crée une checklist.”</p>
+          </article>
+
+          <article class="card">
+            <span class="label green">Exemple 2</span>
+            <h3>Gérer une petite entreprise</h3>
+            <p><strong>Chatbot :</strong> “Écris un message de relance client.”</p>
+            <p><strong>Agent IA :</strong> “Repère les factures en retard, prépare les messages de relance, classe les clients par priorité et attends mon accord avant envoi.”</p>
+          </article>
+
+          <article class="card">
+            <span class="label amber">Exemple 3</span>
+            <h3>Créer un site simple</h3>
+            <p><strong>Chatbot :</strong> “Propose-moi le texte d’un site pour un plombier.”</p>
+            <p><strong>Agent IA :</strong> “Crée une première page HTML, ajoute les services, le contact WhatsApp, vérifie l’affichage mobile et prépare la mise en ligne.”</p>
+          </article>
+
+          <article class="card">
+            <span class="label violet">Exemple 4</span>
+            <h3>Travailler avec des documents</h3>
+            <p><strong>Chatbot :</strong> “Résume ce document.”</p>
+            <p><strong>Agent IA :</strong> “Lis le dossier, fais une synthèse, extrais les décisions, crée une liste d’actions et mets à jour le suivi projet.”</p>
+          </article>
+        </div>
+
+        <div class="example">Exemple de bonne demande à un agent IA :
+
+“Aide-moi à créer une fiche de présentation pour mon activité.
+Objectif : obtenir un document clair en une page.
+Public : clients non techniques.
+Contraintes : langage simple, ton professionnel.
+À la fin : donne-moi le fichier et une liste des points à valider.”</div>
+      </div>
+    </section>
+
+    <section id="limites">
+      <div class="wrap">
+        <h2>Ce qu’il faut garder en tête</h2>
+        <p class="sub">Un agent IA est puissant, mais ce n’est pas une personne, ni une garantie de vérité.</p>
+
+        <div class="grid three">
+          <article class="card">
+            <span class="label red">Vérifier</span>
+            <h3>Il peut se tromper</h3>
+            <p>Il peut inventer une information, mal interpréter une consigne ou oublier une contrainte.</p>
+          </article>
+
+          <article class="card">
+            <span class="label amber">Encadrer</span>
+            <h3>Il lui faut des règles</h3>
+            <p>Plus la mission est sensible, plus il faut définir ce qu’il peut faire seul et ce qui demande validation.</p>
+          </article>
+
+          <article class="card">
+            <span class="label green">Utiliser</span>
+            <h3>Il excelle sur les processus</h3>
+            <p>Il est particulièrement utile pour les tâches répétitives, documentées ou découpables en étapes.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="retenir">
+      <div class="wrap">
+        <h2>À retenir</h2>
+        <div class="grid two">
+          <div>
+            <p>Un chatbot est surtout un outil de conversation. Il est excellent pour expliquer, rédiger, reformuler et donner des idées.</p>
+            <p>Un agent IA est plutôt un assistant d’exécution. Il peut suivre un objectif, utiliser des outils, produire des livrables et rendre compte de ce qu’il a fait.</p>
+          </div>
+          <div class="card">
+            <h3>La formule simple</h3>
+            <p><strong>Chatbot = discussion.</strong></p>
+            <p><strong>Agent IA = mission + outils + étapes + contrôle.</strong></p>
+            <p>Le meilleur usage consiste à donner un objectif clair, des contraintes, un résultat attendu et des limites d’action.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap">
+      <p>Guide préparé pour Xavier - Version simple et non technique.</p>
+    </div>
+  </footer>
+</body>
+</html>

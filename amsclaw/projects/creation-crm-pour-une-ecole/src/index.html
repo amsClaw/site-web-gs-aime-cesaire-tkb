@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>CRM ecole - GS AIME CESAIRE TKB</title>
+    <link rel="icon" type="image/png" href="/assets/favicon-ecole.png?v=20260620-logo-transparent">
+    <link rel="stylesheet" href="/styles.css?v=20260620-logo-transparent">
+  </head>
+  <body>
+    <main id="app">
+      <section id="login-view" class="login-shell">
+        <form id="login-form" class="login-panel">
+          <div class="login-brand">
+            <img class="school-logo login-logo" src="/assets/logo-ecole-aime-cesaire-transparent.png" alt="Logo GS AIME CESAIRE TKB">
+            <p class="eyebrow">GS AIME CESAIRE TKB</p>
+            <h1>CRM ecole</h1>
+          </div>
+          <label>Identifiant<input name="username" autocomplete="username" value="admin_test" required></label>
+          <label>Mot de passe<input name="password" type="password" autocomplete="current-password" value="demo2026" required></label>
+          <button class="primary-button" type="submit">Se connecter</button>
+          <p class="muted">Comptes de test : admin_test, secretariat_test, instructeur_test. Mot de passe : demo2026.</p>
+        </form>
+      </section>
+
+      <section id="main-view" class="app-shell hidden">
+        <aside class="sidebar">
+          <div class="brand-block">
+            <img class="school-logo sidebar-logo" src="/assets/logo-ecole-aime-cesaire-transparent.png" alt="Logo GS AIME CESAIRE TKB">
+            <div>
+              <p class="eyebrow">GS AIME CESAIRE TKB</p>
+              <h1>CRM ecole</h1>
+            </div>
+          </div>
+          <nav class="nav-list" aria-label="Navigation principale">
+            <button class="nav-button active" type="button" data-view="dashboard">Tableau de bord</button>
+            <button class="nav-button" type="button" data-view="students">Eleves</button>
+            <button class="nav-button" type="button" data-view="classes">Classes</button>
+            <button class="nav-button" type="button" data-view="users">Utilisateurs</button>
+            <button class="nav-button" type="button" data-view="import">Import / Export</button>
+            <button class="nav-button" type="button" data-view="backup">Sauvegarde</button>
+          </nav>
+          <div class="session-box">
+            <strong id="current-user-label"></strong>
+            <span id="current-role-label"></span>
+            <button class="secondary-button" id="logout-button" type="button">Deconnexion</button>
+          </div>
+        </aside>
+
+        <section class="workspace">
+          <header class="workspace-header">
+            <div>
+              <p class="eyebrow" id="view-kicker">Pilotage</p>
+              <h2 id="view-title">Tableau de bord</h2>
+            </div>
+            <p id="toast" class="toast" role="status"></p>
+          </header>
+
+          <section id="dashboard-panel" class="view-panel"></section>
+          <section id="students-panel" class="view-panel hidden"></section>
+          <section id="classes-panel" class="view-panel hidden"></section>
+          <section id="users-panel" class="view-panel hidden"></section>
+          <section id="import-panel" class="view-panel hidden"></section>
+          <section id="backup-panel" class="view-panel hidden"></section>
+        </section>
+      </section>
+    </main>
+
+    <script type="module" src="/app.js?v=20260620-logo-transparent"></script>
+  </body>
+</html>

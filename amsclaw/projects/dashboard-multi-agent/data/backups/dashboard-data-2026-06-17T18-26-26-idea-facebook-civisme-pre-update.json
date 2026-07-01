@@ -1,0 +1,674 @@
+{
+  "metadata": {
+    "name": "amsClaw dashboard data",
+    "version": "1.6",
+    "updatedAt": "2026-06-14",
+    "source": "amsclaw/projects/dashboard-multi-agent/data/dashboard-data.json",
+    "generatedBy": "dashboard-server.js",
+    "lastUpdated": "2026-06-15T01:30:00+02:00"
+  },
+  "projects": [
+    {
+      "id": "dashboard-multi-agent",
+      "name": "Dashboard multi-agent",
+      "status": "actif",
+      "objective": "Construire une V1 testable du cockpit amsClaw pour suivre projets, idees business, routines, blocages et actions prioritaires.",
+      "nextAction": "Cadrer l'evolution Validations projet visibles dans Taches.",
+      "actionStatus": "todo",
+      "priority": "Haute",
+      "owner": "amsClaw",
+      "documentation": "amsclaw/PROJECTS_INDEX.md, amsclaw/projects/dashboard-multi-agent/README.md, amsclaw/projects/dashboard-multi-agent/docs/ROADMAP.md, amsclaw/projects/dashboard-multi-agent/docs/NEXT_STEPS.md, amsclaw/projects/dashboard-multi-agent/docs/RITUEL_HEBDOMADAIRE.md, amsclaw/projects/dashboard-multi-agent/docs/SOURCE_DE_VERITE_DONNEES.md, amsclaw/dashboard/GUIDE_UTILISATION.md, amsclaw/PROJECTS_GUIDE.md",
+      "finalResult": "",
+      "closureDate": "",
+      "projectLog": "2026-06-12 : tests utilisateur V1.15 valides par Ams.\n2026-06-12 : cadrage de la source de vérité JSON / Markdown.\n2026-06-13 : premiere action guidee ajoutee sur le projet CRM ecole pour valider la PRD depuis le dashboard.\n2026-06-14 : controle confirme que l'action guidee PRD n'est plus affichee quand la prochaine action CRM ne concerne plus une validation PRD.",
+      "lastUpdated": "2026-06-14",
+      "priorityScore": {
+        "speed": 4,
+        "motivation": 5,
+        "effortGain": 4,
+        "financial": 3
+      },
+      "blockers": []
+    },
+    {
+      "id": "workspace-amsclaw",
+      "name": "Espace de travail amsClaw",
+      "status": "actif",
+      "objective": "Garder une organisation propre entre workspace OpenClaw, projets, ressources, rapports et archives.",
+      "nextAction": "Maintenir la checklist projet comme controle standard lors des prochaines creations depuis le dashboard.",
+      "actionStatus": "todo",
+      "priority": "Moyenne",
+      "owner": "amsClaw",
+      "documentation": "amsclaw/PROJECTS_GUIDE.md, amsclaw/PROJECTS_INDEX.md",
+      "finalResult": "",
+      "closureDate": "",
+      "projectLog": "",
+      "lastUpdated": "",
+      "priorityScore": {
+        "speed": 4,
+        "motivation": 4,
+        "effortGain": 4,
+        "financial": 3
+      },
+      "blockers": []
+    },
+    {
+      "id": "data-sync",
+      "name": "Connexion donnees dashboard",
+      "status": "actif",
+      "objective": "Remplacer progressivement les donnees codees ou dispersees par une source de donnees simple, lisible et synchronisable.",
+      "nextAction": "Observer le prochain cas reel de divergence JSON / Markdown avant d'ajouter une synchronisation inverse.",
+      "actionStatus": "doing",
+      "priority": "Haute",
+      "owner": "Agent Technique & Automatisation",
+      "documentation": "amsclaw/projects/dashboard-multi-agent/docs/NEXT_STEPS.md, amsclaw/projects/dashboard-multi-agent/docs/SOURCE_DE_VERITE_DONNEES.md, amsclaw/projects/dashboard-multi-agent/scripts/audit-data-sync.js",
+      "finalResult": "",
+      "closureDate": "",
+      "projectLog": "",
+      "lastUpdated": "2026-06-12T21:57:59.814Z",
+      "priorityScore": {
+        "speed": 3,
+        "motivation": 4,
+        "effortGain": 4,
+        "financial": 3
+      },
+      "blockers": []
+    },
+    {
+      "id": "relance-paiements-scolaires-whatsapp",
+      "name": "Relance paiements scolaires WhatsApp",
+      "status": "actif",
+      "objective": "Tester un outil simple pour suivre les frais scolaires, generer des recus et preparer les relances parents.",
+      "nextAction": "Identifier un premier cas de test concret : une ecole, une classe ou un fichier Excel existant.",
+      "actionStatus": "todo",
+      "priority": "Haute",
+      "owner": "amsClaw",
+      "documentation": "amsclaw/PROJECTS_INDEX.md, amsclaw/projects/relance-paiements-scolaires-whatsapp/README.md, amsclaw/projects/relance-paiements-scolaires-whatsapp/docs/PROJECT_BRIEF.md, amsclaw/projects/relance-paiements-scolaires-whatsapp/docs/NEXT_STEPS.md",
+      "finalResult": "",
+      "closureDate": "",
+      "projectLog": "",
+      "lastUpdated": "",
+      "priorityScore": {
+        "speed": 5,
+        "motivation": 4,
+        "effortGain": 4,
+        "financial": 4
+      },
+      "blockers": []
+    },
+    {
+      "id": "creation-crm-pour-une-ecole",
+      "name": "Creation CRM pour une ecole",
+      "status": "actif",
+      "objective": "Creer un CRM pour l'ecole GS AIME CEASIRE en Guinee Conakry.",
+      "nextAction": "Preparer l'usage terrain de la V1 validee : conserver le point de reprise, utiliser le runbook, charger les donnees reelles et noter les retours avant d'ouvrir une V1.1 courte.",
+      "actionStatus": "todo",
+      "priority": "Haute",
+      "owner": "amsClaw",
+      "documentation": "amsclaw/projects/creation-crm-pour-une-ecole/README.md, amsclaw/projects/creation-crm-pour-une-ecole/docs/PROJECT_BRIEF.md, amsclaw/projects/creation-crm-pour-une-ecole/docs/NEXT_STEPS.md, amsclaw/projects/creation-crm-pour-une-ecole/docs/PROJECT_CHECKLIST.md, amsclaw/projects/creation-crm-pour-une-ecole/docs/EXPRESSION_BESOIN.md, amsclaw/projects/creation-crm-pour-une-ecole/docs/PRD_V1.md, amsclaw/projects/creation-crm-pour-une-ecole/docs/CAHIER_RECETTE_V1.md, amsclaw/projects/creation-crm-pour-une-ecole/docs/commentaires_v1.md, amsclaw/projects/creation-crm-pour-une-ecole/docs/RUNBOOK_V1.md, amsclaw/projects/creation-crm-pour-une-ecole/docs/ARBITRAGES_AVANT_PRD.md, amsclaw/projects/creation-crm-pour-une-ecole/reports/STABILISATION_V1_2026-06-14.md",
+      "finalResult": "V1 locale livree et validee par Ams le 2026-06-14.",
+      "closureDate": "",
+      "projectLog": "2026-06-13 : expression de besoin validee par Ams avec ajout import Excel liste eleves et export Excel.\n2026-06-13 : PRD V1 redigee dans docs/PRD_V1.md et soumise a validation Ams.\n2026-06-14 : workflow de prise en main ajoute a la PRD pour clarifier l'ordre des actions, les dependances, les roles et les types de saisies.\n2026-06-14 : cahier de recette V1 valide par Ams ; passage au developpement autonome de la V1.\n2026-06-14 : premiere V1 locale implementee ; passage aux tests navigateur et recette critique.\n2026-06-14 : retours recette traites sur classes, utilisateurs et photo eleve ; stabilisation finale V1 realisee avec tests, audit securite, exports Excel, sauvegarde et runbook.\n2026-06-14 : script RESTAURER_SAUVEGARDE.command ajoute pour simplifier le test de restauration.\n2026-06-14 : restauration testee et validee par Ams ; V1 locale officiellement validee. Prochaine etape : usage terrain avec donnees reelles et retours avant V1.1.\n2026-06-14 : script REINITIALISER_DONNEES.command ajoute pour vider les donnees courantes avec sauvegarde automatique et confirmation forte.",
+      "lastUpdated": "2026-06-14",
+      "priorityScore": {
+        "speed": 3,
+        "motivation": 3,
+        "effortGain": 3,
+        "financial": 3
+      },
+      "blockers": []
+    }
+  ],
+  "ideas": [
+    {
+      "id": "school-admin",
+      "name": "Gestion scolaire légère",
+      "market": "Écoles privées, Guinée",
+      "problem": "Inscriptions, paiements et suivis restent souvent dispersés entre papier et Excel.",
+      "speed": 4,
+      "motivation": 4,
+      "effortGain": 3,
+      "financial": 4
+    },
+    {
+      "id": "pme-docs",
+      "name": "Assistant documents PME",
+      "market": "PME Afrique francophone",
+      "problem": "Les petites structures perdent du temps sur devis, factures, relances et documents répétitifs.",
+      "speed": 5,
+      "motivation": 4,
+      "effortGain": 4,
+      "financial": 3
+    },
+    {
+      "id": "project-dashboard",
+      "name": "Dashboard projets PME",
+      "market": "PME et indépendants Afrique francophone",
+      "problem": "Beaucoup de petites structures pilotent leurs actions dans des fichiers Excel dispersés sans vision claire des priorités.",
+      "speed": 4,
+      "motivation": 5,
+      "effortGain": 4,
+      "financial": 3
+    },
+    {
+      "id": "school-payment-reminders",
+      "name": "Relance paiements scolaires WhatsApp",
+      "market": "Écoles privées, Guinée",
+      "problem": "Le suivi des frais scolaires et les relances parents restent souvent manuels, dispersés entre cahiers, Excel et messages.",
+      "speed": 5,
+      "motivation": 4,
+      "effortGain": 4,
+      "financial": 4
+    },
+    {
+      "id": "fd7ce6d4-f273-43ad-84f6-15ed5c087abd",
+      "name": "Page Facebook sensibilisation code de la route et civisme",
+      "market": "Guinee conakry",
+      "problem": "Une grande partie de la population guinéenne est analphabète, beaucoup de gens ont des spartphones et sont sur les réseaux sociaux notamment Facebook. L'idée est de créer des post pour sensibiliser les gens sur le civisme, code de la route etc avec des posts éducatifs avec illustrations et petite video. Par exemple ne pas jeter des ordures dans les canalisations car risque d'inondations pendant la saison des pluies. Le pays se développe et on a maintenant des panneaux de signalisations que les gens ne savent pas déchiffrer",
+      "speed": 3,
+      "motivation": 3,
+      "effortGain": 3,
+      "financial": 3
+    }
+  ],
+  "agentTasks": [
+    {
+      "id": "task-dashboard-guided-action-notification",
+      "title": "Brancher les actions guidees du dashboard vers une notification agent",
+      "owner": "Agent Technique & Automatisation",
+      "linkedItem": "project:dashboard-multi-agent",
+      "priority": "Moyenne",
+      "status": "todo",
+      "dueDate": "",
+      "note": "A reprendre plus tard si les actions guidees se multiplient. Priorite secondaire apres l'evolution `Validations projet visibles dans Taches` et apres l'usage terrain du CRM ecole.",
+      "executionLog": [
+        {
+          "date": "2026-06-15T01:30:00+02:00",
+          "action": "Priorite ajustee de Haute a Moyenne pendant le heartbeat pour realigner les taches avec les priorites hebdomadaires."
+        }
+      ]
+    },
+    {
+      "id": "task-crm-valider-cahier-recette-v1",
+      "title": "Valider le cahier de recette V1 du CRM ecole",
+      "owner": "Ams",
+      "linkedItem": "project:creation-crm-pour-une-ecole",
+      "priority": "Haute",
+      "status": "done",
+      "dueDate": "",
+      "note": "Relire docs/CAHIER_RECETTE_V1.md, confirmer qu'il couvre bien la PRD V1, puis valider ou lister les ajustements avant developpement.\nExécuté le 2026-06-14 10:44 : fichier créé - amsclaw/agent-output/valider-le-cahier-de-recette-v1-du-crm-ecole-2026-06-14T10-44-21-445Z.md",
+      "executionLog": [
+        {
+          "id": "exec-1781433861447-nugjbv",
+          "at": "2026-06-14T10:44:21.447Z",
+          "status": "success",
+          "action": "create_markdown_file",
+          "message": "Fichier Markdown créé",
+          "path": "amsclaw/agent-output/valider-le-cahier-de-recette-v1-du-crm-ecole-2026-06-14T10-44-21-445Z.md",
+          "verified": true,
+          "verifiedAt": "2026-06-14T00:00:00.000Z"
+        }
+      ]
+    },
+    {
+      "id": "task-dashboard-agent-tasks",
+      "title": "Tester la creation et le suivi des taches agents",
+      "owner": "Agent Organisation & PMO",
+      "linkedItem": "project:dashboard-multi-agent",
+      "priority": "Haute",
+      "status": "done",
+      "dueDate": "",
+      "note": "Test utilisateur valide le 2026-06-11 : creation d'une tache agent, execution Markdown manuelle et correction du parseur de contenu apres remarque utilisateur.",
+      "executionLog": []
+    },
+    {
+      "id": "task-market-school-admin",
+      "title": "Preparer une mini analyse marche pour Gestion scolaire legere",
+      "owner": "Agent Produit & Communication",
+      "linkedItem": "idea:school-admin",
+      "priority": "Moyenne",
+      "status": "done",
+      "dueDate": "",
+      "note": "Mini analyse marche produite : amsclaw/projects/dashboard-multi-agent/reports/2026-06-12-mini-analyse-marche-gestion-scolaire.md. Decision recommandee : demarrer par Relance paiements scolaires WhatsApp plutot qu'une gestion scolaire complete.",
+      "executionLog": []
+    },
+    {
+      "id": "task-automation-project-template",
+      "title": "Proposer un modele de creation automatique de projet",
+      "owner": "Agent Technique & Automatisation",
+      "linkedItem": "project:dashboard-multi-agent",
+      "priority": "Moyenne",
+      "status": "done",
+      "dueDate": "",
+      "note": "Cadrage documente dans amsclaw/projects/dashboard-multi-agent/docs/PROJECT_CREATION_MODEL.md. Endpoint local, mode dryRun et formulaire dashboard connectes. Creation durcie avec dossier temporaire puis renommage final. Test reel API valide le 2026-06-12 sur Relance paiements scolaires WhatsApp : dossier projet cree, fichiers minimaux generes, projet ajoute au JSON, double creation refusee en 409.",
+      "executionLog": []
+    },
+    {
+      "id": "39bc3f67-ad3c-4485-b8d3-ccebb1e12afa",
+      "title": "Test 2 tâche agent à exécuter ",
+      "owner": "Agent Technique & Automatisation",
+      "linkedItem": "",
+      "priority": "Haute",
+      "status": "done",
+      "dueDate": "",
+      "note": "Créé un fichier .md nommé test-exécution-tache et note dedans : l'exécution marche !\nExécuté le 2026-06-11 20:49 : fichier créé - amsclaw/agent-output/test-2-tache-agent-a-executer-2026-06-11T20-49-13-033Z.md",
+      "executionLog": [
+        {
+          "id": "exec-1781213707587-0wp4cn",
+          "at": "2026-06-11T20:49:13.033Z",
+          "status": "success",
+          "action": "create_markdown_file",
+          "message": "Fichier Markdown créé",
+          "path": "amsclaw/agent-output/test-2-tache-agent-a-executer-2026-06-11T20-49-13-033Z.md",
+          "verified": true,
+          "verifiedAt": "2026-06-11T21:38:53.956Z"
+        }
+      ]
+    },
+    {
+      "id": "5b4ea2c2-44ed-4fc6-8b00-2620e08d93e0",
+      "title": "test",
+      "owner": "Agent Technique & Automatisation",
+      "linkedItem": "",
+      "priority": "Haute",
+      "status": "done",
+      "dueDate": "",
+      "note": "créer dans le dossier *téléchargements* un fichier .md et noter dedans *test compteur ok*\nExécuté le 2026-06-12 17:36 : fichier créé - /Users/amsfox/Downloads/test-2026-06-12T17-36-11-084Z.md",
+      "executionLog": [
+        {
+          "id": "exec-1781285771085-nkal2q",
+          "at": "2026-06-12T17:36:11.085Z",
+          "status": "success",
+          "action": "create_markdown_file",
+          "message": "Fichier Markdown créé",
+          "path": "/Users/amsfox/Downloads/test-2026-06-12T17-36-11-084Z.md",
+          "verified": true,
+          "verifiedAt": "2026-06-12T17:45:17.729Z"
+        }
+      ]
+    }
+  ],
+  "backlogItems": [
+    {
+      "id": "backlog-decisions-view",
+      "title": "Vue Décisions",
+      "category": "Mémoire projet",
+      "priority": "Haute",
+      "status": "done",
+      "nextAction": "Journaliser les décisions importantes par projet.",
+      "notes": "Implémenté en V1.15."
+    },
+    {
+      "id": "backlog-roadmap-view",
+      "title": "Vue Backlog",
+      "category": "Pilotage",
+      "priority": "Haute",
+      "status": "done",
+      "nextAction": "Piloter les améliorations prévues sans avancer à l'aveugle.",
+      "notes": "Implémenté en V1.15."
+    },
+    {
+      "id": "backlog-project-priority-score",
+      "title": "Score de priorité projet",
+      "category": "Priorisation",
+      "priority": "Haute",
+      "status": "done",
+      "nextAction": "Comparer les projets avec les critères rapidité, motivation, effort/gain, financier.",
+      "notes": "Implémenté en V1.15."
+    },
+    {
+      "id": "backlog-today-view",
+      "title": "Vue Aujourd'hui",
+      "category": "Pilotage quotidien",
+      "priority": "Haute",
+      "status": "done",
+      "nextAction": "Afficher actions, blocages, projets dormants et tâches à échéance.",
+      "notes": "Implémenté en V1.15."
+    },
+    {
+      "id": "backlog-activity-log",
+      "title": "Journal d'activité dashboard",
+      "category": "Traçabilité",
+      "priority": "Moyenne",
+      "status": "done",
+      "nextAction": "Conserver les dernières modifications visibles dans Aujourd'hui.",
+      "notes": "Implémenté en V1.15."
+    },
+    {
+      "id": "backlog-dormant-projects",
+      "title": "Détection des projets dormants",
+      "category": "Suivi",
+      "priority": "Moyenne",
+      "status": "done",
+      "nextAction": "Signaler les projets actifs non mis à jour depuis 14 jours.",
+      "notes": "Implémenté en V1.15."
+    },
+    {
+      "id": "backlog-weekly-review",
+      "title": "Mode Revue hebdo",
+      "category": "Rituel",
+      "priority": "Moyenne",
+      "status": "done",
+      "nextAction": "Copier une revue synthétique pour arbitrer la semaine.",
+      "notes": "Implémenté en V1.15."
+    },
+    {
+      "id": "backlog-linked-tasks",
+      "title": "Tâches liées aux projets avec échéance",
+      "category": "Tâches",
+      "priority": "Moyenne",
+      "status": "done",
+      "nextAction": "Relier chaque tâche à un projet ou une idée, avec priorité et échéance.",
+      "notes": "Lien déjà existant, échéance ajoutée en V1.15."
+    },
+    {
+      "id": "backlog-project-validation-tasks",
+      "title": "Validations projet visibles dans Tâches",
+      "category": "Tâches",
+      "priority": "Haute",
+      "status": "todo",
+      "nextAction": "Créer ou proposer automatiquement une tâche liée lorsqu'une prochaine action projet demande une validation Ams.",
+      "notes": "Besoin identifié le 2026-06-14 sur le projet CRM école : la validation du cahier de recette était visible comme prochaine action projet, mais pas dans l'onglet Tâches."
+    },
+    {
+      "id": "backlog-project-detail",
+      "title": "Fiche projet détaillée",
+      "category": "Projet",
+      "priority": "Moyenne",
+      "status": "done",
+      "nextAction": "Afficher objectif, score, tâches, décisions, historique et documentation.",
+      "notes": "Implémenté en V1.15."
+    },
+    {
+      "id": "backlog-weekly-export",
+      "title": "Export rapport hebdo",
+      "category": "Reporting",
+      "priority": "Basse",
+      "status": "done",
+      "nextAction": "Copier la revue hebdo au format Markdown.",
+      "notes": "Implémenté en V1.15."
+    },
+    {
+      "id": "backlog-versioned-backup",
+      "title": "Sauvegarde versionnée des données",
+      "category": "Sécurité données",
+      "priority": "Basse",
+      "status": "done",
+      "nextAction": "Créer une copie horodatée avant chaque écriture serveur.",
+      "notes": "Implémenté en V1.15."
+    },
+    {
+      "id": "backlog-global-search",
+      "title": "Recherche globale",
+      "category": "Recherche",
+      "priority": "Basse",
+      "status": "done",
+      "nextAction": "Chercher dans projets, tâches, décisions, backlog et idées.",
+      "notes": "Implémenté en V1.15."
+    },
+    {
+      "id": "backlog-audit-data-sync",
+      "title": "Audit non destructif JSON / Markdown",
+      "category": "Synchronisation données",
+      "priority": "Haute",
+      "status": "done",
+      "nextAction": "Audit réalisé et rapport à zéro divergence.",
+      "notes": "Script audit-data-sync.js créé. Rapport audit-data-sync-2026-06-12.md sans divergence restante."
+    },
+    {
+      "id": "backlog-sync-guard-audit",
+      "title": "Garde-fou audit avant synchronisation",
+      "category": "Synchronisation données",
+      "priority": "Moyenne",
+      "status": "todo",
+      "nextAction": "Décider si sync-dashboard-data.js doit exiger un audit propre avant écriture.",
+      "notes": "Décider si sync-dashboard-data.js doit vérifier ou lancer audit-data-sync.js avant écriture."
+    }
+  ],
+  "decisions": [
+    {
+      "id": "decision-crm-reset-donnees-script",
+      "date": "2026-06-14",
+      "projectId": "creation-crm-pour-une-ecole",
+      "title": "Script reinitialisation donnees CRM ecole",
+      "decision": "Creer un script double-cliquable pour vider les donnees courantes avec sauvegarde automatique, conservation des sauvegardes existantes et confirmation forte.",
+      "rationale": "Permettre a Ams de repartir sur une base vide sans commande Terminal, tout en evitant un bouton destructif trop accessible dans l interface V1.",
+      "impact": "Le reset se fait via REINITIALISER_DONNEES.command et cree une sauvegarde pre-reset-current avant toute reinitialisation."
+    },
+    {
+      "id": "decision-crm-v1-validee",
+      "date": "2026-06-14",
+      "projectId": "creation-crm-pour-une-ecole",
+      "title": "Validation finale V1 CRM ecole",
+      "decision": "Ams valide officiellement la V1 locale du CRM ecole apres tests des parcours principaux, dont la restauration simplifiee.",
+      "rationale": "Le socle V1 repond au besoin prioritaire et les controles de stabilisation sont passes. Les evolutions suivantes doivent attendre les retours terrain.",
+      "impact": "Preparer l'usage terrain de la V1 validee : conserver le point de reprise, utiliser le runbook, charger les donnees reelles et noter les retours avant d'ouvrir une V1.1 courte."
+    },
+    {
+      "id": "decision-dashboard-v115-roadmap",
+      "date": "2026-06-12",
+      "projectId": "dashboard-multi-agent",
+      "title": "Implémenter la roadmap de pilotage dashboard V1.15",
+      "decision": "Les vues Aujourd'hui, Backlog, Décisions, Revue hebdo, Recherche globale, fiche projet, score projet, journal d'activité et sauvegarde versionnée sont validées.",
+      "rationale": "Ams veut savoir où il part dans un projet et ne pas avancer à l'aveugle.",
+      "impact": "Chaque évolution doit être documentée, testée et visible dans le dashboard."
+    },
+    {
+      "id": "fa8fa53b-d65c-45d5-81a7-ce29241a499e",
+      "date": "2026-06-12",
+      "projectId": "",
+      "title": "test decision",
+      "decision": "test",
+      "rationale": "test",
+      "impact": "test modification\n"
+    },
+    {
+      "id": "decision-dashboard-v115-user-validation",
+      "date": "2026-06-12",
+      "projectId": "dashboard-multi-agent",
+      "title": "Validation utilisateur de la V1.15",
+      "decision": "Ams confirme que les tests de la V1.15 sont OK côté interface.",
+      "rationale": "La version peut servir de base stable pour le pilotage.",
+      "impact": "La suite prioritaire devient le rituel hebdomadaire et la clarification de la source de vérité des données."
+    },
+    {
+      "id": "decision-dashboard-source-verite-donnees",
+      "date": "2026-06-12",
+      "projectId": "dashboard-multi-agent",
+      "title": "Source de vérité JSON / Markdown",
+      "decision": "dashboard-data.json devient la source opérationnelle du dashboard, les fichiers Markdown restent la mémoire durable.",
+      "rationale": "Éviter les pertes de données et contradictions avant d’automatiser davantage la synchronisation.",
+      "impact": "La prochaine évolution doit être un audit non destructif des divergences."
+    },
+    {
+      "id": "decision-dashboard-actions-guidees",
+      "date": "2026-06-13",
+      "projectId": "dashboard-multi-agent",
+      "title": "Actions guidees projet",
+      "decision": "Ajouter des actions guidees limitees pour faire avancer un projet depuis le dashboard sans terminal.",
+      "rationale": "Le projet CRM ecole sert de cas pilote concret pour tester le dashboard comme cockpit de pilotage.",
+      "impact": "Premiere action disponible : Valider la PRD sur la fiche du projet CRM ecole."
+    },
+    {
+      "id": "decision-crm-cahier-recette-v1-valide",
+      "date": "2026-06-14",
+      "projectId": "creation-crm-pour-une-ecole",
+      "title": "Validation cahier de recette V1 CRM ecole",
+      "decision": "Ams valide le cahier de recette V1.",
+      "rationale": "Le cahier de recette couvre suffisamment les attentes metier prioritaires pour servir de base de controle pendant le developpement et avant livraison.",
+      "impact": "La prochaine action devient le developpement autonome de la V1 a partir de la PRD et du cahier de recette valides."
+    },
+    {
+      "id": "decision-crm-v1-locale-implementee",
+      "date": "2026-06-14",
+      "projectId": "creation-crm-pour-une-ecole",
+      "title": "Premiere V1 locale implementee",
+      "decision": "Implementer une V1 locale simple avec Node/Express, stockage JSON, interface web, import/export Excel et sauvegarde.",
+      "rationale": "Cette architecture livre vite une version testable sans base de donnees ni hebergement Internet.",
+      "impact": "La prochaine action devient la recette navigateur sur les cas critiques du cahier de recette."
+    }
+  ],
+  "activityLog": [
+    {
+      "id": "activity-crm-reset-donnees-script",
+      "date": "2026-06-14T00:00:00.000Z",
+      "type": "documentation",
+      "summary": "Script de reinitialisation CRM ajoute",
+      "projectId": "creation-crm-pour-une-ecole",
+      "detail": "REINITIALISER_DONNEES.command permet de vider les donnees courantes apres sauvegarde automatique et confirmation VIDER TOUT."
+    },
+    {
+      "id": "activity-crm-v1-validee",
+      "date": "2026-06-14T00:00:00.000Z",
+      "type": "decision",
+      "summary": "V1 CRM ecole validee par Ams",
+      "projectId": "creation-crm-pour-une-ecole",
+      "detail": "Ams confirme que la restauration fonctionne et valide la V1. Le projet passe en usage terrain avant toute V1.1."
+    },
+    {
+      "id": "activity-crm-prd-workflow-prise-en-main",
+      "date": "2026-06-14T00:00:00.000Z",
+      "type": "documentation",
+      "summary": "Workflow de prise en main ajoute a la PRD CRM",
+      "projectId": "creation-crm-pour-une-ecole",
+      "detail": "La PRD precise maintenant l'ordre de creation : utilisateurs, classes, eleves, statuts, commentaires, exports et sauvegarde."
+    },
+    {
+      "id": "activity-dashboard-guided-action-notification-task",
+      "date": "2026-06-14T00:00:00.000Z",
+      "type": "task",
+      "summary": "Tache ajoutee pour notifier l'agent apres action guidee",
+      "projectId": "dashboard-multi-agent",
+      "detail": "Ams souhaite reprendre plus tard le branchement dashboard -> notification agent apres validation PRD."
+    },
+    {
+      "id": "activity-dashboard-validation-task-visibility",
+      "date": "2026-06-14T00:00:00.000Z",
+      "type": "task",
+      "summary": "Validation du cahier de recette CRM rendue visible dans Taches",
+      "projectId": "dashboard-multi-agent",
+      "detail": "Une tache liee au projet CRM ecole a ete ajoutee pour la validation du cahier de recette V1, et l'automatisation des validations projet est ajoutee au backlog dashboard."
+    },
+    {
+      "id": "activity-crm-cahier-recette-v1-valide",
+      "date": "2026-06-14T00:00:00.000Z",
+      "type": "decision",
+      "summary": "Cahier de recette V1 CRM valide",
+      "projectId": "creation-crm-pour-une-ecole",
+      "detail": "Ams valide le cahier de recette V1 du projet CRM ecole. La prochaine action devient le developpement autonome de la V1."
+    },
+    {
+      "id": "activity-crm-v1-locale-implementee",
+      "date": "2026-06-14T00:00:00.000Z",
+      "type": "development",
+      "summary": "Premiere V1 locale CRM implementee",
+      "projectId": "creation-crm-pour-une-ecole",
+      "detail": "Node/Express, interface web, stockage JSON, import/export Excel via ExcelJS, sauvegarde manuelle, runbook et smoke test sont en place."
+    },
+    {
+      "id": "activity-dashboard-guided-prd-action",
+      "date": "2026-06-13T18:18:50.978Z",
+      "type": "dashboard",
+      "summary": "Action guidee PRD ajoutee au dashboard",
+      "projectId": "dashboard-multi-agent",
+      "detail": "Le projet CRM ecole peut servir de cas pilote pour valider une PRD depuis la fiche projet."
+    },
+    {
+      "id": "activity-audit-data-sync-zero-divergence",
+      "date": "2026-06-12T21:57:59.814Z",
+      "type": "sync",
+      "summary": "Audit JSON / Markdown ramené à zéro divergence",
+      "projectId": "dashboard-multi-agent",
+      "detail": "Script audit-data-sync.js créé, IDs alignés et rapport final sans divergence."
+    },
+    {
+      "id": "activity-data-sync-next-action-aligned",
+      "date": "2026-06-12T21:56:30.536Z",
+      "type": "sync",
+      "summary": "Prochaine action data-sync alignée avec la mémoire Markdown",
+      "projectId": "data-sync",
+      "detail": "Exploiter l'audit non destructif JSON / Markdown pour arbitrer les divergences avant toute synchronisation automatique."
+    },
+    {
+      "id": "activity-dashboard-source-verite-cadrage",
+      "date": "2026-06-12T21:53:50.941Z",
+      "type": "decision",
+      "summary": "Cadrage de la source de vérité JSON / Markdown",
+      "projectId": "dashboard-multi-agent",
+      "detail": "JSON source opérationnelle, Markdown mémoire durable, audit non destructif avant synchronisation automatique."
+    },
+    {
+      "id": "activity-dashboard-v115-user-validation",
+      "date": "2026-06-12T21:48:35.822Z",
+      "type": "validation",
+      "summary": "Tests utilisateur V1.15 validés par Ams",
+      "projectId": "dashboard-multi-agent",
+      "detail": "La prochaine action passe au rituel de pilotage hebdomadaire et au cadrage de la synchronisation JSON / Markdown."
+    },
+    {
+      "id": "aeb9339e-95c9-4049-aaa4-03f196bd3a9d",
+      "date": "2026-06-12T21:45:32.981Z",
+      "type": "decision",
+      "summary": "Décision modifiée : test decision",
+      "projectId": "",
+      "detail": "test"
+    },
+    {
+      "id": "4b2e9a1c-137a-4a6b-85fa-9065ea8dd20d",
+      "date": "2026-06-12T21:45:21.786Z",
+      "type": "decision",
+      "summary": "Décision ajoutée : test decision",
+      "projectId": "",
+      "detail": "test"
+    },
+    {
+      "id": "activity-dashboard-v115-start",
+      "date": "2026-06-12T21:30:00.000Z",
+      "type": "release",
+      "summary": "V1.15 initialisée",
+      "projectId": "dashboard-multi-agent",
+      "detail": "Ajout des vues de pilotage, mémoire et recherche."
+    },
+    {
+      "id": "activity-heartbeat-2026-06-15-0130-task-priority-cleanup",
+      "date": "2026-06-15T01:30:00+02:00",
+      "type": "heartbeat",
+      "projectId": "dashboard-multi-agent",
+      "title": "Priorite tache notification action guidee ajustee",
+      "detail": "La tache de notification agent apres action guidee passe en priorite Moyenne ; la priorite Haute dashboard reste `Validations projet visibles dans Taches`."
+    }
+  ],
+  "routines": {
+    "Quotidien": [
+      "Générer le rapport du matin",
+      "Vérifier les projets bloqués",
+      "Produire la veille IA",
+      "Vérifier les tâches prioritaires"
+    ],
+    "Hebdomadaire": [
+      "Réviser les priorités",
+      "Détecter de nouvelles opportunités business",
+      "Vérifier l'avancement des projets"
+    ],
+    "Mensuel": [
+      "Identifier les projets abandonnés",
+      "Vérifier la qualité de la documentation",
+      "Archiver les projets terminés",
+      "Proposer des optimisations de l'écosystème OpenClaw"
+    ]
+  },
+  "completedRoutines": {
+    "2026-06-12": [
+      "Générer le rapport du matin",
+      "Vérifier les projets bloqués",
+      "Produire la veille IA",
+      "Vérifier les tâches prioritaires"
+    ],
+    "2026-06-11": [
+      "Générer le rapport du matin",
+      "Vérifier les projets bloqués",
+      "Produire la veille IA",
+      "Vérifier les tâches prioritaires"
+    ]
+  }
+}

@@ -1,0 +1,11 @@
+ecole,classe,eleve,parent,telephone_parent,montant_attendu,montant_paye,date_dernier_paiement,statut
+Ecole Test Conakry,6eme A,Mariama Diallo,Mme Diallo,622000001,1500000,1500000,2026-06-05,A jour
+Ecole Test Conakry,6eme A,Ibrahima Barry,M Barry,622000002,1500000,1000000,2026-06-08,Partiel
+Ecole Test Conakry,6eme A,Aissatou Camara,Mme Camara,622000003,1500000,0,,A relancer
+Ecole Test Conakry,6eme A,Mamadou Bah,M Bah,622000004,1500000,750000,2026-06-01,Partiel
+Ecole Test Conakry,6eme A,Fatoumata Keita,Mme Keita,622000005,1500000,1500000,2026-06-09,A jour
+Ecole Test Conakry,6eme A,Alpha Conte,M Conte,622000006,1500000,500000,2026-05-28,Partiel
+Ecole Test Conakry,6eme A,Nene Sow,Mme Sow,622000007,1500000,0,,A relancer
+Ecole Test Conakry,6eme A,Ousmane Toure,M Toure,622000008,1500000,1500000,2026-06-11,A jour
+Ecole Test Conakry,6eme A,Saran Kouyate,Mme Kouyate,622000009,1500000,1200000,2026-06-07,Partiel
+Ecole Test Conakry,6eme A,Abdoulaye Sylla,M Sylla,622000010,1500000,0,,A relancer

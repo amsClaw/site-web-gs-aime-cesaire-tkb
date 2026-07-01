@@ -1,0 +1,338 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Guide officiel de demarrage projet OpenClaw</title>
+<style>
+:root{--bg:#f6f7f9;--paper:#fff;--ink:#17202a;--muted:#5f6b7a;--line:#d9dee7;--accent:#0f766e;--accent2:#334155;--code:#111827;--codebg:#f2f5f8;}
+*{box-sizing:border-box} body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.55 -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif} .wrap{max-width:1120px;margin:0 auto;padding:28px 18px 56px}.hero{background:var(--paper);border:1px solid var(--line);border-radius:8px;padding:28px;margin-bottom:18px}.hero h1{margin:0 0 8px;font-size:34px;line-height:1.15}.hero p{margin:0;color:var(--muted)}.layout{display:grid;grid-template-columns:260px minmax(0,1fr);gap:18px}.toc{position:sticky;top:14px;align-self:start;background:var(--paper);border:1px solid var(--line);border-radius:8px;padding:16px}.toc strong{display:block;margin-bottom:10px}.toc a{display:block;color:var(--accent2);text-decoration:none;padding:5px 0;border-bottom:1px solid #eef1f5}.toc a:hover{color:var(--accent)}.toc-2{padding-left:10px;font-size:14px}.content{background:var(--paper);border:1px solid var(--line);border-radius:8px;padding:28px}h1,h2,h3{line-height:1.22;margin:30px 0 12px}h1:first-child,h2:first-child{margin-top:0}h2{font-size:24px;border-top:1px solid var(--line);padding-top:22px}h3{font-size:18px;color:var(--accent2)}p{margin:10px 0}blockquote{border-left:4px solid var(--accent);margin:10px 0;padding:8px 12px;background:#eefaf7;color:#164e46}ul,ol{padding-left:24px}li{margin:5px 0}code{background:var(--codebg);padding:2px 5px;border-radius:5px;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:.92em}pre{background:var(--code);color:#eef2ff;border-radius:8px;padding:14px 16px;overflow:auto;border:1px solid #1f2937}pre code{background:transparent;color:inherit;padding:0} @media(max-width:820px){.layout{grid-template-columns:1fr}.toc{position:static}.hero h1{font-size:28px}.content{padding:20px}} @media print{body{background:#fff}.toc{display:none}.layout{display:block}.hero,.content{border:0;padding:0}.wrap{max-width:none;padding:0}pre{white-space:pre-wrap}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<section class="hero"><h1>Guide officiel de demarrage projet OpenClaw</h1><p>Prompts de demarrage, ideation, choix leger/complet et validations Ams.</p></section>
+<div class="layout"><nav class="toc"><strong>Sommaire</strong><a class="toc-1" href="#guide-officiel-de-demarrage-projet-openclaw">Guide officiel de demarrage projet OpenClaw</a>
+<a class="toc-2" href="#objectif">Objectif</a>
+<a class="toc-2" href="#principe-simple">Principe simple</a>
+<a class="toc-2" href="#regle-rapide">Regle rapide</a>
+<a class="toc-2" href="#les-3-commandes-de-demarrage">Les 3 commandes de demarrage</a>
+<a class="toc-2" href="#prompt-minimal-d-ideation">Prompt minimal d'ideation</a>
+<a class="toc-2" href="#prompt-d-ideation-structuree">Prompt d'ideation structuree</a>
+<a class="toc-2" href="#prompt-d-ideation-business">Prompt d'ideation business</a>
+<a class="toc-2" href="#prompt-saas-idea-elevator-adapte-openclaw">Prompt SaaS Idea Elevator adapte OpenClaw</a>
+<a class="toc-2" href="#prompt-site-vitrine-petit-projet">Prompt site vitrine / petit projet</a>
+<a class="toc-2" href="#prompt-saas-projet-complet">Prompt SaaS / projet complet</a>
+<a class="toc-2" href="#ce-que-l-agent-doit-faire-apres-le-prompt">Ce que l'agent doit faire apres le prompt</a>
+<a class="toc-2" href="#points-de-validation-a-attendre">Points de validation a attendre</a>
+<a class="toc-2" href="#formules-courtes-utiles">Formules courtes utiles</a>
+<a class="toc-2" href="#ce-qu-il-faut-eviter">Ce qu'il faut eviter</a>
+<a class="toc-2" href="#phrase-de-demarrage-ideale">Phrase de demarrage ideale</a>
+<a class="toc-2" href="#exemple-complet">Exemple complet</a>
+<a class="toc-2" href="#prochaine-amelioration">Prochaine amelioration</a></nav><main class="content"><h1 id="guide-officiel-de-demarrage-projet-openclaw">Guide officiel de demarrage projet OpenClaw</h1>
+<blockquote>Statut : V0.1 officielle</blockquote>
+<blockquote>Date : 2026-06-19</blockquote>
+<blockquote>Projet lie : Automatisation projet AAS</blockquote>
+<h2 id="objectif">Objectif</h2>
+<p>Ce document explique comment initier un projet avec amsClaw / OpenClaw, en utilisant le process AAS.</p>
+<p>Il sert surtout a donner les bons prompts de demarrage, notamment pour la phase d'ideation, et a rappeler quand utiliser le mode leger, complet ou force.</p>
+<h2 id="principe-simple">Principe simple</h2>
+<p>Pour demarrer un projet, Ams peut envoyer une phrase simple dans Telegram.</p>
+<p>L'agent doit ensuite :</p>
+<ol>
+<li>reformuler l'idee ;</li>
+<li>recommander un mode leger ou complet, sauf si Ams force le mode ;</li>
+<li>poser seulement les questions necessaires ;</li>
+<li>creer le projet dans le dashboard ;</li>
+<li>creer le dossier projet ;</li>
+<li>creer les premiers fichiers ;</li>
+<li>creer la premiere tache de validation.</li>
+</ol>
+<h2 id="regle-rapide">Regle rapide</h2>
+<p>Par defaut, utilise :</p>
+<pre><code>@amsclawMM_bot Recommande le bon process : [idee]</code></pre>
+<p>Le mode leger est le mode par defaut.</p>
+<p>Le mode complet est recommande si le projet contient comptes utilisateurs, paiement, donnees sensibles, espace client, base de donnees metier, workflows complexes, usage multi-clients ou ambition SaaS durable.</p>
+<p>Tu peux forcer le mode :</p>
+<ul>
+<li><code>Demarre le process projet leger</code> : l'agent applique le mode leger, sauf risque critique.</li>
+<li><code>Demarre le process projet lourd</code> : l'agent applique le mode complet, meme si le projet semble simple.</li>
+</ul>
+<h2 id="les-3-commandes-de-demarrage">Les 3 commandes de demarrage</h2>
+<h3 id="1-laisser-l-agent-recommander">1. Laisser l'agent recommander</h3>
+<p>Commande recommandee par defaut :</p>
+<pre><code>@amsclawMM_bot Recommande le bon process pour ce nouveau projet :
+[decris ton idee en quelques lignes]
+
+Objectif :
+[ce que tu veux obtenir]
+
+Contexte :
+[pour qui / pourquoi / ou]</code></pre>
+<p>Utiliser cette commande quand tu n'es pas certain du niveau de process necessaire.</p>
+<h3 id="2-forcer-le-mode-leger">2. Forcer le mode leger</h3>
+<pre><code>@amsclawMM_bot Demarre le process projet leger :
+[decris ton idee]
+
+Objectif :
+[resultat attendu]
+
+Contrainte importante :
+[temps, budget, cible, outil, support, etc.]</code></pre>
+<p>Exemple :</p>
+<pre><code>@amsclawMM_bot Demarre le process projet leger :
+je veux creer un site vitrine pour un artisan plombier a Conakry.
+
+Objectif :
+presenter ses services, afficher ses realisations, permettre un contact WhatsApp et travailler le SEO local.
+
+Contrainte importante :
+site simple, rapide a livrer, sans compte utilisateur ni paiement.</code></pre>
+<h3 id="3-forcer-le-mode-lourd">3. Forcer le mode lourd</h3>
+<pre><code>@amsclawMM_bot Demarre le process projet lourd :
+[decris ton idee]
+
+Objectif :
+[resultat attendu]
+
+Contexte :
+[cible, marche, usage, contraintes]</code></pre>
+<p>Exemple :</p>
+<pre><code>@amsclawMM_bot Demarre le process projet lourd :
+je veux creer une plateforme SaaS de relance clients pour PME.
+
+Objectif :
+permettre aux entreprises de suivre les factures, relancer les clients, gerer des comptes utilisateurs et proposer un abonnement mensuel.
+
+Contexte :
+cible PME en Afrique francophone, usage web, paiement a etudier.</code></pre>
+<h2 id="prompt-minimal-d-ideation">Prompt minimal d'ideation</h2>
+<p>Quand l'idee est encore floue :</p>
+<pre><code>@amsclawMM_bot Aide-moi a clarifier cette idee de projet :
+[idee brute]
+
+Pose-moi les bonnes questions pour transformer cette idee en projet concret.
+Ne cree pas encore le projet dans le dashboard tant que le besoin n'est pas clair.</code></pre>
+<p>Utiliser ce prompt quand tu veux juste reflechir sans lancer officiellement le projet.</p>
+<p>Template utilise par l'agent :</p>
+<ul>
+<li><code>docs/templates/IDEATION_PROJET_LEGER.md</code></li>
+</ul>
+<h2 id="prompt-d-ideation-structuree">Prompt d'ideation structuree</h2>
+<p>Quand tu veux cadrer serieusement l'idee :</p>
+<pre><code>@amsclawMM_bot Lance une ideation structuree pour ce projet :
+[idee brute]
+
+Je veux que tu m'aides a clarifier :
+- le probleme concret ;
+- la cible ;
+- le contexte d'utilisation ;
+- la proposition de valeur ;
+- les fonctionnalites principales ;
+- le mode leger ou complet recommande ;
+- les risques ;
+- le premier livrable utile.
+
+Ne cree le projet qu'apres m'avoir propose une synthese et une recommandation.</code></pre>
+<p>Template utilise par l'agent :</p>
+<ul>
+<li>petit projet : <code>docs/templates/IDEATION_PROJET_LEGER.md</code></li>
+<li>SaaS / projet ambitieux : <code>docs/templates/IDEATION_SAAS_COMPLET.md</code></li>
+</ul>
+<h2 id="prompt-d-ideation-business">Prompt d'ideation business</h2>
+<p>Quand l'objectif est de tester une opportunite business :</p>
+<pre><code>@amsclawMM_bot Analyse cette idee comme une opportunite business :
+[idee]
+
+Je veux une premiere analyse claire :
+- probleme resolu ;
+- clients cibles ;
+- douleur actuelle ;
+- alternatives existantes ;
+- proposition de valeur ;
+- potentiel de monetisation ;
+- complexite de mise en oeuvre ;
+- mode recommande : leger ou complet ;
+- prochaine action concrete.
+
+Ne lance pas encore le projet sans mon accord.</code></pre>
+<p>Template utilise par l'agent :</p>
+<ul>
+<li><code>docs/templates/ANALYSE_BUSINESS_MARCHE.md</code></li>
+</ul>
+<h2 id="prompt-saas-idea-elevator-adapte-openclaw">Prompt SaaS Idea Elevator adapte OpenClaw</h2>
+<p>Quand tu veux reprendre l'esprit du GPT SaaS Idea Elevator, utilise ce prompt :</p>
+<pre><code>@amsclawMM_bot Lance une ideation SaaS complete avec le template OpenClaw :
+[idee brute]
+
+Contexte :
+[pays / cible / secteur / probleme observe]
+
+Je veux que tu analyses :
+- le probleme concret ;
+- la cible prioritaire ;
+- les jobs-to-be-done ;
+- la proposition de valeur ;
+- les alternatives ;
+- les opportunites IA utiles ;
+- le business model ;
+- les risques ;
+- le MVP, la V1 et la V2 ;
+- le score d'opportunite ;
+- une recommandation Go / No-Go / A clarifier.
+
+Ne cree pas encore le projet sans mon accord.</code></pre>
+<p>Template utilise par l'agent :</p>
+<ul>
+<li><code>docs/templates/IDEATION_SAAS_COMPLET.md</code></li>
+</ul>
+<h2 id="prompt-site-vitrine-petit-projet">Prompt site vitrine / petit projet</h2>
+<p>Pour un site simple, artisan, PME, association, commerce local :</p>
+<pre><code>@amsclawMM_bot Recommande le bon process :
+je veux creer un site vitrine pour [type de client].
+
+Objectif :
+[presentation, contact, WhatsApp, galerie, SEO local, prise de contact]
+
+Contexte :
+[ville / pays / cible / activite]
+
+Contraintes :
+site simple, rapide, sans compte utilisateur, sans paiement, sans back-office complexe.</code></pre>
+<p>Exemple :</p>
+<pre><code>@amsclawMM_bot Recommande le bon process :
+je veux creer un site vitrine pour un menuisier a Conakry.
+
+Objectif :
+presenter ses services, montrer ses realisations, recevoir des demandes par WhatsApp et ameliorer sa visibilite locale.
+
+Contraintes :
+site simple, rapide, sans paiement, sans compte utilisateur.</code></pre>
+<h2 id="prompt-saas-projet-complet">Prompt SaaS / projet complet</h2>
+<p>Pour une application plus ambitieuse :</p>
+<pre><code>@amsclawMM_bot Recommande le bon process :
+je veux creer une application SaaS pour [cible].
+
+Objectif :
+[resultat attendu]
+
+Fonctionnalites envisagees :
+- [fonction 1]
+- [fonction 2]
+- [fonction 3]
+
+Contraintes :
+[paiement, utilisateurs, donnees, pays, stack, delai, budget]
+
+Je veux que tu determines si le process lourd est necessaire.</code></pre>
+<h2 id="ce-que-l-agent-doit-faire-apres-le-prompt">Ce que l'agent doit faire apres le prompt</h2>
+<h3 id="si-l-idee-est-claire">Si l'idee est claire</h3>
+<p>L'agent peut agir directement :</p>
+<ol>
+<li>recommander ou confirmer le mode ;</li>
+<li>proposer un nom projet ;</li>
+<li>creer le projet dashboard ;</li>
+<li>creer le dossier projet ;</li>
+<li>creer les premiers documents ;</li>
+<li>creer la premiere tache de validation.</li>
+</ol>
+<h3 id="si-l-idee-est-floue">Si l'idee est floue</h3>
+<p>L'agent doit d'abord poser des questions.</p>
+<p>Questions prioritaires :</p>
+<ul>
+<li>Quel probleme concret veux-tu resoudre ?</li>
+<li>Pour qui ?</li>
+<li>Quel resultat minimum rendrait le projet utile ?</li>
+<li>Est-ce un outil interne, un site, une app, ou un SaaS ?</li>
+<li>Y a-t-il paiement, compte utilisateur ou donnees sensibles ?</li>
+<li>Quelle est la premiere version la plus simple ?</li>
+</ul>
+<h3 id="si-ams-demande-seulement-de-brainstormer">Si Ams demande seulement de brainstormer</h3>
+<p>L'agent ne doit pas creer de projet.</p>
+<p>Il doit produire une synthese d'idee et attendre la validation d'Ams.</p>
+<h2 id="points-de-validation-a-attendre">Points de validation a attendre</h2>
+<h3 id="mode-leger">Mode leger</h3>
+<p>Tu interviens surtout pour :</p>
+<ul>
+<li>valider le besoin ;</li>
+<li>valider la mini spec ;</li>
+<li>valider la recette finale.</li>
+</ul>
+<h3 id="mode-complet">Mode complet</h3>
+<p>Tu interviens surtout pour :</p>
+<ul>
+<li>valider le brief produit ;</li>
+<li>valider le PRD ;</li>
+<li>valider la spec front si l'UX est importante ;</li>
+<li>valider l'architecture si elle implique stack, hebergement, securite, couts ou donnees sensibles ;</li>
+<li>valider le cahier de recette ;</li>
+<li>valider la V1.</li>
+</ul>
+<p>Entre ces validations, l'agent avance de maniere autonome dans le perimetre approuve.</p>
+<h2 id="formules-courtes-utiles">Formules courtes utiles</h2>
+<h3 id="demarrer-vite">Demarrer vite</h3>
+<pre><code>@amsclawMM_bot Recommande le bon process : [idee courte]</code></pre>
+<h3 id="brainstormer-sans-creer">Brainstormer sans creer</h3>
+<pre><code>@amsclawMM_bot Aide-moi a clarifier cette idee sans creer de projet pour l'instant : [idee]</code></pre>
+<h3 id="creer-directement-un-petit-projet">Creer directement un petit projet</h3>
+<pre><code>@amsclawMM_bot Demarre le process projet leger : [idee]</code></pre>
+<h3 id="creer-directement-un-projet-complet">Creer directement un projet complet</h3>
+<pre><code>@amsclawMM_bot Demarre le process projet lourd : [idee]</code></pre>
+<h3 id="reprendre-un-projet">Reprendre un projet</h3>
+<pre><code>@amsclawMM_bot Reprends le projet [nom du projet] et dis-moi la prochaine action.</code></pre>
+<h2 id="ce-qu-il-faut-eviter">Ce qu'il faut eviter</h2>
+<ul>
+<li>Demander "fais-moi une application" sans expliquer le probleme.</li>
+<li>Demander un projet complet quand un mode leger suffit.</li>
+<li>Lancer le developpement sans validation du besoin.</li>
+<li>Ajouter paiement, comptes utilisateurs ou donnees sensibles sans le dire.</li>
+<li>Melanger plusieurs idees dans un seul projet.</li>
+</ul>
+<h2 id="phrase-de-demarrage-ideale">Phrase de demarrage ideale</h2>
+<p>La phrase ideale contient :</p>
+<ul>
+<li>l'idee ;</li>
+<li>la cible ;</li>
+<li>le resultat attendu ;</li>
+<li>le niveau souhaite si tu le connais ;</li>
+<li>les contraintes importantes.</li>
+</ul>
+<p>Modele :</p>
+<pre><code>@amsclawMM_bot Recommande le bon process pour ce nouveau projet :
+je veux [idee].
+
+Cible :
+[utilisateurs / clients]
+
+Objectif :
+[resultat attendu]
+
+Contraintes :
+[temps, budget, donnees, paiement, pays, outil, support]</code></pre>
+<h2 id="exemple-complet">Exemple complet</h2>
+<pre><code>@amsclawMM_bot Recommande le bon process pour ce nouveau projet :
+je veux creer un outil de suivi des relances clients pour petites entreprises.
+
+Cible :
+PME en Afrique francophone qui suivent encore les relances sur Excel ou WhatsApp.
+
+Objectif :
+centraliser les clients, les factures en retard et generer des messages de relance prets a envoyer.
+
+Contraintes :
+je veux commencer simple, mais il pourrait y avoir plus tard des comptes utilisateurs et un abonnement.</code></pre>
+<p>Reponse attendue de l'agent :</p>
+<ul>
+<li>reformulation de l'idee ;</li>
+<li>recommandation du mode ;</li>
+<li>questions utiles ;</li>
+<li>proposition de nom projet ;</li>
+<li>creation projet si Ams valide ou si l'objectif est clair ;</li>
+<li>premiere tache de validation dans le dashboard.</li>
+</ul>
+<h2 id="prochaine-amelioration">Prochaine amelioration</h2>
+<p>Tester ce guide sur un premier projet reel, puis produire une V0.2 avec les ajustements observes.</p>
+</main></div>
+</div>
+</body>
+</html>

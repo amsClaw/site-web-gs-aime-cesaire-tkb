@@ -1,0 +1,703 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Guide utilisateur - CRM ecole GS AIME CESAIRE TKB</title>
+    <style>
+      :root {
+        --bg: #f3f6fa;
+        --paper: #ffffff;
+        --ink: #162033;
+        --muted: #5f6d82;
+        --line: #d8e0ec;
+        --blue: #1f6feb;
+        --blue-dark: #174ea6;
+        --green: #157347;
+        --amber: #8a5a00;
+        --red: #b42318;
+        --sidebar: #142033;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        margin: 0;
+        font-family: Arial, Helvetica, sans-serif;
+        line-height: 1.55;
+        color: var(--ink);
+        background: var(--bg);
+      }
+
+      a {
+        color: var(--blue-dark);
+      }
+
+      .layout {
+        min-height: 100vh;
+        display: grid;
+        grid-template-columns: 280px minmax(0, 1fr);
+      }
+
+      .sidebar {
+        position: sticky;
+        top: 0;
+        height: 100vh;
+        overflow: auto;
+        padding: 28px 22px;
+        color: #ffffff;
+        background: var(--sidebar);
+      }
+
+      .sidebar h1 {
+        margin: 0 0 8px;
+        font-size: 28px;
+        line-height: 1.15;
+      }
+
+      .sidebar p {
+        margin: 0 0 24px;
+        color: #c8d2e1;
+      }
+
+      .nav {
+        display: grid;
+        gap: 8px;
+      }
+
+      .nav a {
+        display: block;
+        padding: 10px 12px;
+        border: 1px solid rgba(255, 255, 255, 0.16);
+        border-radius: 8px;
+        color: #ffffff;
+        text-decoration: none;
+      }
+
+      .nav a:hover {
+        background: rgba(255, 255, 255, 0.08);
+      }
+
+      main {
+        padding: 32px;
+      }
+
+      .doc {
+        max-width: 1120px;
+        margin: 0 auto;
+      }
+
+      .hero {
+        padding: 28px;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        background: var(--paper);
+      }
+
+      .hero h2 {
+        margin: 0 0 10px;
+        font-size: 34px;
+        line-height: 1.15;
+      }
+
+      .meta {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin-top: 18px;
+      }
+
+      .pill {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        padding: 5px 10px;
+        border-radius: 999px;
+        font-size: 13px;
+        font-weight: 700;
+        color: var(--blue-dark);
+        background: #e8f0fe;
+      }
+
+      section {
+        margin-top: 24px;
+        padding: 24px;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        background: var(--paper);
+      }
+
+      h2 {
+        margin: 0 0 14px;
+        font-size: 26px;
+      }
+
+      h3 {
+        margin: 24px 0 8px;
+        font-size: 19px;
+      }
+
+      h3:first-child {
+        margin-top: 0;
+      }
+
+      p {
+        margin: 8px 0;
+      }
+
+      ul,
+      ol {
+        margin-top: 8px;
+        padding-left: 24px;
+      }
+
+      li {
+        margin: 6px 0;
+      }
+
+      code {
+        padding: 2px 5px;
+        border-radius: 4px;
+        color: #101828;
+        background: #eef2f7;
+      }
+
+      .grid {
+        display: grid;
+        gap: 14px;
+      }
+
+      .grid.two {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .box {
+        padding: 16px;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        background: #fbfcfe;
+      }
+
+      .box strong {
+        display: block;
+        margin-bottom: 4px;
+      }
+
+      .warning {
+        border-color: #f6d58b;
+        background: #fff8e6;
+      }
+
+      .danger {
+        border-color: #f1b9b5;
+        background: #fff1f0;
+      }
+
+      .success {
+        border-color: #b7e4c7;
+        background: #eefaf2;
+      }
+
+      .screenshot {
+        margin: 16px 0 6px;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        overflow: hidden;
+        background: #ffffff;
+      }
+
+      .screenshot img {
+        display: block;
+        width: 100%;
+        height: auto;
+      }
+
+      .caption {
+        margin: 0;
+        padding: 10px 12px;
+        color: var(--muted);
+        font-size: 14px;
+        background: #f8fafc;
+        border-top: 1px solid var(--line);
+      }
+
+      .step-list {
+        counter-reset: step;
+        display: grid;
+        gap: 12px;
+        padding-left: 0;
+        list-style: none;
+      }
+
+      .step-list li {
+        counter-increment: step;
+        padding: 14px 14px 14px 54px;
+        position: relative;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        background: #fbfcfe;
+      }
+
+      .step-list li::before {
+        content: counter(step);
+        position: absolute;
+        left: 14px;
+        top: 14px;
+        width: 26px;
+        height: 26px;
+        display: grid;
+        place-items: center;
+        border-radius: 999px;
+        color: #ffffff;
+        font-weight: 700;
+        background: var(--blue);
+      }
+
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 12px;
+        overflow: hidden;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+      }
+
+      th,
+      td {
+        padding: 10px;
+        border-bottom: 1px solid var(--line);
+        text-align: left;
+        vertical-align: top;
+      }
+
+      th {
+        background: #eef2f7;
+      }
+
+      tr:last-child td {
+        border-bottom: 0;
+      }
+
+      .footer-note {
+        margin: 26px 0 0;
+        color: var(--muted);
+        font-size: 14px;
+      }
+
+      @media (max-width: 900px) {
+        .layout {
+          grid-template-columns: 1fr;
+        }
+
+        .sidebar {
+          position: static;
+          height: auto;
+        }
+
+        main {
+          padding: 18px;
+        }
+
+        .grid.two {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      @media print {
+        .layout {
+          display: block;
+        }
+
+        .sidebar {
+          display: none;
+        }
+
+        main {
+          padding: 0;
+        }
+
+        section,
+        .hero {
+          break-inside: avoid;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="layout">
+      <aside class="sidebar">
+        <h1>Guide utilisateur CRM ecole</h1>
+        <p>GS AIME CESAIRE TKB - V1</p>
+        <nav class="nav" aria-label="Sommaire">
+          <a href="#objectif">Objectif du guide</a>
+          <a href="#demarrage">Demarrer le CRM</a>
+          <a href="#connexion">Connexion</a>
+          <a href="#roles">Roles utilisateurs</a>
+          <a href="#tableau-de-bord">Tableau de bord</a>
+          <a href="#eleves">Menu Eleves</a>
+          <a href="#classes">Menu Classes</a>
+          <a href="#utilisateurs">Menu Utilisateurs</a>
+          <a href="#import-export">Import / Export</a>
+          <a href="#sauvegarde">Sauvegarde</a>
+          <a href="#workflow">Workflow conseille</a>
+          <a href="#bonnes-pratiques">Bonnes pratiques</a>
+          <a href="#depannage">Depannage simple</a>
+          <a href="#maintenance">Maintenance du guide</a>
+        </nav>
+      </aside>
+
+      <main>
+        <article class="doc">
+          <header class="hero">
+            <h2>Guide utilisateur du CRM ecole</h2>
+            <p>Ce guide explique comment utiliser le CRM pas a pas, sans connaissance informatique. Il suit les menus visibles dans l'application.</p>
+            <div class="meta">
+              <span class="pill">Version guide : 2026-06-15</span>
+              <span class="pill">Application : CRM ecole V1</span>
+              <span class="pill">Public : Direction, secretariat, instructeurs</span>
+            </div>
+          </header>
+
+          <section id="objectif">
+            <h2>Objectif du guide</h2>
+            <p>Le CRM sert a centraliser les informations essentielles des eleves : classe, parents, statut de scolarite, commentaires internes, import Excel, exports et sauvegardes.</p>
+            <div class="grid two">
+              <div class="box success">
+                <strong>Ce que le CRM permet de faire</strong>
+                <p>Retrouver rapidement un eleve, mettre a jour sa fiche, suivre les informations manquantes, exporter les listes et sauvegarder les donnees.</p>
+              </div>
+              <div class="box warning">
+                <strong>Ce que la V1 ne remplace pas</strong>
+                <p>Le CRM ne gere pas les paiements complets, la comptabilite ou les bulletins. Il indique seulement un statut simple de scolarite.</p>
+              </div>
+            </div>
+          </section>
+
+          <section id="demarrage">
+            <h2>Demarrer le CRM</h2>
+            <h3>Sur Mac</h3>
+            <ol>
+              <li>Ouvrir le dossier du CRM.</li>
+              <li>Si c'est la premiere utilisation sur ce Mac, double-cliquer sur <code>INSTALLER_PACKAGES_CRM_MAC.command</code>.</li>
+              <li>Double-cliquer sur <code>LANCER_CRM_MAC.command</code>.</li>
+              <li>Le navigateur s'ouvre sur l'adresse locale du CRM.</li>
+            </ol>
+            <p>Pour permettre aux autres appareils du meme reseau local d'utiliser le CRM, lancer plutot <code>LANCER_CRM_RESEAU_MAC.command</code> sur le Mac serveur et utiliser l'adresse affichee.</p>
+
+            <h3>Depuis un telephone, une tablette ou un autre ordinateur</h3>
+            <ol>
+              <li>Connecter l'appareil au meme Wi-Fi que la machine serveur.</li>
+              <li>Lancer le CRM avec le script reseau sur la machine serveur.</li>
+              <li>Reperer l'adresse affichee pour les autres appareils, par exemple <code>http://192.168.1.25:8791</code>.</li>
+              <li>Ouvrir cette adresse dans Safari, Chrome ou le navigateur de l'appareil.</li>
+              <li>Se connecter avec un compte autorise.</li>
+            </ol>
+            <div class="box warning">
+              <strong>Adresse a utiliser</strong>
+              <p>Depuis un autre appareil, ne pas utiliser <code>http://127.0.0.1:8791</code>. Cette adresse fonctionne uniquement sur la machine serveur. Il faut utiliser l'adresse reseau affichee par le script, generalement sous la forme <code>http://192.168.x.x:8791</code>.</p>
+            </div>
+
+            <h3>Sur Windows</h3>
+            <ol>
+              <li>Ouvrir le dossier du CRM.</li>
+              <li>Si c'est la premiere utilisation sur ce PC, double-cliquer sur <code>INSTALLER_PACKAGES_CRM_WINDOWS.bat</code>.</li>
+              <li>Double-cliquer sur <code>LANCER_CRM_WINDOWS.bat</code>.</li>
+              <li>Le navigateur s'ouvre sur l'adresse locale du CRM.</li>
+            </ol>
+            <p>Pour permettre aux autres appareils du meme reseau local d'utiliser le CRM, lancer plutot <code>LANCER_CRM_RESEAU_WINDOWS.bat</code> sur le PC serveur et utiliser l'adresse affichee.</p>
+
+            <div class="box warning">
+              <strong>Important</strong>
+              <p>Il faut laisser la fenetre Terminal ou Invite de commande ouverte pendant l'utilisation du CRM. Si cette fenetre est fermee, le CRM peut s'arreter. Le mode reseau local doit rester limite au reseau de l'ecole et ne doit pas etre expose sur Internet.</p>
+            </div>
+          </section>
+
+          <section id="connexion">
+            <h2>Connexion</h2>
+            <p>Au lancement, le CRM affiche un ecran de connexion. L'utilisateur saisit son identifiant et son mot de passe, puis clique sur <strong>Se connecter</strong>.</p>
+            <div class="screenshot">
+              <img src="guide-utilisateur-assets/01-connexion.png" alt="Ecran de connexion du CRM ecole">
+              <p class="caption">Ecran de connexion : entrer l'identifiant et le mot de passe fournis par l'administrateur.</p>
+            </div>
+            <div class="box">
+              <strong>Comptes de test disponibles</strong>
+              <p><code>admin_test</code>, <code>secretariat_test</code>, <code>instructeur_test</code>. Mot de passe de test : <code>demo2026</code>.</p>
+            </div>
+          </section>
+
+          <section id="roles">
+            <h2>Roles utilisateurs</h2>
+            <p>Chaque utilisateur a un role. Le role determine ce qu'il peut voir ou modifier. Les droits sont controles dans l'interface et par le serveur.</p>
+            <table>
+              <thead>
+                <tr>
+                  <th>Role</th>
+                  <th>Utilisation principale</th>
+                  <th>Droits principaux</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Administrateur / Direction</td>
+                  <td>Piloter le CRM et securiser les donnees.</td>
+                  <td>Gestion des utilisateurs, classes, eleves, exports et sauvegardes.</td>
+                </tr>
+                <tr>
+                  <td>Secretariat</td>
+                  <td>Saisir et mettre a jour les informations des eleves.</td>
+                  <td>Gestion des eleves, classes, import Excel et exports.</td>
+                </tr>
+                <tr>
+                  <td>Instructeur</td>
+                  <td>Consulter les eleves rattaches et ajouter des commentaires internes.</td>
+                  <td>Lecture limitee aux classes rattachees, ajout de commentaires, pas d'import, pas d'export, pas de modification administrative.</td>
+                </tr>
+              </tbody>
+            </table>
+          </section>
+
+          <section id="tableau-de-bord">
+            <h2>Menu Tableau de bord</h2>
+            <p>Ce menu donne une vision rapide de la situation : nombre d'eleves, classes actives, fiches a completer, effectifs par classe et derniers eleves ajoutes.</p>
+            <div class="screenshot">
+              <img src="guide-utilisateur-assets/02-tableau-de-bord.png" alt="Menu Tableau de bord du CRM">
+              <p class="caption">Tableau de bord : consulter les indicateurs avant de travailler sur les fiches.</p>
+            </div>
+            <h3>Quand l'utiliser</h3>
+            <ul>
+              <li>Au debut de la journee pour voir l'etat general.</li>
+              <li>Apres un import Excel pour verifier le nombre d'eleves et les fiches a completer.</li>
+              <li>Avant une sauvegarde pour controler rapidement les donnees.</li>
+            </ul>
+          </section>
+
+          <section id="eleves">
+            <h2>Menu Eleves</h2>
+            <p>Ce menu sert a rechercher, creer, consulter et modifier les fiches eleves.</p>
+            <div class="screenshot">
+              <img src="guide-utilisateur-assets/03-eleves.png" alt="Menu Eleves avec liste et fiche eleve">
+              <p class="caption">Menu Eleves : liste a gauche, fiche detaillee a droite.</p>
+            </div>
+            <div class="box">
+              <strong>Affichage sur telephone</strong>
+              <p>Sur telephone ou petit ecran, la fiche eleve s'affiche avant la liste pour eviter de devoir descendre tout en bas. Quand l'utilisateur appuie sur <strong>Ouvrir</strong>, l'ecran se positionne directement sur la fiche.</p>
+            </div>
+            <h3>Rechercher un eleve</h3>
+            <ol>
+              <li>Cliquer sur <strong>Eleves</strong>.</li>
+              <li>Utiliser la zone de recherche avec le nom, le prenom, le matricule ou la classe.</li>
+              <li>Utiliser les filtres si besoin : classe, statut de scolarite, completude, actifs ou archives.</li>
+              <li>Cliquer sur <strong>Ouvrir</strong> pour afficher la fiche.</li>
+            </ol>
+
+            <h3>Creer un eleve</h3>
+            <ol>
+              <li>Cliquer sur <strong>Nouvel eleve</strong>.</li>
+              <li>Remplir au minimum le nom et la classe.</li>
+              <li>Completer si possible le matricule, le prenom, le sexe, la date et le lieu de naissance.</li>
+              <li>Renseigner les parents et le telephone parent.</li>
+              <li>Choisir le statut de scolarite : <strong>a jour</strong>, <strong>non a jour</strong> ou <strong>a verifier</strong>.</li>
+              <li>Cliquer sur <strong>Creer l'eleve</strong> ou <strong>Enregistrer</strong>.</li>
+            </ol>
+
+            <h3>Comprendre la completude</h3>
+            <p>Une fiche peut afficher <strong>complet</strong> ou <strong>donnees a completer</strong>. Si elle est a completer, le CRM indique les champs manquants dans la fiche.</p>
+
+            <h3>Imprimer une fiche eleve</h3>
+            <ol>
+              <li>Ouvrir le menu <strong>Eleves</strong>.</li>
+              <li>Rechercher l'eleve puis cliquer sur <strong>Ouvrir</strong>.</li>
+              <li>Cliquer sur <strong>Imprimer la fiche</strong>.</li>
+              <li>Choisir l'imprimante ou l'option PDF du navigateur.</li>
+            </ol>
+            <p>La version imprimee masque la navigation et les formulaires pour garder une fiche lisible.</p>
+
+            <h3>Commentaires internes</h3>
+            <p>Les commentaires servent au suivi interne de l'eleve. Ils ne sont pas destines aux parents et ne sont pas inclus dans les exports standards.</p>
+          </section>
+
+          <section id="classes">
+            <h2>Menu Classes</h2>
+            <p>Ce menu permet de creer les classes, choisir leur cycle et rattacher un instructeur principal.</p>
+            <div class="screenshot">
+              <img src="guide-utilisateur-assets/04-classes.png" alt="Menu Classes du CRM">
+              <p class="caption">Menu Classes : creer une classe ou modifier une classe existante.</p>
+            </div>
+            <h3>Creer une classe</h3>
+            <ol>
+              <li>Cliquer sur <strong>Classes</strong>.</li>
+              <li>Dans <strong>Nouvelle classe</strong>, saisir le nom de la classe, par exemple <code>6eme A</code>.</li>
+              <li>Choisir le cycle : Maternelle, Primaire, College ou Lycee.</li>
+              <li>Choisir un instructeur principal si l'utilisateur existe deja.</li>
+              <li>Cliquer sur <strong>Creer la classe</strong>.</li>
+            </ol>
+            <h3>Archiver une classe</h3>
+            <p>Changer le statut d'une classe en <strong>Archivee</strong> permet de ne plus l'utiliser pour les nouveaux eleves, sans supprimer l'historique.</p>
+          </section>
+
+          <section id="utilisateurs">
+            <h2>Menu Utilisateurs</h2>
+            <p>Ce menu est reserve principalement a l'administrateur. Il sert a creer les comptes et choisir les roles.</p>
+            <div class="screenshot">
+              <img src="guide-utilisateur-assets/05-utilisateurs.png" alt="Menu Utilisateurs du CRM">
+              <p class="caption">Menu Utilisateurs : creer un compte, changer un role ou desactiver un utilisateur.</p>
+            </div>
+            <h3>Creer un utilisateur</h3>
+            <ol>
+              <li>Cliquer sur <strong>Utilisateurs</strong>.</li>
+              <li>Saisir un identifiant simple, sans espace, par exemple <code>sekou_admin</code>.</li>
+              <li>Saisir le nom affiche, par exemple <code>Sekou Camara</code>.</li>
+              <li>Choisir le role.</li>
+              <li>Saisir un mot de passe ou laisser le mot de passe par defaut si c'est prevu.</li>
+              <li>Cliquer sur <strong>Creer l'utilisateur</strong>.</li>
+            </ol>
+            <div class="box warning">
+              <strong>Conseil</strong>
+              <p>Creer d'abord les utilisateurs instructeurs, puis les classes. Comme cela, l'instructeur peut etre rattache a sa classe des la creation.</p>
+            </div>
+          </section>
+
+          <section id="import-export">
+            <h2>Menu Import / Export</h2>
+            <p>Ce menu sert a importer une liste d'eleves depuis Excel et a exporter des listes Excel depuis le CRM.</p>
+            <div class="screenshot">
+              <img src="guide-utilisateur-assets/06-import-export.png" alt="Menu Import Export du CRM">
+              <p class="caption">Menu Import / Export : analyser le fichier avant de confirmer l'import.</p>
+            </div>
+            <h3>Importer un fichier Excel</h3>
+            <ol>
+              <li>Cliquer sur <strong>Import / Export</strong>.</li>
+              <li>Si le fichier Excel ne contient pas la colonne classe, choisir une classe cible.</li>
+              <li>Cliquer dans le champ fichier et choisir le fichier Excel.</li>
+              <li>Cliquer sur <strong>Analyser avant import</strong>.</li>
+              <li>Lire le resume : lignes importables, lignes bloquees, donnees a completer.</li>
+              <li>Si le resultat est correct, cliquer sur <strong>Confirmer l'import partiel</strong>.</li>
+            </ol>
+            <div class="box danger">
+              <strong>Point de vigilance</strong>
+              <p>Ne jamais confirmer un import sans lire le resume. Si beaucoup de lignes sont bloquees, il vaut mieux corriger le fichier Excel avant de recommencer.</p>
+            </div>
+
+            <h3>Exporter des fichiers Excel</h3>
+            <p>Les boutons d'export permettent de recuperer les listes d'eleves actifs, les fiches a completer, les eleves non a jour et les effectifs par classe.</p>
+          </section>
+
+          <section id="sauvegarde">
+            <h2>Menu Sauvegarde</h2>
+            <p>Ce menu permet a l'administrateur de creer une copie de securite des donnees. Le CRM cree aussi une sauvegarde automatique au premier demarrage de chaque jour.</p>
+            <div class="screenshot">
+              <img src="guide-utilisateur-assets/07-sauvegarde.png" alt="Menu Sauvegarde du CRM">
+              <p class="caption">Menu Sauvegarde : creer une sauvegarde manuelle avant une operation importante.</p>
+            </div>
+            <h3>Quand faire une sauvegarde</h3>
+            <ul>
+              <li>Avant un import Excel important.</li>
+              <li>Avant une reinitialisation des donnees.</li>
+              <li>Avant de copier le dossier CRM sur une autre machine.</li>
+              <li>Apres une grosse session de saisie.</li>
+            </ul>
+            <h3>Restaurer une sauvegarde</h3>
+            <p>La restauration se fait avec les scripts a la racine du dossier : <code>RESTAURER_SAUVEGARDE_MAC.command</code> sur Mac ou <code>RESTAURER_SAUVEGARDE_WINDOWS.bat</code> sur Windows.</p>
+          </section>
+
+          <section id="workflow">
+            <h2>Workflow conseille : demarrer une nouvelle annee</h2>
+            <p>Voici un exemple de parcours simple pour utiliser le CRM dans le bon ordre.</p>
+            <ol class="step-list">
+              <li><strong>Verifier que le CRM fonctionne.</strong><br>Ouvrir le CRM, se connecter en administrateur et consulter le tableau de bord.</li>
+              <li><strong>Creer ou verifier les utilisateurs.</strong><br>Aller dans <strong>Utilisateurs</strong>, creer les comptes du secretariat et des instructeurs.</li>
+              <li><strong>Creer les classes.</strong><br>Aller dans <strong>Classes</strong>, creer les classes de l'annee et rattacher les instructeurs principaux.</li>
+              <li><strong>Importer la liste Excel ou saisir les eleves.</strong><br>Utiliser <strong>Import / Export</strong> pour importer une liste, ou <strong>Eleves</strong> pour saisir manuellement.</li>
+              <li><strong>Verifier les fiches a completer.</strong><br>Dans <strong>Eleves</strong>, filtrer sur <strong>donnees a completer</strong> et completer les informations manquantes.</li>
+              <li><strong>Mettre a jour le statut de scolarite.</strong><br>Sur chaque fiche, choisir <strong>a jour</strong>, <strong>non a jour</strong> ou <strong>a verifier</strong>.</li>
+              <li><strong>Ajouter des commentaires internes si besoin.</strong><br>Les instructeurs ou la direction peuvent noter des informations utiles dans la fiche eleve.</li>
+              <li><strong>Exporter les listes utiles.</strong><br>Aller dans <strong>Import / Export</strong> pour produire les fichiers Excel necessaires.</li>
+              <li><strong>Faire une sauvegarde.</strong><br>Aller dans <strong>Sauvegarde</strong> et creer une sauvegarde apres validation des donnees.</li>
+            </ol>
+            <div class="screenshot">
+              <img src="guide-utilisateur-assets/08-workflow-nouvel-eleve.png" alt="Exemple de formulaire pour creer un nouvel eleve">
+              <p class="caption">Exemple de workflow : creation d'une nouvelle fiche eleve.</p>
+            </div>
+          </section>
+
+          <section id="bonnes-pratiques">
+            <h2>Bonnes pratiques</h2>
+            <div class="grid two">
+              <div class="box success">
+                <strong>A faire</strong>
+                <ul>
+                  <li>Sauvegarder avant un import important.</li>
+                  <li>Utiliser les filtres pour retrouver rapidement les fiches incompletes.</li>
+                  <li>Archiver plutot que supprimer.</li>
+                  <li>Creer un compte nominatif pour chaque utilisateur regulier.</li>
+                </ul>
+              </div>
+              <div class="box danger">
+                <strong>A eviter</strong>
+                <ul>
+                  <li>Fermer la fenetre Terminal ou Invite de commande pendant l'utilisation.</li>
+                  <li>Partager le meme compte entre plusieurs personnes.</li>
+                  <li>Confirmer un import sans verifier le resume.</li>
+                  <li>Modifier directement les fichiers dans le dossier <code>data</code>.</li>
+                </ul>
+              </div>
+            </div>
+          </section>
+
+          <section id="depannage">
+            <h2>Depannage simple</h2>
+            <table>
+              <thead>
+                <tr>
+                  <th>Probleme</th>
+                  <th>Action simple</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Le CRM ne s'ouvre pas.</td>
+                  <td>Relancer <code>LANCER_CRM_MAC.command</code> ou <code>LANCER_CRM_WINDOWS.bat</code>.</td>
+                </tr>
+                <tr>
+                  <td>Un message indique que Node.js manque.</td>
+                  <td>Lancer le script d'installation des packages, puis recommencer.</td>
+                </tr>
+                <tr>
+                  <td>Le navigateur affiche une erreur de connexion.</td>
+                  <td>Verifier que la fenetre Terminal ou Invite de commande du CRM est bien ouverte.</td>
+                </tr>
+                <tr>
+                  <td>Une fiche eleve est introuvable.</td>
+                  <td>Retirer les filtres, chercher par matricule, puis verifier le filtre Actifs/Archives.</td>
+                </tr>
+                <tr>
+                  <td>Un import Excel bloque beaucoup de lignes.</td>
+                  <td>Lire les messages de l'analyse, corriger le fichier Excel, puis relancer l'analyse.</td>
+                </tr>
+              </tbody>
+            </table>
+          </section>
+
+          <section id="maintenance">
+            <h2>Maintenance du guide</h2>
+            <p>Ce guide doit rester aligne avec le CRM. A chaque evolution de l'application, verifier si le guide doit etre mis a jour.</p>
+            <h3>Regle de maintenance</h3>
+            <ul>
+              <li>Si un menu change, mettre a jour la section correspondante.</li>
+              <li>Si un bouton est renomme, corriger le texte du guide.</li>
+              <li>Si un workflow change, actualiser l'exemple de workflow.</li>
+              <li>Si l'ecran change visuellement, refaire les captures dans <code>docs/guide-utilisateur-assets/</code>.</li>
+            </ul>
+            <p class="footer-note">Derniere mise a jour du guide : 2026-06-15.</p>
+          </section>
+        </article>
+      </main>
+    </div>
+  </body>
+</html>

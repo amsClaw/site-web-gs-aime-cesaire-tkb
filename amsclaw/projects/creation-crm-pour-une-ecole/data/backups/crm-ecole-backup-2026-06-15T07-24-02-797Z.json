@@ -1,0 +1,41 @@
+{
+  "metadata": {
+    "name": "CRM ecole GS AIME CEASIRE",
+    "version": "0.1.0",
+    "updatedAt": "2026-06-15T07:23:55.848Z"
+  },
+  "users": [
+    {
+      "id": "usr-92877016-914b-440c-9d7a-1bdb49437e4a",
+      "username": "admin_test",
+      "name": "Direction test",
+      "role": "admin",
+      "active": true,
+      "passwordHash": "43c27b4e263fa191a6a7ec198cd4d5b47d17413c49d77dc533a01720707e3202",
+      "createdAt": "2026-06-14T21:35:14.797Z",
+      "updatedAt": "2026-06-14T21:35:14.798Z"
+    },
+    {
+      "id": "usr-dbbc39f1-3812-455a-960a-05e7fb9584ce",
+      "username": "secretariat_test",
+      "name": "Secretariat test",
+      "role": "secretariat",
+      "active": true,
+      "passwordHash": "43c27b4e263fa191a6a7ec198cd4d5b47d17413c49d77dc533a01720707e3202",
+      "createdAt": "2026-06-14T21:35:14.798Z",
+      "updatedAt": "2026-06-14T21:35:14.798Z"
+    },
+    {
+      "id": "usr-06ca5159-6fbb-4ee3-ab05-2190a841f203",
+      "username": "instructeur_test",
+      "name": "Instructeur test",
+      "role": "instructeur",
+      "active": true,
+      "passwordHash": "43c27b4e263fa191a6a7ec198cd4d5b47d17413c49d77dc533a01720707e3202",
+      "createdAt": "2026-06-14T21:35:14.798Z",
+      "updatedAt": "2026-06-14T21:35:14.798Z"
+    }
+  ],
+  "classes": [],
+  "students": []
+}

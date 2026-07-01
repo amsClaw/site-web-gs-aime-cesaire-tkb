@@ -1,0 +1,446 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>amsClaw - Dashboard multi-agents</title>
+    <link rel="stylesheet" href="./styles.css">
+  </head>
+  <body>
+    <aside class="sidebar" aria-label="Navigation principale">
+      <div class="brand">
+        <div class="brand-mark" aria-hidden="true">A</div>
+        <div>
+          <p class="eyebrow">amsClaw</p>
+          <h1>Dashboard multi-agents</h1>
+        </div>
+      </div>
+
+      <nav class="nav" aria-label="Vues">
+        <button class="nav-button active" type="button" data-view="overview" title="Vue d'ensemble">
+          <span aria-hidden="true">⌂</span>
+          <span>Vue d'ensemble</span>
+        </button>
+        <button class="nav-button" type="button" data-view="today" title="Aujourd'hui">
+          <span aria-hidden="true">◉</span>
+          <span>Aujourd'hui</span>
+          <span class="nav-badge" id="today-nav-badge" aria-label="0 alerte">0</span>
+        </button>
+        <button class="nav-button" type="button" data-view="projects" title="Projets">
+          <span aria-hidden="true">□</span>
+          <span>Projets</span>
+          <span class="nav-badge" id="project-nav-badge" aria-label="0 projet à piloter">0</span>
+        </button>
+        <button class="nav-button" type="button" data-view="backlog" title="Backlog">
+          <span aria-hidden="true">☷</span>
+          <span>Backlog</span>
+          <span class="nav-badge" id="backlog-nav-badge" aria-label="0 item ouvert">0</span>
+        </button>
+        <button class="nav-button" type="button" data-view="decisions" title="Décisions">
+          <span aria-hidden="true">◇</span>
+          <span>Décisions</span>
+        </button>
+        <button class="nav-button" type="button" data-view="ideas" title="Idées business">
+          <span aria-hidden="true">◇</span>
+          <span>Idées</span>
+        </button>
+        <button class="nav-button" type="button" data-view="tracking" title="Suivi d'avancement">
+          <span aria-hidden="true">▦</span>
+          <span>Suivi</span>
+          <span class="nav-badge" id="tracking-nav-badge" aria-label="0 action ouverte">0</span>
+        </button>
+        <button class="nav-button" type="button" data-view="agent-tasks" title="Tâches agents">
+          <span aria-hidden="true">☑</span>
+          <span>Tâches</span>
+          <span class="nav-badge" id="agent-task-nav-badge" aria-label="0 tâche ouverte">0</span>
+        </button>
+        <button class="nav-button" type="button" data-view="weekly-review" title="Revue hebdo">
+          <span aria-hidden="true">▣</span>
+          <span>Revue hebdo</span>
+        </button>
+        <button class="nav-button" type="button" data-view="global-search" title="Recherche globale">
+          <span aria-hidden="true">⌕</span>
+          <span>Recherche</span>
+        </button>
+        <button class="nav-button" type="button" data-view="routines" title="Routines">
+          <span aria-hidden="true">✓</span>
+          <span>Routines</span>
+        </button>
+      </nav>
+
+      <section class="side-panel" aria-labelledby="operating-mode-title">
+        <h2 id="operating-mode-title">Mode opératoire</h2>
+        <p>Avancer vite, documenter les décisions, garder chaque projet redémarrable.</p>
+      </section>
+    </aside>
+
+    <main class="shell">
+      <header class="topbar">
+        <div>
+          <p class="eyebrow">Cockpit V1.15</p>
+          <h2 id="view-title">Vue d'ensemble</h2>
+        </div>
+        <div class="top-actions">
+          <button class="icon-button" type="button" id="reset-demo" title="Réinitialiser la démo" aria-label="Réinitialiser la démo">↻</button>
+          <button class="primary-button" type="button" id="copy-report">Copier le rapport</button>
+        </div>
+      </header>
+
+      <section class="view active" id="overview-view" data-view-panel="overview" aria-labelledby="view-title">
+        <div class="metrics" id="metrics"></div>
+
+        <div class="layout-grid">
+          <section class="panel wide">
+            <div class="panel-header">
+              <div>
+                <p class="eyebrow">Priorités</p>
+                <h3>Actions à traiter</h3>
+              </div>
+              <span class="status-pill" id="blocked-count">0 blocage</span>
+            </div>
+            <div class="action-list" id="priority-actions"></div>
+          </section>
+
+          <section class="panel">
+            <div class="panel-header">
+              <div>
+                <p class="eyebrow">Agents</p>
+                <h3>Répartition</h3>
+              </div>
+            </div>
+            <div class="agent-list" id="agent-list"></div>
+          </section>
+        </div>
+      </section>
+
+      <section class="view" id="today-view" data-view-panel="today" aria-labelledby="today-title">
+        <div class="section-title">
+          <div>
+            <p class="eyebrow">Pilotage</p>
+            <h2 id="today-title">Aujourd'hui</h2>
+          </div>
+          <span class="status-pill" id="today-signal">0 point d'attention</span>
+        </div>
+        <div class="today-grid" id="today-grid"></div>
+        <section class="panel">
+          <div class="panel-header">
+            <div>
+              <p class="eyebrow">Journal</p>
+              <h3>Activité récente</h3>
+            </div>
+          </div>
+          <div class="activity-list" id="activity-list"></div>
+        </section>
+      </section>
+
+      <section class="view" id="backlog-view" data-view-panel="backlog" aria-labelledby="backlog-title">
+        <div class="section-title">
+          <div>
+            <p class="eyebrow">Roadmap</p>
+            <h2 id="backlog-title">Backlog</h2>
+          </div>
+          <span class="status-pill" id="backlog-progress">0 item ouvert</span>
+        </div>
+        <div class="layout-grid">
+          <section class="panel wide">
+            <div class="tracking-board" id="backlog-board"></div>
+          </section>
+          <section class="panel">
+            <h3 id="backlog-form-title">Nouvel item</h3>
+            <form id="backlog-form" class="stack">
+              <label>Titre<input name="title" required placeholder="Amélioration à suivre"></label>
+              <label>Catégorie<input name="category" required placeholder="Pilotage, UX, Données..."></label>
+              <label>Priorité
+                <select name="priority">
+                  <option>Haute</option>
+                  <option>Moyenne</option>
+                  <option>Basse</option>
+                </select>
+              </label>
+              <label>Statut
+                <select name="status">
+                  <option value="todo">À faire</option>
+                  <option value="doing">En cours</option>
+                  <option value="done">Fait</option>
+                  <option value="rejected">Écarté</option>
+                </select>
+              </label>
+              <label>Prochaine action<textarea name="nextAction" rows="3" placeholder="Action concrète attendue"></textarea></label>
+              <div class="form-actions">
+                <button class="primary-button" type="submit" id="backlog-submit">Ajouter</button>
+                <button class="secondary-button hidden" type="button" id="backlog-edit-cancel">Annuler</button>
+              </div>
+            </form>
+          </section>
+        </div>
+      </section>
+
+      <section class="view" id="decisions-view" data-view-panel="decisions" aria-labelledby="decisions-title">
+        <div class="section-title">
+          <div>
+            <p class="eyebrow">Mémoire</p>
+            <h2 id="decisions-title">Décisions</h2>
+          </div>
+          <span class="status-pill" id="decisions-count">0 décision</span>
+        </div>
+        <div class="layout-grid">
+          <section class="panel wide">
+            <div class="decision-list" id="decision-list"></div>
+          </section>
+          <section class="panel">
+            <h3 id="decision-form-title">Nouvelle décision</h3>
+            <form id="decision-form" class="stack">
+              <label>Date<input name="date" type="date" required></label>
+              <label>Projet lié
+                <select name="projectId" id="decision-project">
+                  <option value="">Aucun projet</option>
+                </select>
+              </label>
+              <label>Titre<input name="title" required placeholder="Décision ou arbitrage"></label>
+              <label>Décision<textarea name="decision" required rows="3"></textarea></label>
+              <label>Raison<textarea name="rationale" rows="3"></textarea></label>
+              <label>Impact<textarea name="impact" rows="3"></textarea></label>
+              <div class="form-actions">
+                <button class="primary-button" type="submit" id="decision-submit">Ajouter</button>
+                <button class="secondary-button hidden" type="button" id="decision-edit-cancel">Annuler</button>
+              </div>
+            </form>
+          </section>
+        </div>
+      </section>
+
+      <section class="view" id="projects-view" data-view-panel="projects" aria-labelledby="projects-title">
+        <div class="section-title">
+          <div>
+            <p class="eyebrow">Portefeuille</p>
+            <h2 id="projects-title">Projets</h2>
+          </div>
+          <div class="filter-group" role="group" aria-label="Filtrer les projets">
+            <button class="segmented active" type="button" data-project-filter="all">Tous</button>
+            <button class="segmented" type="button" data-project-filter="actif">Actifs</button>
+            <button class="segmented" type="button" data-project-filter="pause">Pause</button>
+            <button class="segmented" type="button" data-project-filter="bloqué">Bloqués</button>
+            <button class="segmented" type="button" data-project-filter="no-next-action">Sans action</button>
+            <button class="segmented" type="button" data-project-filter="clôturé">Clôturés</button>
+            <button class="segmented" type="button" data-project-filter="archives">Archives</button>
+          </div>
+        </div>
+
+        <div class="project-toolbar" aria-label="Pilotage des projets">
+          <div class="project-status-summary" id="project-status-summary"></div>
+          <label class="search-field">
+            <span>Recherche</span>
+            <input id="project-search" type="search" placeholder="Nom, objectif, action, décision...">
+          </label>
+          <div class="export-actions" role="group" aria-label="Exporter les projets">
+            <button class="secondary-button" type="button" id="export-projects-md">Export Markdown</button>
+            <button class="secondary-button" type="button" id="export-projects-json">Export JSON</button>
+          </div>
+        </div>
+
+        <div class="layout-grid">
+          <section class="panel wide">
+            <div class="project-grid" id="project-grid"></div>
+          </section>
+
+          <section class="panel">
+            <h3 id="project-form-title">Nouveau projet</h3>
+            <form id="project-form" class="stack">
+              <label>Nom<input name="name" required placeholder="Ex. CRM PME Guinée"></label>
+              <label>Objectif<textarea name="objective" required rows="3" placeholder="Résultat attendu"></textarea></label>
+              <label>Prochaine action<input name="nextAction" required placeholder="Action concrète"></label>
+              <label>Statut
+                <select name="status">
+                  <option value="actif">Actif</option>
+                  <option value="pause">En pause</option>
+                  <option value="bloqué">Bloqué</option>
+                  <option value="clôturé">Clôturé</option>
+                </select>
+              </label>
+              <label>Priorité
+                <select name="priority">
+                  <option>Haute</option>
+                  <option>Moyenne</option>
+                  <option>Basse</option>
+                </select>
+              </label>
+              <div class="score-grid">
+                <label>Rapidité<input type="number" min="1" max="5" name="scoreSpeed" value="3"></label>
+                <label>Motivation<input type="number" min="1" max="5" name="scoreMotivation" value="3"></label>
+                <label>Effort/gain<input type="number" min="1" max="5" name="scoreEffortGain" value="3"></label>
+                <label>Financier<input type="number" min="1" max="5" name="scoreFinancial" value="3"></label>
+              </div>
+              <label>Date de clôture<input name="closureDate" type="date"></label>
+              <label>Résultat final / bilan<textarea name="finalResult" rows="3" placeholder="Ce qui a été livré, appris ou décidé"></textarea></label>
+              <label>Historique / décision importante<textarea name="projectLog" rows="3" placeholder="Décision, arbitrage, leçon utile ou point de contexte"></textarea></label>
+              <label class="checkbox-row">
+                <input name="createFromTemplate" type="checkbox">
+                <span>Créer aussi le dossier projet et les fichiers de base</span>
+              </label>
+              <div class="form-actions">
+                <button class="primary-button" type="submit" id="project-submit">Ajouter</button>
+                <button class="secondary-button hidden" type="button" id="project-edit-cancel">Annuler</button>
+              </div>
+            </form>
+          </section>
+        </div>
+      </section>
+
+      <section class="panel project-detail-panel hidden" id="project-detail-panel" aria-live="polite">
+        <div class="panel-header">
+          <div>
+            <p class="eyebrow">Fiche projet</p>
+            <h3 id="project-detail-title">Projet</h3>
+          </div>
+          <button class="secondary-button" type="button" id="project-detail-close">Fermer</button>
+        </div>
+        <div class="project-detail-content" id="project-detail-content"></div>
+      </section>
+
+      <section class="view" id="ideas-view" data-view-panel="ideas" aria-labelledby="ideas-title">
+        <div class="section-title">
+          <div>
+            <p class="eyebrow">Opportunités</p>
+            <h2 id="ideas-title">Idées business</h2>
+          </div>
+          <span class="status-pill">Score sur 20</span>
+        </div>
+
+        <div class="layout-grid">
+          <section class="panel wide">
+            <div class="idea-list" id="idea-list"></div>
+          </section>
+
+          <section class="panel">
+            <h3 id="idea-form-title">Nouvelle idée</h3>
+            <form id="idea-form" class="stack">
+              <label>Nom<input name="name" required placeholder="Ex. Générateur de devis"></label>
+              <label>Marché cible<input name="market" required placeholder="PME, Guinée, école..."></label>
+              <label>Problème<textarea name="problem" required rows="3" placeholder="Douleur client"></textarea></label>
+              <div class="score-grid">
+                <label>Rapidité<input type="number" min="1" max="5" name="speed" value="3"></label>
+                <label>Motivation<input type="number" min="1" max="5" name="motivation" value="3"></label>
+                <label>Effort/gain<input type="number" min="1" max="5" name="effortGain" value="3"></label>
+                <label>Financier<input type="number" min="1" max="5" name="financial" value="3"></label>
+              </div>
+              <div class="form-actions">
+                <button class="primary-button" type="submit" id="idea-submit">Qualifier</button>
+                <button class="secondary-button hidden" type="button" id="idea-edit-cancel">Annuler</button>
+              </div>
+            </form>
+          </section>
+        </div>
+      </section>
+
+      <section class="view" id="tracking-view" data-view-panel="tracking" aria-labelledby="tracking-title">
+        <div class="section-title">
+          <div>
+            <p class="eyebrow">Avancement</p>
+            <h2 id="tracking-title">Suivi quotidien</h2>
+          </div>
+          <span class="status-pill" id="tracking-progress">0 action faite</span>
+        </div>
+
+        <div class="tracking-signal-grid" id="tracking-signals"></div>
+        <div class="tracking-board" id="tracking-board"></div>
+      </section>
+
+      <section class="view" id="agent-tasks-view" data-view-panel="agent-tasks" aria-labelledby="agent-tasks-title">
+        <div class="section-title">
+          <div>
+            <p class="eyebrow">Agents</p>
+            <h2 id="agent-tasks-title">Tâches agents</h2>
+          </div>
+          <div class="top-actions">
+            <div class="filter-group" role="group" aria-label="Filtrer les tâches agents">
+              <button class="segmented active" type="button" data-agent-task-filter="all">Toutes</button>
+              <button class="segmented" type="button" data-agent-task-filter="to-verify">À vérifier</button>
+            </div>
+            <span class="status-pill verification-pill" id="agent-task-verification-count">0 à vérifier</span>
+            <span class="status-pill" id="agent-task-progress">0 tâche faite</span>
+          </div>
+        </div>
+
+        <div class="layout-grid">
+          <section class="panel wide">
+            <div class="tracking-board" id="agent-task-board"></div>
+          </section>
+
+          <section class="panel">
+            <h3 id="agent-task-form-title">Nouvelle tâche</h3>
+            <form id="agent-task-form" class="stack">
+              <label>Titre<input name="title" required placeholder="Ex. Préparer une analyse marché"></label>
+              <label>Agent responsable
+                <select name="owner">
+                  <option>amsClaw</option>
+                  <option>Agent Produit & Communication</option>
+                  <option>Agent Technique & Automatisation</option>
+                  <option>Agent Organisation & PMO</option>
+                  <option>Agent Recherche & Veille</option>
+                </select>
+              </label>
+              <label>Projet ou idée liée
+                <select name="linkedItem" id="agent-task-linked-item">
+                  <option value="">Aucun lien</option>
+                </select>
+              </label>
+              <label>Priorité
+                <select name="priority">
+                  <option>Haute</option>
+                  <option>Moyenne</option>
+                  <option>Basse</option>
+                </select>
+              </label>
+              <label>Échéance<input name="dueDate" type="date"></label>
+              <label>Note<textarea name="note" rows="3" placeholder="Contexte ou livrable attendu"></textarea></label>
+              <div class="form-actions">
+                <button class="primary-button" type="submit" id="agent-task-submit">Ajouter</button>
+                <button class="secondary-button hidden" type="button" id="agent-task-edit-cancel">Annuler</button>
+              </div>
+            </form>
+          </section>
+        </div>
+      </section>
+
+      <section class="view" id="weekly-review-view" data-view-panel="weekly-review" aria-labelledby="weekly-review-title">
+        <div class="section-title">
+          <div>
+            <p class="eyebrow">Rituel</p>
+            <h2 id="weekly-review-title">Revue hebdo</h2>
+          </div>
+          <button class="secondary-button" type="button" id="copy-weekly-review">Copier la revue</button>
+        </div>
+        <div class="weekly-review-grid" id="weekly-review-grid"></div>
+      </section>
+
+      <section class="view" id="global-search-view" data-view-panel="global-search" aria-labelledby="global-search-title">
+        <div class="section-title">
+          <div>
+            <p class="eyebrow">Recherche</p>
+            <h2 id="global-search-title">Recherche globale</h2>
+          </div>
+        </div>
+        <label class="search-field global-search-field">
+          <span>Recherche</span>
+          <input id="global-search-input" type="search" placeholder="Projet, tâche, décision, backlog, idée...">
+        </label>
+        <div class="global-search-results" id="global-search-results"></div>
+      </section>
+
+      <section class="view" id="routines-view" data-view-panel="routines" aria-labelledby="routines-title">
+        <div class="section-title">
+          <div>
+            <p class="eyebrow">Heartbeat</p>
+            <h2 id="routines-title">Routines</h2>
+          </div>
+          <span class="status-pill" id="routine-progress">0%</span>
+        </div>
+
+        <div class="routine-columns" id="routine-columns"></div>
+      </section>
+    </main>
+
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+    <script src="./app.js?v=1.15.0"></script>
+  </body>
+</html>

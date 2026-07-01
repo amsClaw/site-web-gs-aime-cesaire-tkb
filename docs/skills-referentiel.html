@@ -1,0 +1,539 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Skills amsClaw — Référentiel</title>
+  <style>
+    :root {
+      --bg: #f0f4f8;
+      --paper: #ffffff;
+      --ink: #1a1f2e;
+      --muted: #5f6d82;
+      --line: #dde4ed;
+      --blue: #1f6feb;
+      --blue-dark: #174ea6;
+      --radius: 12px;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      font-size: 17px;
+      line-height: 1.7;
+      color: var(--ink);
+      background: var(--bg);
+      padding: 1.5rem 1rem;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    header {
+      text-align: center;
+      margin-bottom: 2.5rem;
+    }
+
+    header h1 {
+      font-size: 1.8rem;
+      margin-bottom: 0.3rem;
+    }
+
+    header p {
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    header .badge {
+      display: inline-block;
+      background: #157347;
+      color: #fff;
+      font-size: 0.8rem;
+      font-weight: 600;
+      padding: 0.3rem 1rem;
+      border-radius: 999px;
+      margin-top: 0.6rem;
+    }
+
+    .summary-cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+      gap: 0.75rem;
+      margin-bottom: 2.5rem;
+    }
+
+    .summary-card {
+      background: var(--paper);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 0.8rem 0.5rem;
+      text-align: center;
+      font-size: 0.85rem;
+    }
+
+    .summary-card .emoji { font-size: 1.4rem; }
+    .summary-card .label { font-weight: 600; margin-top: 0.2rem; }
+    .summary-card .count { color: var(--muted); font-size: 0.75rem; }
+
+    .categories {
+      display: flex;
+      flex-direction: column;
+      gap: 3rem;
+    }
+
+    .category h2 {
+      font-size: 1.2rem;
+      margin-bottom: 1rem;
+      padding-bottom: 0.4rem;
+      border-bottom: 2px solid var(--line);
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .skill-card {
+      background: var(--paper);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 1.25rem 1.25rem;
+      margin-bottom: 1.5rem;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+    }
+
+    .skill-card:last-child {
+      margin-bottom: 0;
+    }
+
+    .skill-card h3 {
+      font-size: 1.05rem;
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .skill-card .tag {
+      display: inline-block;
+      font-size: 0.65rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      padding: 0.15rem 0.5rem;
+      border-radius: 4px;
+    }
+
+    .tag-native { background: #e3f0ff; color: #1a6bb0; }
+    .tag-workspace { background: #e8f5e9; color: #2e7d32; }
+    .tag-plugin { background: #fff3e0; color: #bf6c00; }
+
+    .skill-card .desc {
+      font-size: 0.95rem;
+      color: var(--muted);
+      margin-bottom: 0.5rem;
+    }
+
+    .skill-card .cats {
+      font-size: 0.8rem;
+      color: var(--muted);
+      margin-bottom: 0.5rem;
+    }
+
+    .skill-card .cats span {
+      display: inline-block;
+      margin-right: 1rem;
+    }
+
+    .skill-card .example {
+      font-size: 0.88rem;
+      font-style: italic;
+      color: var(--blue-dark);
+      margin-top: 0.6rem;
+      padding-top: 0.6rem;
+      border-top: 1px dashed var(--line);
+    }
+
+    .skill-card .example::before {
+      content: "💡 ";
+      font-weight: 600;
+      font-style: normal;
+    }
+
+    .skill-card .cost {
+      font-size: 0.75rem;
+    }
+
+    .cost-free { color: #157347; }
+    .cost-api { color: #8a5a00; }
+    .cost-paid { color: #b42318; }
+
+    footer {
+      text-align: center;
+      margin-top: 3rem;
+      font-size: 0.85rem;
+      color: var(--muted);
+      border-top: 1px solid var(--line);
+      padding-top: 1.5rem;
+    }  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>🦊 Skills amsClaw</h1>
+      <p>Référentiel des compétences installées sur le Mac Mini dédié OpenClaw</p>
+      <span class="badge">✅ 38 skills installés</span>
+    </header>
+
+    <div class="summary-cards">
+      <div class="summary-card">
+        <div class="emoji">🧠</div>
+        <div class="label">Noyau</div>
+        <div class="count">3 skills</div>
+      </div>
+      <div class="summary-card">
+        <div class="emoji">🌐</div>
+        <div class="label">Web & Automatisation</div>
+        <div class="count">7 skills</div>
+      </div>
+      <div class="summary-card">
+        <div class="emoji">🛡️</div>
+        <div class="label">Sécurité & Infra</div>
+        <div class="count">2 skills</div>
+      </div>
+      <div class="summary-card">
+        <div class="emoji">📱</div>
+        <div class="label">Apple & macOS</div>
+        <div class="count">10 skills</div>
+      </div>
+      <div class="summary-card">
+        <div class="emoji">📝</div>
+        <div class="label">Productivité</div>
+        <div class="count">7 skills</div>
+      </div>
+      <div class="summary-card">
+        <div class="emoji">🎨</div>
+        <div class="label">Création</div>
+        <div class="count">6 skills</div>
+      </div>
+      <div class="summary-card">
+        <div class="emoji">💻</div>
+        <div class="label">Dev & Debug</div>
+        <div class="count">3 skills</div>
+      </div>
+    </div>
+
+    <div class="categories">
+
+      <!-- ===== Noyau ===== -->
+      <div class="category">
+        <h2>🧠 Noyau — Fondamentaux OpenClaw</h2>
+
+        <div class="skill-card">
+          <h3>🪝 taskflow <span class="tag tag-native">natif</span></h3><span class="cost cost-free" title="Gratuit - Intégré à OpenClaw</span>
+          <div class="desc">Coordonne des tâches multi-étapes durables avec contexte propriétaire, état persistant, attentes et sous-tâches. Idéal pour les jobs qui doivent survivre à une session.</div>
+          <div class="cats"><span>⏱️ Tâches longues</span><span>🔄 Orchestration</span><div class="example">Lancer la création complète d'un site vitrine pour un artisan : cadrage → maquette → déploiement, le tout en arrière-plan</div>
+        </div>
+        </div>
+
+        <div class="skill-card">
+          <h3>🧪 spike <span class="tag tag-native">natif</span></h3><span class="cost cost-free" title="Gratuit - Aucune dépendance externe</span>
+          <div class="desc">Prototype jetable pour valider la faisabilité d'une idée, comparer des approches, et rendre un verdict (VALIDÉ / PARTIEL / INVALIDÉ) avant de coder en dur.</div>
+          <div class="cats"><span>💡 Prototypage rapide</span><span>⚖️ Comparaison</span><div class="example">Tester si une API de paiement mobile fonctionne en Guinée avant de l'intégrer dans un projet</div>
+        </div>
+        </div>
+
+        <div class="skill-card">
+          <h3>🧰 skill-creator <span class="tag tag-native">natif</span></h3><span class="cost cost-free" title="Gratuit - Intégré à OpenClaw</span>
+          <div class="desc">Crée, modifie, audite ou restructure les fichiers SKILL.md et les propositions de skills du Workshop. Permet d'étendre les capacités d'OpenClaw.</div>
+          <div class="cats"><span>🔧 Auto-extension</span><div class="example">Créer un skill "devis-auto" qui standardise la génération de devis pour tes projets clients</div>
+        </div>
+        </div>
+      </div>
+
+      <!-- ===== Web & Automatisation ===== -->
+      <div class="category">
+        <h2>🌐 Web & Automatisation</h2>
+
+        <div class="skill-card">
+          <h3>🔍 browser-automation <span class="tag tag-plugin">plugin</span></h3><span class="cost cost-free" title="Gratuit - Utilise ton Chrome local</span>
+          <div class="desc">Contrôle le navigateur (Chrome) pour des flows multi-étapes : connexion, formulaires, scraping, tests. Vérifie l'état des onglets avant d'agir pour éviter les erreurs.</div>
+          <div class="cats"><span>🧪 Tests</span><span>🕸️ Scraping</span><span>🤖 Automatisation</span><div class="example">Connecter automatiquement un CRM école, remplir la fiche d'un élève et prendre une capture d'écran</div>
+        </div>
+        </div>
+
+        <div class="skill-card">
+          <h3>🐙 github <span class="tag tag-native">natif</span></h3><span class="cost cost-free" title="Gratuit - Compte GitHub gratuit (2000 actions/min, 500 Mo repos)</span>
+          <div class="desc">GitHub CLI intégré : issues, PRs, reviews, releases, repos, actions, checks. Permet de pusher des sites vitrines et gérer des projets depuis OpenClaw.</div>
+          <div class="cats"><span>📦 Repos</span><span>🔀 CI/CD</span><div class="example">Pousser le guide utilisateur CRM sur GitHub Pages et l'activer en 2 clics</div>
+        </div>
+        </div>
+
+        <div class="skill-card">
+          <h3>🧭 diagram-maker <span class="tag tag-native">natif</span></h3><span class="cost cost-free" title="Gratuit - Génération locale</span>
+          <div class="desc">Génère des diagrammes SVG/HTML ou Excalidraw : schémas d'architecture, flows, concepts, whiteboards. Idéal pour les propositions commerciales et la doc client.</div>
+          <div class="cats"><span>🎨 Schémas</span><span>🏗️ Architecture</span><div class="example">Générer un schéma d'architecture pour présenter ton CRM école à un client</div>
+        </div>
+        </div>
+
+        <div class="skill-card">
+          <h3>📝 notion <span class="tag tag-native">natif</span></h3><span class="cost cost-free" title="Gratuit - API Notion (3 requêtes/sec, pages illimitées)</span>
+          <div class="desc">CLI Notion pour pages, Markdown, commentaires, search, Workers et appels API bruts. Utile si tu bascules sur Notion pour gérer les projets clients.</div>
+          <div class="cats"><span>📋 Base de connaissance</span><div class="example">Chercher une note de projet perdue dans ta base Notion et la transformer en page client</div>
+        </div>
+        </div>
+
+        <div class="skill-card">
+          <h3>🌤️ weather <span class="tag tag-native">natif</span></h3><span class="cost cost-free" title="Gratuit - wttr.in, aucune clé nécessaire</span>
+          <div class="desc">Météo actuelle et prévisions via wttr.in. Utile pour préparer des déplacements terrain en Guinée ou en France.</div>
+          <div class="cats"><span>☀️ Météo</span><div class="example">Vérifier la météo à Conakry avant un déplacement terrain pour l'école</div>
+        </div>
+        </div>
+
+        <div class="skill-card">
+          <h3>✨ gemini <span class="tag tag-native">natif</span></h3><span class="cost cost-api" title="Gratuit niveau gratuit (60 req/min sur Gemini Flash) puis payant selon volume</span>
+          <div class="desc">Accès aux modèles Google Gemini en un clic : prompts, résumés, génération, skills, MCP. Fallback si un autre modèle est indisponible.</div>
+          <div class="cats"><span>🤖 IA</span><span>⚡ Fallback</span><div class="example">Demander un résumé en français d'un article technique anglais sur le financement structuré</div>
+        </div>
+        </div>
+
+        <div class="skill-card">
+          <h3>🧩 coding-agent <span class="tag tag-native">natif</span></h3><span class="cost cost-api" title="Payant via clé API Anthropic/OpenAI - compte pro requis</span>
+          <div class="desc">Délègue du code à Claude Code ou Codex en arrière-plan. Idéal pour les gros projets qui peuvent coder en parallèle.</div>
+          <div class="cats"><span>🤖 Code</span><span>⚙️ Arrière-plan</span><div class="example">Lancer la correction d'un bug dans le CRM en arrière-plan pendant que tu passes la recette</div>
+        </div>
+        </div>
+      </div>
+
+      <!-- ===== Sécurité & Infra ===== -->
+      <div class="category">
+        <h2>🛡️ Sécurité & Infrastructure</h2>
+
+        <div class="skill-card">
+          <h3>🩺 healthcheck <span class="tag tag-native">natif</span></h3><span class="cost cost-free" title="Gratuit - Audit local du Mac</span>
+          <div class="desc">Audite et durcit la sécurité du Mac Mini : SSH, pare-feu, mise à jour, exposition réseau, backups, chiffrement disque. Lit-only puis propose des actions réversibles.</div>
+          <div class="cats"><span>🔒 Sécurité</span><span>🖥️ Admin sys</span><div class="example">Auditer la sécurité du Mac Mini : vérifier que le pare-feu est actif et que les backups sont en place</div>
+        </div>
+        </div>
+
+        <div class="skill-card">
+          <h3>🔗 node-connect <span class="tag tag-native">natif</span></h3><span class="cost cost-free" title="Gratuit - Intégré à OpenClaw</span>
+          <div class="desc">Diagnostique les problèmes de connexion entre nœuds OpenClaw (Android, iOS, macOS). QR code, code d'appairage, routage, auth.</div>
+          <div class="cats"><span>📡 Réseau</span><span>📱 Appairage</span><div class="example">Diagnostiquer pourquoi ton iPhone n'arrive pas à se connecter au Mac Mini OpenClaw</div>
+        </div>
+        </div>
+      </div>
+
+      <!-- ===== Apple & macOS ===== -->
+      <div class="category">
+        <h2>📱 Apple & macOS</h2>
+
+        <div class="skill-card">
+          <h3>📅 apple-calendar <span class="tag tag-workspace">workspace</span></h3><span class="cost cost-free" title="Gratuit - Application Apple macOS</span>
+          <div class="desc">Crée, inspecte et gère les événements Apple Calendar. Pour les revues de projet, les rendez-vous terrain, les démos clients.</div>
+          <div class="cats"><span>🗓️ Planning</span><span>⏰ Rappels temporels</span><div class="example">Planifier une réunion de démo client dans Calendar et recevoir un rappel la veille</div>
+        </div>
+        </div>
+
+        <div class="skill-card">
+          <h3>📇 apple-contacts <span class="tag tag-workspace">workspace</span></h3><span class="cost cost-free" title="Gratuit - Application Apple macOS</span>
+          <div class="desc">Recherche, crée et organise les contacts Apple. Gestion du carnet d'adresses clients et partenaires.</div>
+          <div class="cats"><span>👥 Contacts</span><span>📞 CRM</span><div class="example">Ajouter un nouveau contact client (nom, téléphone, email) depuis une conversation</div>
+        </div>
+        </div>
+
+        <div class="skill-card">
+          <h3>📂 apple-finder-documents <span class="tag tag-workspace">workspace</span></h3><span class="cost cost-free" title="Gratuit - Finder macOS</span>
+          <div class="desc">Organise les fichiers et documents projet dans le Finder. Structure les dossiers des sites vitrines, devis, livrables.</div>
+          <div class="cats"><span>🗄️ Organisation</span><div class="example">Créer la structure de dossiers pour un site vitrine : maquettes, livrables, factures</div>
+        </div>
+        </div>
+
+        <div class="skill-card">
+          <h3>✉️ apple-mail <span class="tag tag-workspace">workspace</span></h3><span class="cost cost-free" title="Gratuit - Application Apple macOS</span>
+          <div class="desc">Utilise Apple Mail pour les brouillons, recherches et envois sécurisés. Relu moi avant d'envoyer.</div>
+          <div class="cats"><span>📬 Email</span><div class="example">Rédiger un brouillon de proposition commerciale, le montrer pour relecture avant envoi</div>
+        </div>
+        </div>
+
+        <div class="skill-card">
+          <h3>📝 apple-notes <span class="tag tag-native">natif</span></h3><span class="cost cost-free" title="Gratuit - Application Apple macOS</span>
+          <div class="desc">Crée, consulte, édite, supprime, déplace ou exporte des Notes Apple via CLI. Idéal pour capturer des idées projet, des retours clients.</div>
+          <div class="cats"><span>🗒️ Notes rapides</span><div class="example">Noter une idée de projet qui vient de te traverser l'esprit : "appli de gestion de stocks PME"</div>
+        </div>
+        </div>
+
+        <div class="skill-card">
+          <h3>⭐ apple-notes-presentables <span class="tag tag-workspace">workspace</span></h3><span class="cost cost-free" title="Gratuit - Formatage local</span>
+          <div class="desc">Formate les notes Apple avec titres lisibles, puces et mots-clés en gras. Pour des notes client présentables.</div>
+          <div class="cats"><span>🖊️ Mise en forme</span><div class="example">Mettre en forme une note client avec titres, puces et mots-clés en gras pour la rendre lisible</div>
+        </div>
+        </div>
+
+        <div class="skill-card">
+          <h3>🔢 apple-numbers <span class="tag tag-workspace">workspace</span></h3><span class="cost cost-free" title="Gratuit - Application Apple macOS</span>
+          <div class="desc">Crée, inspecte et prépare des feuilles de calcul Numbers. Budgets projets, tableaux de suivi, devis.</div>
+          <div class="cats"><span>📊 Tableaux</span><span>💰 Budgets</span><div class="example">Préparer un budget prévisionnel pour un site vitrine (hébergement, nom de domaine, maintenance)</div>
+        </div>
+        </div>
+
+        <div class="skill-card">
+          <h3>📄 apple-pages <span class="tag tag-workspace">workspace</span></h3><span class="cost cost-free" title="Gratuit - Application Apple macOS</span>
+          <div class="desc">Crée et prépare des documents Pages : rapports, briefs, lettres, propositions commerciales.</div>
+          <div class="cats"><span>📑 Documents</span><div class="example">Rédiger une lettre de présentation pour un partenariat avec une école en Guinée</div>
+        </div>
+        </div>
+
+        <div class="skill-card">
+          <h3>⏰ apple-reminders <span class="tag tag-native">natif</span></h3><span class="cost cost-free" title="Gratuit - Application Apple macOS</span>
+          <div class="desc">Liste, ajoute, modifie, complète ou supprime des Rappels Apple. Synchronisation avec les todo lists projets.</div>
+          <div class="cats"><span>✅ Tâches</span><span>📋 Listes</span><div class="example">Ajouter un rappel : "Relancer le client sur le devis CRM demain 10h"</div>
+        </div>
+        </div>
+
+        <div class="skill-card">
+          <h3>⚡ apple-shortcuts <span class="tag tag-workspace">workspace</span></h3><span class="cost cost-free" title="Gratuit - Application Apple macOS</span>
+          <div class="desc">Exécute ou prépare des Raccourcis Apple. Points d'entrée mobiles pour OpenClaw : capturer une idée, lancer un script, ouvrir le dashboard.</div>
+          <div class="cats"><span>📱 Automations mobiles</span><div class="example">Créer un raccourci "Nouveau projet vitrine" qui ouvre un formulaire de cadrage depuis l'iPhone</div>
+        </div>
+        </div>
+      </div>
+
+      <!-- ===== Productivité ===== -->
+      <div class="category">
+        <h2>📝 Productivité</h2>
+
+        <div class="skill-card">
+          <h3>📧 send-email <span class="tag tag-workspace">workspace</span></h3><span class="cost cost-free" title="Gratuit via ton compte Gmail (500 emails/jour, 25 Mo/pièce jointe)</span>
+          <div class="desc">Envoie des emails via Gmail SMTP (nodemailer). Pour les notifications clients, devis, confirmations automatisées.</div>
+          <div class="cats"><span>✉️ Envoi automatisé</span><span>🤖 Notifications</span><div class="example">Envoyer automatiquement un email de confirmation à un client après validation d'un devis</div>
+        </div>
+        </div>
+
+        <div class="skill-card">
+          <h3>🧾 summarize <span class="tag tag-native">natif</span></h3><span class="cost cost-free" title="Gratuit - summarize.sh usage personnel gratuit (10 requêtes/heure max)</span>
+          <div class="desc">Résume des URLs, vidéos YouTube, podcasts, articles, PDFs et fichiers locaux. Idéal pour la veille IA, concurrence, recherche.</div>
+          <div class="cats"><span>📰 Veille</span><span>🔍 Recherche</span><div class="example">Résumer un article de blog sur les tendances IA en Afrique depuis ton téléphone</div>
+        </div>
+        </div>
+
+        <div class="skill-card">
+          <h3>📝 canvas <span class="tag tag-native">natif</span></h3><span class="cost cost-free" title="Gratuit - Intégré à OpenClaw</span>
+          <div class="desc">Affiche du HTML sur les canvases OpenClaw, navigue, évalue JS, prend des snapshots. Pratique pour montrer un rendu visuel.</div>
+          <div class="cats"><span>🖥️ Affichage</span><div class="example">Afficher un rendu HTML de maquette de site vitrine pour validation avant déploiement</div>
+        </div>
+        </div>
+
+        <div class="skill-card">
+          <h3>🎭 meme-maker <span class="tag tag-native">natif</span></h3><span class="cost cost-free" title="Gratuit - Génération locale</span>
+          <div class="desc">Cherche des templates de mèmes, génère des images drôles. Pour la communication légère.</div>
+          <div class="cats"><span>😂 Humour</span><div class="example">Générer un mème pour un post LinkedIn "Quand le client valide la maquette du premier coup"</div>
+        </div>
+        </div>
+
+        <div class="skill-card">
+          <h3>📄 nano-pdf <span class="tag tag-native">natif</span></h3><span class="cost cost-free" title="Gratuit - CLI local</span>
+          <div class="desc">Génère et manipule des PDF. Idéal pour produire des devis, factures, ou rapports clients.</div>
+          <div class="cats"><span>📎 Génération PDF</span><div class="example">Générer un PDF de devis professionnel à partir d'un template et l'envoyer au client</div>
+        </div>
+        </div>
+      </div>
+
+        <div class="skill-card">
+          <h3>📊 model-usage <span class="tag tag-native">natif</span></h3><span class="cost cost-free" title="Gratuit - CodexBar lit tes logs locaux</span>
+          <div class="desc">Consulte ta consommation par modèle (CodexBar). Garde un œil sur les coûts de chaque provider.</div>
+          <div class="cats"><span>💰 Coûts</span><span>📈 Suivi</span><div class="example">Vérifier combien de tokens tu as consommés ce mois-ci sur chaque modèle IA</div>
+        </div>
+        </div>
+
+        <div class="skill-card">
+          <h3>📜 session-logs <span class="tag tag-native">natif</span></h3><span class="cost cost-free" title="Gratuit - Analyse locale des transcripts</span>
+          <div class="desc">Cherche et analyse l'historique des conversations OpenClaw. Retrouve une info perdue dans les échanges passés.</div>
+          <div class="cats"><span>🔍 Recherche</span><span>📚 Archives</span><div class="example">Retrouver une conversation de la semaine dernière où vous avez parlé du budget CRM</div>
+        </div>
+        </div>
+      </div>
+
+      <!-- ===== Création ===== -->
+      <div class="category">
+        <h2>🎨 Création & Multimédia</h2>
+
+        <div class="skill-card">
+          <h3>🎵 music-generate <span class="tag tag-native">natif</span></h3><span class="cost cost-paid" title="Payant - Consomme des tokens sur le provider configuré</span>
+          <div class="desc">Génère de la musique, des jingles, des boucles. Peut servir pour des projets créatifs ou des prototypes audio.</div>
+          <div class="cats"><span>🎶 Audio</span><div class="example">Créer un jingle de 10 secondes pour un spot promo de l'école sur les réseaux</div>
+        </div>
+        </div>
+
+        <div class="skill-card">
+          <h3>🎤 openai-whisper <span class="tag tag-native">natif</span></h3><span class="cost cost-free" title="Gratuit - 100% local, aucune clé API nécessaire</span>
+          <div class="desc">Transcription audio locale en texte avec Whisper (pas de clé API). Dicte des idées, des retours clients, des notes vocales.</div>
+          <div class="cats"><span>🗣️ Speech-to-text</span><span>🔒 Local</span><div class="example">Dicter un compte-rendu de réunion client dans le micro du Mac, le texte est prêt</div>
+        </div>
+        </div>
+
+        <div class="skill-card">
+          <h3>🌐 openai-whisper-api <span class="tag tag-native">natif</span></h3><span class="cost cost-api" title="Payant via clé API OpenAI (~0,006$/minute audio)</span>
+          <div class="desc">Transcription audio via l'API OpenAI (gpt-4o-transcribe, whisper-1). Alternative cloud au Whisper local.</div>
+          <div class="cats"><span>☁️ API</span><span>🗣️ Speech-to-text</span><div class="example">Transcrire un audio de réunion WhatsApp en texte, directement depuis le tchat</div>
+        </div>
+        </div>
+
+        <div class="skill-card">
+          <h3>🎬 video-frames <span class="tag tag-native">natif</span></h3><span class="cost cost-free" title="Gratuit - ffmpeg local</span>
+          <div class="desc">Extrait des images ou courts extraits d'une vidéo avec ffmpeg. Utile pour créer des visuels à partir de vidéos.</div>
+          <div class="cats"><span>🖼️ Extraction</span><span>🎥 Vidéo</span><div class="example">Extraire la photo de classe depuis une vidéo de la sortie scolaire</div>
+        </div>
+        </div>
+
+        <div class="skill-card">
+          <h3>🎬 video-generate <span class="tag tag-native">natif</span></h3><span class="cost cost-paid" title="Payant - Consomme des tokens sur le provider configuré</span>
+          <div class="desc">Génère des vidéos à partir de prompts ou d'images de référence. Pour des démonstrations produit, contenus promotionnels.</div>
+          <div class="cats"><span>🎥 Vidéo</span><div class="example">Générer une vidéo de démonstration du CRM pour le présenter à l'école</div>
+        </div>
+        </div>
+
+        <div class="skill-card">
+          <h3>🖼️ image-generate <span class="tag tag-native">natif</span></h3><span class="cost cost-paid" title="Payant - Consomme des tokens sur le provider configuré</span>
+          <div class="desc">Crée et édite des images. Pour des visuels de sites vitrines, illustrations de contenu, maquettes rapides.</div>
+          <div class="cats"><span>🎨 Visuels</span><span>🖌️ Design</span><div class="example">Générer un logo provisoire pour le site vitrine d'un artisan</div>
+        </div>
+        </div>
+      </div>
+
+      <!-- ===== Développement ===== -->
+      <div class="category">
+        <h2>💻 Développement & Debug</h2>
+
+        <div class="skill-card">
+          <h3>🐍 python-debugpy <span class="tag tag-native">natif</span></h3><span class="cost cost-free" title="Gratuit - Débogueur Python local</span>
+          <div class="desc">Debug Python avec pdb, breakpoint(), inspection post-mortem, et debugpy remote attach.</div>
+          <div class="cats"><span>🐍 Python</span><span>🔍 Debug</span><div class="example">Déboguer un script Python d'import Excel qui plante sur une ligne de données</div>
+        </div>
+        </div>
+
+        <div class="skill-card">
+          <h3>🟢 node-inspect-debugger <span class="tag tag-native">natif</span></h3><span class="cost cost-free" title="Gratuit - Débogueur Node.js local</span>
+          <div class="desc">Debug Node.js avec node inspect, --inspect, breakpoints, CDP, heap et CPU profiles.</div>
+          <div class="cats"><span>🟢 Node.js</span><span>🔍 Debug</span><div class="example">Analyser un ralentissement dans le serveur Node.js du CRM école</div>
+        </div>
+        </div>
+
+        <div class="skill-card">
+          <h3>🧵 tmux <span class="tag tag-native">natif</span></h3><span class="cost cost-free" title="Gratuit - Terminal multiplexer local</span>
+          <div class="desc">Gère plusieurs sessions terminal : liste, capture, envoie des touches, suit des prompts.</div>
+          <div class="cats"><span>🖥️ Terminal</span><span>⚡ Multitâche</span><div class="example">Lancer le serveur CRM dans un terminal tmux et le laisser tourner en arrière-plan</div>
+        </div>
+        </div>
+      </div>
+
+    </div>
+
+    <footer>
+      Dernière mise à jour : 2026-06-18 (38 skills - consulte la liste ci-dessus pour les détails) — <a href="https://github.com/amsClaw">amsClaw</a> sur GitHub
+    </footer>
+  </div>
+</body>
+</html>

@@ -1,0 +1,629 @@
+{
+  "metadata": {
+    "name": "CRM ecole GS AIME CEASIRE",
+    "version": "0.1.0",
+    "updatedAt": "2026-06-14T18:27:19.237Z"
+  },
+  "users": [
+    {
+      "id": "usr-ebe1b6b9-d162-4fca-b403-fbe23d62b5a3",
+      "username": "admin_test",
+      "name": "Direction test",
+      "role": "admin",
+      "active": true,
+      "passwordHash": "43c27b4e263fa191a6a7ec198cd4d5b47d17413c49d77dc533a01720707e3202",
+      "createdAt": "2026-06-14T10:57:19.078Z",
+      "updatedAt": "2026-06-14T10:57:19.078Z"
+    },
+    {
+      "id": "usr-0d386bc5-f05d-404f-b08e-1848e36d837f",
+      "username": "secretariat_test",
+      "name": "Secretariat test",
+      "role": "secretariat",
+      "active": true,
+      "passwordHash": "43c27b4e263fa191a6a7ec198cd4d5b47d17413c49d77dc533a01720707e3202",
+      "createdAt": "2026-06-14T10:57:19.078Z",
+      "updatedAt": "2026-06-14T10:57:19.078Z"
+    },
+    {
+      "id": "usr-c26c31e6-d54d-427e-9026-1ccc123dacba",
+      "username": "instructeur_test",
+      "name": "Instructeur test",
+      "role": "instructeur",
+      "active": true,
+      "passwordHash": "43c27b4e263fa191a6a7ec198cd4d5b47d17413c49d77dc533a01720707e3202",
+      "createdAt": "2026-06-14T10:57:19.078Z",
+      "updatedAt": "2026-06-14T10:57:19.078Z"
+    },
+    {
+      "id": "usr-354f8e59-7e37-4c3d-a566-a310d4d6dd62",
+      "username": "Prof_math",
+      "name": "Mr Bangoura",
+      "role": "instructeur",
+      "active": true,
+      "passwordHash": "8d969eef6ecad3c29a3a629280e686cf0c3f5d5a86aff3ca12020c923adc6c92",
+      "createdAt": "2026-06-14T12:48:23.148Z",
+      "updatedAt": "2026-06-14T12:48:23.148Z"
+    },
+    {
+      "id": "usr-6faf8ef2-89ee-49cc-8656-f0fd40ef773e",
+      "username": "amsfox",
+      "name": "Sekou Kaba",
+      "role": "secretariat",
+      "active": true,
+      "passwordHash": "43c27b4e263fa191a6a7ec198cd4d5b47d17413c49d77dc533a01720707e3202",
+      "createdAt": "2026-06-14T18:21:54.222Z",
+      "updatedAt": "2026-06-14T18:21:54.222Z"
+    }
+  ],
+  "classes": [
+    {
+      "id": "cls-05f08161-e2fa-4cf1-98a0-5a69bcb8b21b",
+      "name": "6eme A",
+      "level": "College",
+      "active": true,
+      "instructorIds": [
+        "usr-c26c31e6-d54d-427e-9026-1ccc123dacba",
+        "usr-354f8e59-7e37-4c3d-a566-a310d4d6dd62"
+      ],
+      "createdAt": "2026-06-14T10:57:19.078Z",
+      "updatedAt": "2026-06-14T16:40:52.405Z"
+    },
+    {
+      "id": "cls-2ddf4ecc-d3c3-4d8b-8b94-9e55ab020830",
+      "name": "5eme A",
+      "level": "College",
+      "active": true,
+      "instructorIds": [],
+      "createdAt": "2026-06-14T10:57:19.078Z",
+      "updatedAt": "2026-06-14T10:57:19.078Z"
+    },
+    {
+      "id": "cls-15998c89-5b76-4280-9fb0-18dfc7e16e36",
+      "name": "7eme A",
+      "level": "College",
+      "active": true,
+      "instructorIds": [
+        "usr-c26c31e6-d54d-427e-9026-1ccc123dacba"
+      ],
+      "createdAt": "2026-06-14T12:17:04.783Z",
+      "updatedAt": "2026-06-14T18:20:50.380Z"
+    },
+    {
+      "id": "cls-58224c54-6bf4-4ff6-83b3-121b8171e01f",
+      "name": "10eme A",
+      "level": "Lycée",
+      "active": true,
+      "instructorIds": [
+        "usr-354f8e59-7e37-4c3d-a566-a310d4d6dd62"
+      ],
+      "createdAt": "2026-06-14T16:20:20.363Z",
+      "updatedAt": "2026-06-14T16:20:20.364Z"
+    },
+    {
+      "id": "cls-5f8abe93-6939-4414-82a7-49fe7fec2403",
+      "name": "TERMINALE S",
+      "level": "LYCEE",
+      "active": true,
+      "instructorIds": [
+        "usr-c26c31e6-d54d-427e-9026-1ccc123dacba"
+      ],
+      "createdAt": "2026-06-14T18:06:11.839Z",
+      "updatedAt": "2026-06-14T18:06:11.839Z"
+    },
+    {
+      "id": "cls-d341fd9d-9f6d-4945-8f17-267574884a3b",
+      "name": "10E B",
+      "level": "College",
+      "active": true,
+      "instructorIds": [
+        "usr-354f8e59-7e37-4c3d-a566-a310d4d6dd62"
+      ],
+      "createdAt": "2026-06-14T18:20:04.340Z",
+      "updatedAt": "2026-06-14T18:20:23.648Z"
+    }
+  ],
+  "students": [
+    {
+      "id": "stu-aa4e99bd-0ca1-4cfc-b98b-b2db06770cbf",
+      "matricule": "1",
+      "lastName": "kaba",
+      "firstName": "ahmed",
+      "sex": "F",
+      "birthDate": "2015-01-01",
+      "birthPlace": "conakry",
+      "classId": "cls-15998c89-5b76-4280-9fb0-18dfc7e16e36",
+      "parent1": "souleymane",
+      "parent2": "fatoumata",
+      "parentPhone": "0628987364",
+      "address": "kaloum",
+      "schoolStatus": "a_jour",
+      "administrativeNote": "test creation élève",
+      "archived": false,
+      "comments": [
+        {
+          "id": "com-b1ec0f03-f432-431c-a8bc-ad2bdf36c134",
+          "authorId": "usr-ebe1b6b9-d162-4fca-b403-fbe23d62b5a3",
+          "authorName": "Direction test",
+          "text": "commentaire élève",
+          "createdAt": "2026-06-14T12:43:30.137Z",
+          "updatedAt": "2026-06-14T12:43:30.137Z"
+        },
+        {
+          "id": "com-d88b8614-6641-42c0-b73f-21bfcbee396c",
+          "authorId": "usr-ebe1b6b9-d162-4fca-b403-fbe23d62b5a3",
+          "authorName": "Direction test",
+          "text": "commentaire 2",
+          "createdAt": "2026-06-14T12:43:57.617Z",
+          "updatedAt": "2026-06-14T12:43:57.617Z"
+        },
+        {
+          "id": "com-b16922db-4102-492e-b7c0-45bdc78ad13b",
+          "authorId": "usr-c26c31e6-d54d-427e-9026-1ccc123dacba",
+          "authorName": "Instructeur test",
+          "text": "commentaire instructeur",
+          "createdAt": "2026-06-14T12:58:55.689Z",
+          "updatedAt": "2026-06-14T12:58:55.689Z"
+        }
+      ],
+      "completenessStatus": "complet",
+      "missingFields": [],
+      "createdAt": "2026-06-14T12:43:09.871Z",
+      "updatedAt": "2026-06-14T12:58:55.689Z"
+    },
+    {
+      "id": "stu-296bd27a-5cc4-422a-b615-e54adf6e9f45",
+      "matricule": "FA25099576",
+      "lastName": "FATOUMATA",
+      "firstName": "M'BALOU BARRY",
+      "sex": "F",
+      "birthDate": "2012-08-16",
+      "birthPlace": "CONAKRY",
+      "classId": "cls-15998c89-5b76-4280-9fb0-18dfc7e16e36",
+      "parent1": "ALPHA OUMAR",
+      "parent2": "HAOULATOU BIYA BARRY",
+      "parentPhone": "",
+      "address": "",
+      "schoolStatus": "a_verifier",
+      "administrativeNote": "",
+      "archived": false,
+      "comments": [],
+      "completenessStatus": "a_completer",
+      "missingFields": [
+        "parentPhone"
+      ],
+      "createdAt": "2026-06-14T12:45:32.814Z",
+      "updatedAt": "2026-06-14T12:45:32.814Z"
+    },
+    {
+      "id": "stu-7026fa05-3601-4b53-ad72-3d9be96cd1fa",
+      "matricule": "AB25099231",
+      "lastName": "ABDOURAHMANE",
+      "firstName": "SOW",
+      "sex": "M",
+      "birthDate": "2014-11-10",
+      "birthPlace": "MATOTO",
+      "classId": "cls-15998c89-5b76-4280-9fb0-18dfc7e16e36",
+      "parent1": "AMADOU LAMARANA",
+      "parent2": "MAIMOUNA BELLA DIALLO",
+      "parentPhone": "",
+      "address": "",
+      "schoolStatus": "a_verifier",
+      "administrativeNote": "",
+      "archived": true,
+      "comments": [],
+      "completenessStatus": "a_completer",
+      "missingFields": [
+        "parentPhone"
+      ],
+      "createdAt": "2026-06-14T12:45:32.814Z",
+      "updatedAt": "2026-06-14T18:20:34.281Z"
+    },
+    {
+      "id": "stu-cf08f808-ea34-4d06-ac04-2162ee979c22",
+      "matricule": "AD25099252",
+      "lastName": "ADAMA",
+      "firstName": "HAWA BARRY",
+      "sex": "F",
+      "birthDate": "2014-04-29",
+      "birthPlace": "RATOMA",
+      "classId": "cls-d341fd9d-9f6d-4945-8f17-267574884a3b",
+      "parent1": "JEAN",
+      "parent2": "HABIBATOU DIALLO",
+      "parentPhone": "",
+      "address": "",
+      "schoolStatus": "a_verifier",
+      "administrativeNote": "",
+      "archived": false,
+      "comments": [],
+      "completenessStatus": "a_completer",
+      "missingFields": [
+        "parentPhone"
+      ],
+      "createdAt": "2026-06-14T12:45:32.814Z",
+      "updatedAt": "2026-06-14T18:27:09.633Z"
+    },
+    {
+      "id": "stu-6b7a9d3e-e44e-471e-8139-f08318cf00b5",
+      "matricule": "AM25099367",
+      "lastName": "AMINATA",
+      "firstName": "CAMARA",
+      "sex": "F",
+      "birthDate": "2014-07-21",
+      "birthPlace": "DUBREKA",
+      "classId": "cls-15998c89-5b76-4280-9fb0-18dfc7e16e36",
+      "parent1": "SEYDOUBA",
+      "parent2": "AÏCHA YOULA",
+      "parentPhone": "",
+      "address": "",
+      "schoolStatus": "a_verifier",
+      "administrativeNote": "",
+      "archived": false,
+      "comments": [],
+      "completenessStatus": "a_completer",
+      "missingFields": [
+        "parentPhone"
+      ],
+      "createdAt": "2026-06-14T12:45:32.814Z",
+      "updatedAt": "2026-06-14T12:45:32.814Z"
+    },
+    {
+      "id": "stu-8083256d-818e-4d1d-aa8f-1824e1784e80",
+      "matricule": "AM25099370",
+      "lastName": "AMINATA",
+      "firstName": "DIALLO",
+      "sex": "F",
+      "birthDate": "2012-12-31",
+      "birthPlace": "CONAKRY",
+      "classId": "cls-15998c89-5b76-4280-9fb0-18dfc7e16e36",
+      "parent1": "ALPHA OUMAR",
+      "parent2": "HADJIRATOU DIALLO",
+      "parentPhone": "",
+      "address": "",
+      "schoolStatus": "a_verifier",
+      "administrativeNote": "",
+      "archived": false,
+      "comments": [],
+      "completenessStatus": "a_completer",
+      "missingFields": [
+        "parentPhone"
+      ],
+      "createdAt": "2026-06-14T12:45:32.814Z",
+      "updatedAt": "2026-06-14T12:45:32.815Z"
+    },
+    {
+      "id": "stu-da055716-f150-4680-887c-dd08e4c9784f",
+      "matricule": "AM25099377",
+      "lastName": "AMINATOU",
+      "firstName": "DIALLO",
+      "sex": "F",
+      "birthDate": "2009-02-28",
+      "birthPlace": "MAMOU",
+      "classId": "cls-15998c89-5b76-4280-9fb0-18dfc7e16e36",
+      "parent1": "THIERNO DIAO",
+      "parent2": "MARIAMA DJIBA DIALLO",
+      "parentPhone": "0130505362",
+      "address": "matoto",
+      "schoolStatus": "a_verifier",
+      "administrativeNote": "motif",
+      "archived": false,
+      "comments": [],
+      "completenessStatus": "complet",
+      "missingFields": [],
+      "createdAt": "2026-06-14T12:45:32.815Z",
+      "updatedAt": "2026-06-14T12:46:36.942Z"
+    },
+    {
+      "id": "stu-dbc5d175-24b7-4989-b99f-b7ea896ec990",
+      "matricule": "FA25099520",
+      "lastName": "FARIMBA",
+      "firstName": "KANTÉ",
+      "sex": "M",
+      "birthDate": "2012-07-06",
+      "birthPlace": "CONAKRY",
+      "classId": "cls-5f8abe93-6939-4414-82a7-49fe7fec2403",
+      "parent1": "MAMADY",
+      "parent2": "FANTA KOUROUMA",
+      "parentPhone": "",
+      "address": "",
+      "schoolStatus": "a_verifier",
+      "administrativeNote": "",
+      "archived": false,
+      "comments": [],
+      "completenessStatus": "a_completer",
+      "missingFields": [
+        "parentPhone"
+      ],
+      "createdAt": "2026-06-14T12:45:32.815Z",
+      "updatedAt": "2026-06-14T18:27:19.237Z"
+    },
+    {
+      "id": "stu-60fed70a-617f-41b5-95e4-ce44137bb3f6",
+      "matricule": "FA25099535",
+      "lastName": "FATOUMATA",
+      "firstName": "BINTA BAH",
+      "sex": "F",
+      "birthDate": "2011-09-17",
+      "birthPlace": "RATOMA",
+      "classId": "cls-15998c89-5b76-4280-9fb0-18dfc7e16e36",
+      "parent1": "SOULEYMANE BAH",
+      "parent2": "MARIAMA BAH",
+      "parentPhone": "",
+      "address": "",
+      "schoolStatus": "a_verifier",
+      "administrativeNote": "",
+      "archived": false,
+      "comments": [],
+      "completenessStatus": "a_completer",
+      "missingFields": [
+        "parentPhone"
+      ],
+      "createdAt": "2026-06-14T12:45:32.815Z",
+      "updatedAt": "2026-06-14T12:45:32.815Z"
+    },
+    {
+      "id": "stu-945e3c9a-b1d5-4ed4-ac84-085208eff480",
+      "matricule": "FA25099563",
+      "lastName": "FATOUMATA",
+      "firstName": "DIALLO",
+      "sex": "F",
+      "birthDate": "2016-04-05",
+      "birthPlace": "CONAKRY",
+      "classId": "cls-15998c89-5b76-4280-9fb0-18dfc7e16e36",
+      "parent1": "SEKOU",
+      "parent2": "OUMOU HAWA BARRY",
+      "parentPhone": "",
+      "address": "",
+      "schoolStatus": "a_verifier",
+      "administrativeNote": "",
+      "archived": false,
+      "comments": [],
+      "completenessStatus": "a_completer",
+      "missingFields": [
+        "parentPhone"
+      ],
+      "createdAt": "2026-06-14T12:45:32.815Z",
+      "updatedAt": "2026-06-14T12:45:32.815Z"
+    },
+    {
+      "id": "stu-627edb33-03b8-4d27-a4c8-de462c4054b7",
+      "matricule": "HA25099620",
+      "lastName": "HASSATOU",
+      "firstName": "BALDE",
+      "sex": "F",
+      "birthDate": "2013-12-15",
+      "birthPlace": "CONAKRY",
+      "classId": "cls-15998c89-5b76-4280-9fb0-18dfc7e16e36",
+      "parent1": "MAMADOU",
+      "parent2": "FATOUMATA BINTA DIALLO",
+      "parentPhone": "",
+      "address": "",
+      "schoolStatus": "a_verifier",
+      "administrativeNote": "",
+      "archived": false,
+      "comments": [],
+      "completenessStatus": "a_completer",
+      "missingFields": [
+        "parentPhone"
+      ],
+      "createdAt": "2026-06-14T12:45:32.815Z",
+      "updatedAt": "2026-06-14T12:45:32.815Z"
+    },
+    {
+      "id": "stu-072cf438-7564-4331-be0a-1b77cbb46860",
+      "matricule": "IB25099649",
+      "lastName": "IBRAHIMA",
+      "firstName": "BARRY",
+      "sex": "M",
+      "birthDate": "2013-09-09",
+      "birthPlace": "CONAKRY",
+      "classId": "cls-15998c89-5b76-4280-9fb0-18dfc7e16e36",
+      "parent1": "ALPHA AMADOU",
+      "parent2": "DJENABOU BARRY",
+      "parentPhone": "",
+      "address": "",
+      "schoolStatus": "a_verifier",
+      "administrativeNote": "",
+      "archived": false,
+      "comments": [],
+      "completenessStatus": "a_completer",
+      "missingFields": [
+        "parentPhone"
+      ],
+      "createdAt": "2026-06-14T12:45:32.815Z",
+      "updatedAt": "2026-06-14T12:45:32.815Z"
+    },
+    {
+      "id": "stu-6f247ab9-8429-4f7a-be3d-b933e0bd608a",
+      "matricule": "MA25099737",
+      "lastName": "MACH-OUD",
+      "firstName": "BAH",
+      "sex": "F",
+      "birthDate": "2013-10-12",
+      "birthPlace": "CONAKRY",
+      "classId": "cls-15998c89-5b76-4280-9fb0-18dfc7e16e36",
+      "parent1": "MAMADOU ALIOU",
+      "parent2": "IDIATOU BELLA BAH",
+      "parentPhone": "",
+      "address": "",
+      "schoolStatus": "a_verifier",
+      "administrativeNote": "",
+      "archived": false,
+      "comments": [],
+      "completenessStatus": "a_completer",
+      "missingFields": [
+        "parentPhone"
+      ],
+      "createdAt": "2026-06-14T12:45:32.815Z",
+      "updatedAt": "2026-06-14T12:45:32.815Z"
+    },
+    {
+      "id": "stu-bc827c1d-d698-4130-8003-7a07704b6c8a",
+      "matricule": "MA25099764",
+      "lastName": "MAMADOU",
+      "firstName": "ALGASSIMOU BARRY",
+      "sex": "M",
+      "birthDate": "2011-03-12",
+      "birthPlace": "TELIMELE",
+      "classId": "cls-15998c89-5b76-4280-9fb0-18dfc7e16e36",
+      "parent1": "IBRAHIMA GANDO",
+      "parent2": "AÏSSATOU BARRY",
+      "parentPhone": "",
+      "address": "",
+      "schoolStatus": "a_verifier",
+      "administrativeNote": "",
+      "archived": false,
+      "comments": [],
+      "completenessStatus": "a_completer",
+      "missingFields": [
+        "parentPhone"
+      ],
+      "createdAt": "2026-06-14T12:45:32.815Z",
+      "updatedAt": "2026-06-14T12:45:32.815Z"
+    },
+    {
+      "id": "stu-e65a404c-8883-4f1a-9a5f-0c799092b0ba",
+      "matricule": "MA25099812",
+      "lastName": "MAMADOU",
+      "firstName": "OURY BAH",
+      "sex": "M",
+      "birthDate": "2013-03-10",
+      "birthPlace": "RATOMA",
+      "classId": "cls-15998c89-5b76-4280-9fb0-18dfc7e16e36",
+      "parent1": "BOUBACAR BAH",
+      "parent2": "MARIAMA BAH",
+      "parentPhone": "",
+      "address": "",
+      "schoolStatus": "a_verifier",
+      "administrativeNote": "",
+      "archived": false,
+      "comments": [],
+      "completenessStatus": "a_completer",
+      "missingFields": [
+        "parentPhone"
+      ],
+      "createdAt": "2026-06-14T12:45:32.815Z",
+      "updatedAt": "2026-06-14T12:45:32.815Z"
+    },
+    {
+      "id": "stu-7fc93728-35d0-4352-aedb-307c14f4b657",
+      "matricule": "OU25099965",
+      "lastName": "OUMAR",
+      "firstName": "LY",
+      "sex": "M",
+      "birthDate": "2016-01-13",
+      "birthPlace": "CONAKRY",
+      "classId": "cls-15998c89-5b76-4280-9fb0-18dfc7e16e36",
+      "parent1": "BAPATHÉ SADOU",
+      "parent2": "AÏSSATOU DIALLO",
+      "parentPhone": "",
+      "address": "",
+      "schoolStatus": "a_verifier",
+      "administrativeNote": "",
+      "archived": false,
+      "comments": [],
+      "completenessStatus": "a_completer",
+      "missingFields": [
+        "parentPhone"
+      ],
+      "createdAt": "2026-06-14T12:45:32.815Z",
+      "updatedAt": "2026-06-14T12:45:32.815Z"
+    },
+    {
+      "id": "stu-88f98f8c-47d8-469d-9d2e-d632a4cc41ee",
+      "matricule": "YO25103672",
+      "lastName": "YOUSSOUF",
+      "firstName": "DIALLO",
+      "sex": "M",
+      "birthDate": "2011-06-18",
+      "birthPlace": "CONAKRY",
+      "classId": "cls-15998c89-5b76-4280-9fb0-18dfc7e16e36",
+      "parent1": "THIERNO YAYA",
+      "parent2": "MARIAMA DIALLO",
+      "parentPhone": "",
+      "address": "",
+      "schoolStatus": "a_verifier",
+      "administrativeNote": "",
+      "archived": false,
+      "comments": [],
+      "completenessStatus": "a_completer",
+      "missingFields": [
+        "parentPhone"
+      ],
+      "createdAt": "2026-06-14T12:45:32.815Z",
+      "updatedAt": "2026-06-14T12:45:32.815Z"
+    },
+    {
+      "id": "stu-1dc03ac9-178a-4e6c-a06b-c5ccfe83c0ad",
+      "matricule": "OU25099500",
+      "lastName": "OUMOU",
+      "firstName": "SALAMATA DIALLO",
+      "sex": "F",
+      "birthDate": "2012-02-12",
+      "birthPlace": "CONAKRY",
+      "classId": "cls-15998c89-5b76-4280-9fb0-18dfc7e16e36",
+      "parent1": "MAMADOU ALPHA",
+      "parent2": "MARIAMA BAILLO DIALLO",
+      "parentPhone": "",
+      "address": "",
+      "schoolStatus": "a_verifier",
+      "administrativeNote": "",
+      "archived": false,
+      "comments": [],
+      "completenessStatus": "a_completer",
+      "missingFields": [
+        "parentPhone"
+      ],
+      "createdAt": "2026-06-14T12:45:32.815Z",
+      "updatedAt": "2026-06-14T12:45:32.815Z"
+    },
+    {
+      "id": "stu-3029f701-cc9c-46f8-8a0a-ab9596efe728",
+      "matricule": "FA25040684",
+      "lastName": "FATOUMATA",
+      "firstName": "BINTA BALDE",
+      "sex": "F",
+      "birthDate": "2013-11-05",
+      "birthPlace": "TOUGUÉ",
+      "classId": "cls-15998c89-5b76-4280-9fb0-18dfc7e16e36",
+      "parent1": "MAMADOU SALIOU",
+      "parent2": "ROUGUIATOU BALDE",
+      "parentPhone": "",
+      "address": "",
+      "schoolStatus": "a_verifier",
+      "administrativeNote": "",
+      "archived": false,
+      "comments": [],
+      "completenessStatus": "a_completer",
+      "missingFields": [
+        "parentPhone"
+      ],
+      "createdAt": "2026-06-14T12:45:32.815Z",
+      "updatedAt": "2026-06-14T12:45:32.815Z"
+    },
+    {
+      "id": "stu-fc206160-24d9-441c-bdad-72a29c672661",
+      "matricule": "AB25045532",
+      "lastName": "ABDOUL",
+      "firstName": "AZIZ BARRY",
+      "sex": "M",
+      "birthDate": "2013-12-22",
+      "birthPlace": "CONAKRY",
+      "classId": "cls-58224c54-6bf4-4ff6-83b3-121b8171e01f",
+      "parent1": "MAMADOU LAMARANA",
+      "parent2": "FATIMA BARRY",
+      "parentPhone": "",
+      "address": "",
+      "schoolStatus": "a_verifier",
+      "administrativeNote": "",
+      "archived": true,
+      "comments": [],
+      "completenessStatus": "a_completer",
+      "missingFields": [
+        "parentPhone"
+      ],
+      "createdAt": "2026-06-14T12:45:32.815Z",
+      "updatedAt": "2026-06-14T16:24:09.633Z"
+    }
+  ]
+}

@@ -1,0 +1,401 @@
+{
+  "metadata": {
+    "name": "amsClaw dashboard data",
+    "version": "1.7",
+    "updatedAt": "2026-06-12",
+    "source": "amsclaw/projects/dashboard-multi-agent/data/dashboard-data.json",
+    "generatedBy": "dashboard-server.js"
+  },
+  "projects": [
+    {
+      "id": "dashboard-multi-agent",
+      "name": "Dashboard multi-agent",
+      "status": "actif",
+      "objective": "Construire une V1 testable du cockpit amsClaw pour suivre projets, idees business, routines, blocages et actions prioritaires.",
+      "nextAction": "Tester la V1.15 dans l'IHM avec Ams : vues Aujourd'hui, Backlog, Decisions, Revue hebdo, Recherche, fiche projet detaillee, scores, echeances et sauvegardes versionnees.",
+      "actionStatus": "todo",
+      "priority": "Haute",
+      "owner": "amsClaw",
+      "documentation": "amsclaw/projects/dashboard-multi-agent/README.md, amsclaw/projects/dashboard-multi-agent/docs/ROADMAP.md, amsclaw/dashboard/GUIDE_UTILISATION.md, amsclaw/PROJECTS_GUIDE.md",
+      "finalResult": "",
+      "closureDate": "",
+      "projectLog": "",
+      "lastUpdated": "",
+      "priorityScore": {
+        "speed": 4,
+        "motivation": 5,
+        "effortGain": 4,
+        "financial": 3
+      },
+      "blockers": []
+    },
+    {
+      "id": "workspace-amsclaw",
+      "name": "Espace de travail amsClaw",
+      "status": "actif",
+      "objective": "Garder une organisation propre entre workspace OpenClaw, projets, ressources, rapports et archives..",
+      "nextAction": "Appliquer le standard d'organisation au prochain projet cree.",
+      "actionStatus": "todo",
+      "priority": "Moyenne",
+      "owner": "amsClaw",
+      "documentation": "amsclaw/PROJECTS_GUIDE.md",
+      "finalResult": "",
+      "closureDate": "",
+      "projectLog": "",
+      "lastUpdated": "",
+      "priorityScore": {
+        "speed": 4,
+        "motivation": 4,
+        "effortGain": 4,
+        "financial": 3
+      },
+      "blockers": []
+    },
+    {
+      "id": "data-sync",
+      "name": "Connexion donnees dashboard",
+      "status": "actif",
+      "objective": "Remplacer progressivement les donnees codees dans app.js par une source de donnees simple.",
+      "nextAction": "Stabiliser la source de verite des donnees entre dashboard-data.json, les fichiers Markdown de memoire et les futures taches agents.",
+      "actionStatus": "doing",
+      "priority": "Haute",
+      "owner": "Agent Technique & Automatisation",
+      "documentation": "amsclaw/projects/dashboard-multi-agent/docs/NEXT_STEPS.md",
+      "finalResult": "",
+      "closureDate": "",
+      "projectLog": "",
+      "lastUpdated": "",
+      "priorityScore": {
+        "speed": 3,
+        "motivation": 4,
+        "effortGain": 4,
+        "financial": 3
+      },
+      "blockers": []
+    },
+    {
+      "id": "relance-paiements-scolaires-whatsapp",
+      "name": "Relance paiements scolaires WhatsApp",
+      "status": "actif",
+      "objective": "Tester un outil simple pour suivre les frais scolaires, generer des recus et preparer les relances parents.",
+      "nextAction": "Identifier un premier cas de test concret : une ecole, une classe ou un fichier Excel existant.",
+      "actionStatus": "todo",
+      "priority": "Haute",
+      "owner": "amsClaw",
+      "documentation": "amsclaw/projects/relance-paiements-scolaires-whatsapp/README.md, amsclaw/projects/relance-paiements-scolaires-whatsapp/docs/PROJECT_BRIEF.md, amsclaw/projects/relance-paiements-scolaires-whatsapp/docs/NEXT_STEPS.md",
+      "finalResult": "",
+      "closureDate": "",
+      "projectLog": "",
+      "lastUpdated": "",
+      "priorityScore": {
+        "speed": 5,
+        "motivation": 4,
+        "effortGain": 4,
+        "financial": 4
+      },
+      "blockers": []
+    }
+  ],
+  "ideas": [
+    {
+      "id": "school-admin",
+      "name": "Gestion scolaire légère",
+      "market": "Écoles privées, Guinée",
+      "problem": "Inscriptions, paiements et suivis restent souvent dispersés entre papier et Excel.",
+      "speed": 4,
+      "motivation": 4,
+      "effortGain": 3,
+      "financial": 4
+    },
+    {
+      "id": "pme-docs",
+      "name": "Assistant documents PME",
+      "market": "PME Afrique francophone",
+      "problem": "Les petites structures perdent du temps sur devis, factures, relances et documents répétitifs.",
+      "speed": 5,
+      "motivation": 4,
+      "effortGain": 4,
+      "financial": 3
+    },
+    {
+      "id": "project-dashboard",
+      "name": "Dashboard projets PME",
+      "market": "PME et indépendants Afrique francophone",
+      "problem": "Beaucoup de petites structures pilotent leurs actions dans des fichiers Excel dispersés sans vision claire des priorités.",
+      "speed": 4,
+      "motivation": 5,
+      "effortGain": 4,
+      "financial": 3
+    },
+    {
+      "id": "school-payment-reminders",
+      "name": "Relance paiements scolaires WhatsApp",
+      "market": "Écoles privées, Guinée",
+      "problem": "Le suivi des frais scolaires et les relances parents restent souvent manuels, dispersés entre cahiers, Excel et messages.",
+      "speed": 5,
+      "motivation": 4,
+      "effortGain": 4,
+      "financial": 4
+    }
+  ],
+  "agentTasks": [
+    {
+      "id": "task-dashboard-agent-tasks",
+      "title": "Tester la creation et le suivi des taches agents",
+      "owner": "Agent Organisation & PMO",
+      "linkedItem": "project:dashboard-multi-agent",
+      "priority": "Haute",
+      "status": "done",
+      "dueDate": "",
+      "note": "Test utilisateur valide le 2026-06-11 : creation d'une tache agent, execution Markdown manuelle et correction du parseur de contenu apres remarque utilisateur.",
+      "executionLog": []
+    },
+    {
+      "id": "task-market-school-admin",
+      "title": "Preparer une mini analyse marche pour Gestion scolaire legere",
+      "owner": "Agent Produit & Communication",
+      "linkedItem": "idea:school-admin",
+      "priority": "Moyenne",
+      "status": "done",
+      "dueDate": "",
+      "note": "Mini analyse marche produite : amsclaw/projects/dashboard-multi-agent/reports/2026-06-12-mini-analyse-marche-gestion-scolaire.md. Decision recommandee : demarrer par Relance paiements scolaires WhatsApp plutot qu'une gestion scolaire complete.",
+      "executionLog": []
+    },
+    {
+      "id": "task-automation-project-template",
+      "title": "Proposer un modele de creation automatique de projet",
+      "owner": "Agent Technique & Automatisation",
+      "linkedItem": "project:dashboard-multi-agent",
+      "priority": "Moyenne",
+      "status": "done",
+      "dueDate": "",
+      "note": "Cadrage documente dans amsclaw/projects/dashboard-multi-agent/docs/PROJECT_CREATION_MODEL.md. Endpoint local, mode dryRun et formulaire dashboard connectes. Creation durcie avec dossier temporaire puis renommage final. Test reel API valide le 2026-06-12 sur Relance paiements scolaires WhatsApp : dossier projet cree, fichiers minimaux generes, projet ajoute au JSON, double creation refusee en 409.",
+      "executionLog": []
+    },
+    {
+      "id": "39bc3f67-ad3c-4485-b8d3-ccebb1e12afa",
+      "title": "Test 2 tâche agent à exécuter ",
+      "owner": "Agent Technique & Automatisation",
+      "linkedItem": "",
+      "priority": "Haute",
+      "status": "done",
+      "dueDate": "",
+      "note": "Créé un fichier .md nommé test-exécution-tache et note dedans : l'exécution marche !\nExécuté le 2026-06-11 20:49 : fichier créé - amsclaw/agent-output/test-2-tache-agent-a-executer-2026-06-11T20-49-13-033Z.md",
+      "executionLog": [
+        {
+          "id": "exec-1781213707587-0wp4cn",
+          "at": "2026-06-11T20:49:13.033Z",
+          "status": "success",
+          "action": "create_markdown_file",
+          "message": "Fichier Markdown créé",
+          "path": "amsclaw/agent-output/test-2-tache-agent-a-executer-2026-06-11T20-49-13-033Z.md",
+          "verified": true,
+          "verifiedAt": "2026-06-11T21:38:53.956Z"
+        }
+      ]
+    },
+    {
+      "id": "5b4ea2c2-44ed-4fc6-8b00-2620e08d93e0",
+      "title": "test",
+      "owner": "Agent Technique & Automatisation",
+      "linkedItem": "",
+      "priority": "Haute",
+      "status": "done",
+      "dueDate": "",
+      "note": "créer dans le dossier *téléchargements* un fichier .md et noter dedans *test compteur ok*\nExécuté le 2026-06-12 17:36 : fichier créé - /Users/amsfox/Downloads/test-2026-06-12T17-36-11-084Z.md",
+      "executionLog": [
+        {
+          "id": "exec-1781285771085-nkal2q",
+          "at": "2026-06-12T17:36:11.085Z",
+          "status": "success",
+          "action": "create_markdown_file",
+          "message": "Fichier Markdown créé",
+          "path": "/Users/amsfox/Downloads/test-2026-06-12T17-36-11-084Z.md",
+          "verified": true,
+          "verifiedAt": "2026-06-12T17:45:17.729Z"
+        }
+      ]
+    }
+  ],
+  "backlogItems": [
+    {
+      "id": "backlog-decisions-view",
+      "title": "Vue Décisions",
+      "category": "Mémoire projet",
+      "priority": "Haute",
+      "status": "done",
+      "nextAction": "Journaliser les décisions importantes par projet.",
+      "notes": "Implémenté en V1.15."
+    },
+    {
+      "id": "backlog-roadmap-view",
+      "title": "Vue Backlog",
+      "category": "Pilotage",
+      "priority": "Haute",
+      "status": "done",
+      "nextAction": "Piloter les améliorations prévues sans avancer à l'aveugle.",
+      "notes": "Implémenté en V1.15."
+    },
+    {
+      "id": "backlog-project-priority-score",
+      "title": "Score de priorité projet",
+      "category": "Priorisation",
+      "priority": "Haute",
+      "status": "done",
+      "nextAction": "Comparer les projets avec les critères rapidité, motivation, effort/gain, financier.",
+      "notes": "Implémenté en V1.15."
+    },
+    {
+      "id": "backlog-today-view",
+      "title": "Vue Aujourd'hui",
+      "category": "Pilotage quotidien",
+      "priority": "Haute",
+      "status": "done",
+      "nextAction": "Afficher actions, blocages, projets dormants et tâches à échéance.",
+      "notes": "Implémenté en V1.15."
+    },
+    {
+      "id": "backlog-activity-log",
+      "title": "Journal d'activité dashboard",
+      "category": "Traçabilité",
+      "priority": "Moyenne",
+      "status": "done",
+      "nextAction": "Conserver les dernières modifications visibles dans Aujourd'hui.",
+      "notes": "Implémenté en V1.15."
+    },
+    {
+      "id": "backlog-dormant-projects",
+      "title": "Détection des projets dormants",
+      "category": "Suivi",
+      "priority": "Moyenne",
+      "status": "done",
+      "nextAction": "Signaler les projets actifs non mis à jour depuis 14 jours.",
+      "notes": "Implémenté en V1.15."
+    },
+    {
+      "id": "backlog-weekly-review",
+      "title": "Mode Revue hebdo",
+      "category": "Rituel",
+      "priority": "Moyenne",
+      "status": "done",
+      "nextAction": "Copier une revue synthétique pour arbitrer la semaine.",
+      "notes": "Implémenté en V1.15."
+    },
+    {
+      "id": "backlog-linked-tasks",
+      "title": "Tâches liées aux projets avec échéance",
+      "category": "Tâches",
+      "priority": "Moyenne",
+      "status": "done",
+      "nextAction": "Relier chaque tâche à un projet ou une idée, avec priorité et échéance.",
+      "notes": "Lien déjà existant, échéance ajoutée en V1.15."
+    },
+    {
+      "id": "backlog-project-detail",
+      "title": "Fiche projet détaillée",
+      "category": "Projet",
+      "priority": "Moyenne",
+      "status": "done",
+      "nextAction": "Afficher objectif, score, tâches, décisions, historique et documentation.",
+      "notes": "Implémenté en V1.15."
+    },
+    {
+      "id": "backlog-weekly-export",
+      "title": "Export rapport hebdo",
+      "category": "Reporting",
+      "priority": "Basse",
+      "status": "done",
+      "nextAction": "Copier la revue hebdo au format Markdown.",
+      "notes": "Implémenté en V1.15."
+    },
+    {
+      "id": "backlog-versioned-backup",
+      "title": "Sauvegarde versionnée des données",
+      "category": "Sécurité données",
+      "priority": "Basse",
+      "status": "done",
+      "nextAction": "Créer une copie horodatée avant chaque écriture serveur.",
+      "notes": "Implémenté en V1.15."
+    },
+    {
+      "id": "backlog-global-search",
+      "title": "Recherche globale",
+      "category": "Recherche",
+      "priority": "Basse",
+      "status": "done",
+      "nextAction": "Chercher dans projets, tâches, décisions, backlog et idées.",
+      "notes": "Implémenté en V1.15."
+    }
+  ],
+  "decisions": [
+    {
+      "id": "decision-dashboard-v115-roadmap",
+      "date": "2026-06-12",
+      "projectId": "dashboard-multi-agent",
+      "title": "Implémenter la roadmap de pilotage dashboard V1.15",
+      "decision": "Les vues Aujourd'hui, Backlog, Décisions, Revue hebdo, Recherche globale, fiche projet, score projet, journal d'activité et sauvegarde versionnée sont validées.",
+      "rationale": "Ams veut savoir où il part dans un projet et ne pas avancer à l'aveugle.",
+      "impact": "Chaque évolution doit être documentée, testée et visible dans le dashboard."
+    },
+    {
+      "id": "fa8fa53b-d65c-45d5-81a7-ce29241a499e",
+      "date": "2026-06-12",
+      "projectId": "",
+      "title": "test decision",
+      "decision": "test",
+      "rationale": "test",
+      "impact": "test"
+    }
+  ],
+  "activityLog": [
+    {
+      "id": "4b2e9a1c-137a-4a6b-85fa-9065ea8dd20d",
+      "date": "2026-06-12T21:45:21.786Z",
+      "type": "decision",
+      "summary": "Décision ajoutée : test decision",
+      "detail": "test",
+      "projectId": ""
+    },
+    {
+      "id": "activity-dashboard-v115-start",
+      "date": "2026-06-12T21:30:00.000Z",
+      "type": "release",
+      "summary": "V1.15 initialisée",
+      "projectId": "dashboard-multi-agent",
+      "detail": "Ajout des vues de pilotage, mémoire et recherche."
+    }
+  ],
+  "routines": {
+    "Quotidien": [
+      "Générer le rapport du matin",
+      "Vérifier les projets bloqués",
+      "Produire la veille IA",
+      "Vérifier les tâches prioritaires"
+    ],
+    "Hebdomadaire": [
+      "Réviser les priorités",
+      "Détecter de nouvelles opportunités business",
+      "Vérifier l'avancement des projets"
+    ],
+    "Mensuel": [
+      "Identifier les projets abandonnés",
+      "Vérifier la qualité de la documentation",
+      "Archiver les projets terminés",
+      "Proposer des optimisations de l'écosystème OpenClaw"
+    ]
+  },
+  "completedRoutines": {
+    "2026-06-12": [
+      "Générer le rapport du matin",
+      "Vérifier les projets bloqués",
+      "Produire la veille IA",
+      "Vérifier les tâches prioritaires"
+    ],
+    "2026-06-11": [
+      "Générer le rapport du matin",
+      "Vérifier les projets bloqués",
+      "Produire la veille IA",
+      "Vérifier les tâches prioritaires"
+    ]
+  }
+}

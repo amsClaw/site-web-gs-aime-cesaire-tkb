@@ -1,0 +1,809 @@
+:root {
+  --ink: #18212f;
+  --muted: #667085;
+  --line: #d7dde6;
+  --paper: #ffffff;
+  --surface: #f5f7fa;
+  --blue: #1f6feb;
+  --green: #16845b;
+  --red: #c43e3e;
+  --amber: #a96800;
+  --teal: #087f8c;
+  --shadow: 0 12px 28px rgba(20, 31, 50, 0.09);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  color: var(--ink);
+  background: var(--surface);
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+.hidden {
+  display: none !important;
+}
+
+.login-shell {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  padding: 24px;
+}
+
+.login-panel {
+  width: min(420px, 100%);
+  display: grid;
+  gap: 16px;
+  padding: 28px;
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  box-shadow: var(--shadow);
+}
+
+.login-brand {
+  display: grid;
+  gap: 10px;
+}
+
+.school-logo {
+  display: block;
+  max-width: 100%;
+  object-fit: contain;
+}
+
+.login-logo {
+  width: min(300px, 100%);
+  max-height: 150px;
+}
+
+.app-shell {
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: 260px minmax(0, 1fr);
+}
+
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 22px;
+  background: #17202d;
+  color: white;
+}
+
+.brand-block {
+  display: grid;
+  gap: 10px;
+}
+
+.sidebar-logo {
+  width: 150px;
+  max-height: 112px;
+}
+
+.brand-block h1,
+.login-panel h1 {
+  margin: 4px 0 0;
+  font-size: 28px;
+  letter-spacing: 0;
+}
+
+.eyebrow {
+  margin: 0;
+  color: var(--teal);
+  font-size: 12px;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.sidebar .eyebrow {
+  color: #8bd3dd;
+}
+
+.nav-list {
+  display: grid;
+  gap: 8px;
+}
+
+.nav-button {
+  min-height: 42px;
+  padding: 0 12px;
+  color: #dfe8f5;
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 6px;
+  text-align: left;
+}
+
+.nav-button.active,
+.nav-button:hover {
+  color: white;
+  background: rgba(255, 255, 255, 0.12);
+}
+
+.session-box {
+  margin-top: auto;
+  display: grid;
+  gap: 8px;
+  padding-top: 16px;
+  border-top: 1px solid rgba(255, 255, 255, 0.16);
+}
+
+.workspace {
+  min-width: 0;
+  padding: 24px;
+}
+
+.workspace-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 18px;
+}
+
+.workspace-header h2 {
+  margin: 4px 0 0;
+  font-size: 26px;
+  letter-spacing: 0;
+}
+
+.toast {
+  min-height: 24px;
+  margin: 0;
+  color: var(--green);
+  font-weight: 700;
+}
+
+.grid {
+  display: grid;
+  gap: 14px;
+}
+
+.grid.two {
+  grid-template-columns: minmax(0, 1.1fr) minmax(360px, 0.9fr);
+}
+
+.grid.three {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.panel,
+.metric,
+.table-wrap {
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  box-shadow: 0 1px 2px rgba(20, 31, 50, 0.04);
+}
+
+.panel {
+  padding: 16px;
+}
+
+.metric {
+  padding: 16px;
+}
+
+.metric strong {
+  display: block;
+  margin-top: 6px;
+  font-size: 30px;
+}
+
+.stack {
+  display: grid;
+  gap: 12px;
+}
+
+.compact-stack {
+  display: grid;
+  gap: 6px;
+  min-width: 180px;
+}
+
+.compact-label {
+  min-width: 150px;
+  font-size: 12px;
+}
+
+.management-layout {
+  display: grid;
+  grid-template-columns: minmax(260px, 0.34fr) minmax(0, 0.66fr);
+  gap: 14px;
+  align-items: start;
+}
+
+.management-layout > .panel {
+  position: sticky;
+  top: 18px;
+}
+
+.management-list {
+  display: grid;
+  gap: 12px;
+  min-width: 0;
+}
+
+.management-card {
+  display: grid;
+  gap: 14px;
+  padding: 14px;
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  box-shadow: 0 1px 2px rgba(20, 31, 50, 0.04);
+}
+
+.management-card.is-muted {
+  background: #fafbfc;
+}
+
+.management-card-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.management-card-header h3 {
+  margin: 3px 0 0;
+  font-size: 18px;
+  line-height: 1.2;
+  overflow-wrap: anywhere;
+}
+
+.card-kicker {
+  margin: 0;
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.status-group {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 6px;
+}
+
+.count-pill {
+  display: inline-flex;
+  align-items: center;
+  min-height: 24px;
+  padding: 0 8px;
+  color: #344054;
+  background: #f3f6fa;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 800;
+  white-space: nowrap;
+}
+
+.management-fields {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(130px, 1fr));
+  gap: 10px;
+}
+
+.management-fields label {
+  min-width: 0;
+}
+
+.management-instructors {
+  display: grid;
+  gap: 8px;
+}
+
+.checkbox-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 8px 10px;
+}
+
+.checkbox-grid label,
+.compact-stack label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--ink);
+  font-weight: 600;
+}
+
+.checkbox-grid input,
+.compact-stack input {
+  width: 16px;
+  min-height: 16px;
+  flex: 0 0 auto;
+}
+
+.card-actions {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.student-list-cell {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-width: 190px;
+}
+
+.student-photo-block {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 12px;
+  background: #f8fafc;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+}
+
+.student-photo-actions {
+  display: grid;
+  gap: 5px;
+  min-width: 0;
+}
+
+.student-avatar {
+  display: inline-grid;
+  place-items: center;
+  flex: 0 0 auto;
+  overflow: hidden;
+  color: #344054;
+  background: #e7edf5;
+  border: 1px solid var(--line);
+  border-radius: 50%;
+  font-weight: 900;
+  object-fit: cover;
+}
+
+.student-avatar.small {
+  width: 42px;
+  height: 42px;
+  font-size: 13px;
+}
+
+.student-avatar.medium {
+  width: 56px;
+  height: 56px;
+  font-size: 16px;
+}
+
+.student-avatar.large {
+  width: 88px;
+  height: 88px;
+  font-size: 24px;
+}
+
+.file-button {
+  position: relative;
+  width: auto;
+}
+
+.file-button input {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.photo-editor {
+  display: grid;
+  grid-template-columns: 140px minmax(0, 1fr);
+  gap: 14px;
+  align-items: center;
+  padding: 12px;
+  background: #f8fafc;
+  border: 1px dashed var(--line);
+  border-radius: 8px;
+}
+
+.photo-editor-preview {
+  display: grid;
+  place-items: center;
+}
+
+.photo-editor canvas {
+  width: 128px;
+  height: 128px;
+  border: 1px solid var(--line);
+  border-radius: 50%;
+  background: #eef2f7;
+}
+
+.photo-editor-controls {
+  display: grid;
+  gap: 10px;
+}
+
+label {
+  display: grid;
+  gap: 6px;
+  color: var(--muted);
+  font-size: 13px;
+  font-weight: 700;
+}
+
+input,
+select,
+textarea {
+  width: 100%;
+  min-height: 38px;
+  padding: 8px 10px;
+  color: var(--ink);
+  background: white;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+}
+
+textarea {
+  min-height: 84px;
+  resize: vertical;
+}
+
+.primary-button,
+.secondary-button,
+.danger-button {
+  min-height: 38px;
+  padding: 0 13px;
+  border-radius: 6px;
+  font-weight: 800;
+}
+
+.primary-button {
+  color: white;
+  background: var(--blue);
+  border: 1px solid var(--blue);
+}
+
+.secondary-button {
+  color: var(--ink);
+  background: white;
+  border: 1px solid var(--line);
+}
+
+.sidebar .secondary-button {
+  color: white;
+  background: transparent;
+  border-color: rgba(255, 255, 255, 0.28);
+}
+
+.danger-button {
+  color: white;
+  background: var(--red);
+  border: 1px solid var(--red);
+}
+
+.button-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-items: center;
+}
+
+.filters {
+  display: grid;
+  grid-template-columns: minmax(220px, 1fr) repeat(4, minmax(140px, 180px));
+  gap: 10px;
+  margin-bottom: 12px;
+}
+
+.table-wrap {
+  overflow: auto;
+}
+
+table {
+  width: 100%;
+  min-width: 760px;
+  border-collapse: collapse;
+}
+
+th,
+td {
+  padding: 10px 12px;
+  border-bottom: 1px solid var(--line);
+  text-align: left;
+  vertical-align: top;
+}
+
+tbody .student-row {
+  transition: background 0.15s ease, box-shadow 0.15s ease;
+}
+
+tbody .student-row.selected {
+  background: #eef6ff;
+  box-shadow: inset 4px 0 0 var(--blue);
+}
+
+tbody .student-row.selected td:first-child {
+  font-weight: 700;
+}
+
+tbody .student-row.selected .secondary-button {
+  color: #0b4f8a;
+  border-color: #9cc7f5;
+  background: #ffffff;
+}
+
+th {
+  color: #344054;
+  background: #eef2f7;
+  font-size: 12px;
+  text-transform: uppercase;
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  min-height: 24px;
+  padding: 0 8px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 800;
+  white-space: nowrap;
+}
+
+.badge.green {
+  color: #0f5132;
+  background: #d9f2e7;
+}
+
+.badge.amber {
+  color: #714500;
+  background: #fff1cf;
+}
+
+.badge.red {
+  color: #842029;
+  background: #f8d7da;
+}
+
+.badge.gray {
+  color: #344054;
+  background: #eef2f7;
+}
+
+.muted {
+  color: var(--muted);
+}
+
+.student-detail {
+  position: sticky;
+  top: 16px;
+  align-self: start;
+  align-content: start;
+}
+
+.comment-item {
+  padding: 10px;
+  background: #f8fafc;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+}
+
+.print-student-sheet {
+  display: none;
+}
+
+#print-output {
+  display: none;
+}
+
+.print-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 18px;
+  padding-bottom: 14px;
+  border-bottom: 2px solid var(--ink);
+}
+
+.print-header h1 {
+  margin: 4px 0;
+  font-size: 28px;
+  letter-spacing: 0;
+}
+
+.print-section {
+  display: grid;
+  gap: 10px;
+  padding: 14px 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.print-section h2 {
+  margin: 0;
+  font-size: 16px;
+  letter-spacing: 0;
+}
+
+.print-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 8px 16px;
+}
+
+.print-row {
+  display: grid;
+  gap: 2px;
+}
+
+.print-row span,
+.print-comment span,
+.print-footer {
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.print-row strong {
+  font-size: 14px;
+}
+
+.print-note,
+.print-comment {
+  margin: 0;
+  padding: 10px;
+  background: #f8fafc;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+}
+
+.print-comment {
+  display: grid;
+  gap: 3px;
+}
+
+.print-comment p {
+  margin: 0;
+}
+
+.print-footer {
+  padding-top: 12px;
+}
+
+.import-row.bloquee {
+  background: #fff7f7;
+}
+
+.import-row.importable {
+  background: #f7fffb;
+}
+
+@media (max-width: 980px) {
+  .app-shell {
+    grid-template-columns: 1fr;
+  }
+
+  .sidebar {
+    position: static;
+  }
+
+  .grid.two,
+  .grid.three,
+  .management-layout,
+  .form-grid,
+  .filters {
+    grid-template-columns: 1fr;
+  }
+
+  .management-layout > .panel {
+    position: static;
+  }
+
+  .management-fields {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .student-detail {
+    position: static;
+  }
+
+  .students-layout .student-detail {
+    order: -1;
+  }
+}
+
+@media (max-width: 640px) {
+  .workspace {
+    padding: 16px;
+  }
+
+  .workspace-header,
+  .management-card-header,
+  .student-photo-block,
+  .photo-editor {
+    display: grid;
+  }
+
+  .status-group,
+  .card-actions {
+    justify-content: flex-start;
+  }
+
+  .management-fields,
+  .checkbox-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .primary-button,
+  .secondary-button,
+  .danger-button {
+    width: 100%;
+  }
+
+  .login-panel {
+    padding: 22px;
+  }
+
+  .login-logo {
+    width: 100%;
+    max-height: 130px;
+  }
+
+  .student-photo-block,
+  .photo-editor-preview {
+    justify-items: start;
+  }
+}
+
+@media print {
+  @page {
+    margin: 14mm;
+  }
+
+  body {
+    background: white;
+  }
+
+  body.is-printing-student #app {
+    display: none !important;
+  }
+
+  body.is-printing-student #print-output {
+    display: block;
+    width: 100%;
+    color: #111827;
+    background: white;
+    font-size: 13px;
+  }
+
+  body.is-printing-student #print-output .print-student-sheet {
+    display: block;
+  }
+
+  body.is-printing-student #print-output .student-avatar.large {
+    width: 74px;
+    height: 74px;
+  }
+
+  .print-section,
+  .print-comment,
+  .print-note {
+    break-inside: avoid;
+  }
+}

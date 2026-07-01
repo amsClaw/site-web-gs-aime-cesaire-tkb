@@ -1,0 +1,716 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Guide OpenClaw - amsClaw</title>
+  <style>
+    :root {
+      --bg: #f6f7f9;
+      --panel: #ffffff;
+      --ink: #1f2933;
+      --muted: #5f6b7a;
+      --line: #d9e0e8;
+      --accent: #0f766e;
+      --accent-soft: #e0f2f1;
+      --warn: #9a3412;
+      --warn-soft: #ffedd5;
+      --code: #111827;
+      --code-bg: #eef2f7;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--ink);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.55;
+    }
+
+    header {
+      background: #102a43;
+      color: #ffffff;
+      padding: 32px 24px;
+    }
+
+    header .wrap,
+    main {
+      max-width: 1120px;
+      margin: 0 auto;
+    }
+
+    h1 {
+      margin: 0 0 8px;
+      font-size: clamp(2rem, 5vw, 3.2rem);
+      letter-spacing: 0;
+    }
+
+    .subtitle {
+      margin: 0;
+      color: #d9e2ec;
+      max-width: 780px;
+      font-size: 1.05rem;
+    }
+
+    main {
+      padding: 24px;
+    }
+
+    nav {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 10px;
+      margin-bottom: 24px;
+    }
+
+    nav a {
+      display: block;
+      padding: 10px 12px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      color: var(--accent);
+      background: var(--panel);
+      text-decoration: none;
+      font-weight: 700;
+    }
+
+    section {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 22px;
+      margin-bottom: 18px;
+    }
+
+    h2 {
+      margin: 0 0 12px;
+      font-size: 1.35rem;
+      letter-spacing: 0;
+    }
+
+    h3 {
+      margin: 18px 0 8px;
+      font-size: 1.05rem;
+      letter-spacing: 0;
+    }
+
+    p {
+      margin: 8px 0;
+    }
+
+    ul {
+      margin: 8px 0 0 22px;
+      padding: 0;
+    }
+
+    li {
+      margin: 5px 0;
+    }
+
+    code {
+      background: var(--code-bg);
+      color: var(--code);
+      padding: 2px 5px;
+      border-radius: 5px;
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+      font-size: 0.95em;
+    }
+
+    pre {
+      overflow-x: auto;
+      padding: 12px;
+      background: var(--code-bg);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+    }
+
+    pre code {
+      padding: 0;
+      background: transparent;
+    }
+
+    .note,
+    .warning {
+      padding: 12px 14px;
+      border-radius: 8px;
+      margin: 12px 0;
+    }
+
+    .note {
+      background: var(--accent-soft);
+      border: 1px solid #99f6e4;
+    }
+
+    .warning {
+      background: var(--warn-soft);
+      border: 1px solid #fdba74;
+      color: var(--warn);
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 12px;
+      font-size: 0.95rem;
+    }
+
+    th,
+    td {
+      border: 1px solid var(--line);
+      padding: 10px;
+      text-align: left;
+      vertical-align: top;
+    }
+
+    th {
+      background: #f0f4f8;
+    }
+
+    .small {
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="wrap">
+      <h1>Guide OpenClaw</h1>
+      <p class="subtitle">Commandes utiles pour piloter OpenClaw, changer de modele, gerer les fallbacks et diagnostiquer le gateway.</p>
+    </div>
+  </header>
+
+  <main>
+    <nav aria-label="Navigation du guide">
+      <a href="#dashboard">Dashboard</a>
+      <a href="#modeles">Modeles</a>
+      <a href="#deepseek">DeepSeek</a>
+      <a href="#telegram">Telegram</a>
+      <a href="#agent-invite">Agent invite</a>
+      <a href="#gateway">Gateway</a>
+      <a href="#memoire">Memoire</a>
+      <a href="#diagnostic">Diagnostic</a>
+      <a href="#configurations-documentees">Configurations</a>
+      <a href="#journal">Commandes decouvertes</a>
+    </nav>
+
+    <section id="resume">
+      <h2>Resume de la configuration actuelle</h2>
+      <ul>
+        <li>Modele principal : <code>openai/gpt-5.5</code></li>
+        <li>Fallback automatique : <code>deepseek/deepseek-v4-flash</code></li>
+        <li>Provider DeepSeek configure avec une cle API.</li>
+        <li>Memoire configuree avec embeddings locaux Ollama : <code>nomic-embed-text</code>.</li>
+        <li>Bot Telegram configure : <code>@amsclawMM_bot</code></li>
+        <li>Dashboard OpenClaw local : <code>http://127.0.0.1:18789/</code></li>
+      </ul>
+      <div class="warning">
+        Une selection manuelle via <code>/model</code> ou via le picker du dashboard devient un choix strict de session. Pour garder le fallback automatique Codex vers DeepSeek, laisser le modele par defaut sur <code>openai/gpt-5.5</code>.
+      </div>
+    </section>
+
+    <section id="dashboard">
+      <h2>Dashboard OpenClaw</h2>
+      <p>Ouvrir le dashboard local :</p>
+      <pre><code>openclaw dashboard</code></pre>
+      <p>Afficher l'URL sans ouvrir le navigateur :</p>
+      <pre><code>openclaw dashboard --no-open</code></pre>
+      <p>URL locale habituelle :</p>
+      <pre><code>http://127.0.0.1:18789/</code></pre>
+      <div class="note">
+        Si le picker de modele n'apparait pas dans le chat du dashboard, essayer <code>Cmd + Shift + R</code>. Les controles du chat peuvent aussi se replier quand on scrolle.
+      </div>
+    </section>
+
+    <section id="modeles">
+      <h2>Modeles</h2>
+      <h3>Voir le modele actif</h3>
+      <pre><code>openclaw models status --plain</code></pre>
+
+      <h3>Lister les modeles disponibles</h3>
+      <pre><code>openclaw models list</code></pre>
+
+      <h3>Changer le modele par defaut</h3>
+      <p>Basculer sur DeepSeek :</p>
+      <pre><code>openclaw models set deepseek/deepseek-v4-flash</code></pre>
+      <p>Revenir sur Codex / OpenAI :</p>
+      <pre><code>openclaw models set openai/gpt-5.5</code></pre>
+
+      <h3>Changer le modele seulement dans le chat</h3>
+      <p>Dans le chat OpenClaw, envoyer :</p>
+      <pre><code>/model deepseek/deepseek-v4-flash</code></pre>
+      <p>Revenir a Codex dans la session :</p>
+      <pre><code>/model openai/gpt-5.5</code></pre>
+      <p>Demander la liste depuis le chat :</p>
+      <pre><code>/models</code></pre>
+    </section>
+
+    <section id="deepseek">
+      <h2>DeepSeek</h2>
+      <h3>Ajouter ou remplacer la cle API DeepSeek</h3>
+      <pre><code>openclaw config set models.providers.deepseek.apiKey "sk-xxxxxxxxxxxxxxxx"
+openclaw gateway restart</code></pre>
+      <p class="small">Les guillemets autour de la cle sont normaux dans le terminal. Ils ne font pas partie de la cle.</p>
+
+      <h3>Verifier que la cle est reconnue</h3>
+      <pre><code>openclaw models list --provider deepseek</code></pre>
+      <p>La colonne <code>Auth</code> doit afficher <code>yes</code>.</p>
+
+      <h3>Modeles DeepSeek utiles</h3>
+      <table>
+        <thead>
+          <tr>
+            <th>Modele</th>
+            <th>Usage conseille</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><code>deepseek/deepseek-v4-flash</code></td>
+            <td>Fallback rapide et economique quand le quota Codex est atteint.</td>
+          </tr>
+          <tr>
+            <td><code>deepseek/deepseek-v4-pro</code></td>
+            <td>Alternative plus puissante si Flash ne suffit pas.</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section id="fallback">
+      <h2>Fallback automatique</h2>
+      <p>Voir les fallbacks configures :</p>
+      <pre><code>openclaw models fallbacks list</code></pre>
+
+      <p>Ajouter DeepSeek comme fallback :</p>
+      <pre><code>openclaw models fallbacks add deepseek/deepseek-v4-flash
+openclaw gateway restart</code></pre>
+
+      <p>Remettre Codex comme modele principal tout en gardant le fallback :</p>
+      <pre><code>openclaw models set openai/gpt-5.5
+openclaw gateway restart</code></pre>
+
+      <div class="note">
+        Le fallback automatique s'active surtout quand le modele utilise est le modele par defaut configure. Si une session est forcee manuellement sur un modele precis, OpenClaw peut traiter ce choix comme strict.
+      </div>
+    </section>
+
+    <section id="telegram">
+      <h2>Bot Telegram</h2>
+      <p>Telegram fonctionne avec un bot cree dans <code>@BotFather</code>. OpenClaw ne passe pas par <code>channels login</code> pour Telegram : il faut configurer un token, puis redemarrer le gateway.</p>
+
+      <h3>Creer le bot</h3>
+      <ol>
+        <li>Ouvrir Telegram et discuter avec <code>@BotFather</code>.</li>
+        <li>Lancer <code>/newbot</code>.</li>
+        <li>Choisir un nom et un username se terminant generalement par <code>bot</code>.</li>
+        <li>Copier le token fourni par BotFather.</li>
+      </ol>
+
+      <h3>Ajouter le token dans OpenClaw</h3>
+      <pre><code>openclaw channels add --channel telegram --token "123456:ABCDEF..."
+openclaw gateway restart</code></pre>
+      <p class="small">Les guillemets protegent le token dans le terminal. Ne pas coller le token dans un document partage.</p>
+
+      <h3>Verifier le channel Telegram</h3>
+      <pre><code>openclaw channels status --deep
+openclaw channels list</code></pre>
+
+      <h3>Envoyer un message de test depuis OpenClaw</h3>
+      <pre><code>openclaw message send --channel telegram --target &lt;TELEGRAM_USER_ID&gt; --message "Test OpenClaw Telegram : connexion OK"</code></pre>
+
+      <h3>Appairer un premier DM Telegram</h3>
+      <p>Par defaut, Telegram utilise une politique d'appairage. Apres avoir envoye un message au bot, lister les demandes :</p>
+      <pre><code>openclaw pairing list telegram</code></pre>
+      <p>Approuver le code affiche :</p>
+      <pre><code>openclaw pairing approve telegram &lt;CODE&gt;</code></pre>
+
+      <h3>Regarder les logs Telegram</h3>
+      <pre><code>openclaw logs --follow
+openclaw channels logs --channel telegram</code></pre>
+
+      <h3>Suivre plusieurs conversations en parallele</h3>
+      <p>En DM Telegram, OpenClaw garde une session principale par utilisateur. Pour separer les sujets, utiliser un groupe Telegram avec des topics/forum.</p>
+      <ul>
+        <li>Un topic <code>CRM ecole</code> pour le projet CRM.</li>
+        <li>Un topic <code>Dashboard</code> pour le cockpit amsClaw.</li>
+        <li>Un topic <code>Idees business</code> pour les opportunites.</li>
+        <li>Un topic <code>OpenClaw admin</code> pour la configuration et les tests.</li>
+      </ul>
+      <p>Chaque topic Telegram cree une session OpenClaw separee. Ces sessions de groupe/topics sont visibles dans le store de sessions OpenClaw et doivent apparaitre dans les vues de discussions/sessions du dashboard web lorsqu'elles sont actives ou recentes.</p>
+
+      <h3>Autoriser le bot dans un groupe Telegram</h3>
+      <ol>
+        <li>Ouvrir le groupe Telegram prive.</li>
+        <li>Ouvrir les parametres du groupe, puis <code>Administrateurs</code>.</li>
+        <li>Ajouter <code>@amsclawMM_bot</code> comme administrateur.</li>
+        <li>Autoriser au minimum la lecture des messages et l'envoi de messages.</li>
+        <li>Si les topics sont utilises, autoriser aussi la gestion ou l'utilisation des topics lorsque Telegram le propose.</li>
+      </ol>
+      <p>Pour tester, envoyer un message texte simple dans un topic, avec la mention au debut :</p>
+      <pre><code>@amsclawMM_bot ping</code></pre>
+      <p class="small">Les medias ou captions peuvent etre ignores si OpenClaw ne detecte pas la mention. Faire les premiers tests avec du texte pur.</p>
+      <pre><code>openclaw sessions
+openclaw sessions --active 120</code></pre>
+      <p class="small">Dans la sortie CLI, un topic Telegram apparait comme une session de type <code>group</code>.</p>
+      <div class="note">
+        Recommandation : garder le DM pour les demandes rapides, et utiliser un groupe Telegram prive avec topics pour les travaux en parallele.
+      </div>
+
+      <div class="warning">
+        Ne pas mettre le bot en acces public sans controle. Pour un bot personnel, garder une politique d'appairage ou une allowlist avec ton identifiant Telegram numerique.
+      </div>
+    </section>
+
+    <section id="agent-invite">
+      <h2>Agent invite limite</h2>
+      <p>Objectif : permettre a une personne invitee de collaborer via Telegram avec un agent OpenClaw separe, limite a un dossier Google Drive partage, sans lui donner acces au Mac Mini ni a l'agent principal <code>amsClaw</code>.</p>
+
+      <div class="warning">
+        Ne pas brancher un invite sur l'agent principal <code>main</code>. Un topic Telegram organise la discussion, mais ne constitue pas une barriere de securite. La restriction doit venir d'un agent separe, d'un workspace dedie et, idealement, d'une sandbox ou d'un compte systeme limite.
+      </div>
+
+      <h3>Architecture cible</h3>
+      <pre><code>Invite Telegram
+  -> groupe Telegram dedie
+  -> agent OpenClaw dedie
+  -> dossier Google Drive partage
+  -> creation/modification uniquement dans ce dossier</code></pre>
+
+      <h3>Regles de securite</h3>
+      <ul>
+        <li>Creer un groupe Telegram dedie a l'invite, plutot qu'un topic dans le groupe principal.</li>
+        <li>Ne pas approuver l'invite comme owner OpenClaw.</li>
+        <li>Ne pas utiliser l'agent <code>main</code> pour l'invite.</li>
+        <li>Ne pas donner de droits d'installation ou d'administration.</li>
+        <li>Ne partager qu'un dossier Google Drive dedie et vide au depart.</li>
+        <li>Tester avec des fichiers non sensibles avant tout usage reel.</li>
+      </ul>
+
+      <h3>Verifier les agents existants</h3>
+      <pre><code>openclaw agents list
+openclaw agents bindings</code></pre>
+
+      <h3>Creer le dossier de travail partage</h3>
+      <p>Exemple de structure recommandee :</p>
+      <pre><code>Google Drive/OpenClaw-Partage/Invite-X/</code></pre>
+      <p>Partager ce dossier avec la personne invitee via Google Drive, puis utiliser ce chemin comme workspace de l'agent.</p>
+
+      <h3>Creer un agent separe</h3>
+      <pre><code>openclaw agents add invite-x \
+  --workspace "/chemin/vers/Google Drive/OpenClaw-Partage/Invite-X" \
+  --agent-dir "$HOME/.openclaw/agents/invite-x/agent" \
+  --model openai/gpt-5.5 \
+  --non-interactive</code></pre>
+
+      <h3>Controler le resultat</h3>
+      <pre><code>openclaw agents list
+openclaw sandbox explain --agent invite-x</code></pre>
+
+      <h3>Router Telegram vers l'agent invite</h3>
+      <p>Approche recommandee : creer un groupe Telegram dedie a l'invite, ajouter le bot, faire un test avec mention, recuperer l'identifiant du groupe, puis ajouter une regle de routage vers l'agent invite.</p>
+      <pre><code>openclaw directory groups list --channel telegram
+openclaw agents bind --agent invite-x --bind telegram:&lt;GROUP_ID&gt;
+openclaw agents bindings</code></pre>
+      <p class="small">Si le routage par topic n'est pas explicitement disponible, preferer un groupe Telegram separe. C'est plus simple a auditer et plus prudent.</p>
+
+      <h3>Mode de demarrage conseille</h3>
+      <ol>
+        <li>Creer d'abord un dossier de test sans donnees sensibles.</li>
+        <li>Creer l'agent invite avec ce dossier comme workspace.</li>
+        <li>Tester la creation d'un fichier simple.</li>
+        <li>Verifier que le fichier apparait dans Google Drive.</li>
+        <li>Verifier que l'agent ne travaille pas hors du dossier attendu.</li>
+        <li>Seulement ensuite, inviter la vraie personne.</li>
+      </ol>
+
+      <div class="note">
+        Objectif final : collaboration pratique depuis Telegram, recuperation des fichiers via Google Drive, et separation nette entre l'espace invite et l'ecosysteme personnel d'Ams.
+      </div>
+    </section>
+
+    <section id="gateway">
+      <h2>Gateway</h2>
+      <h3>Verifier l'etat du gateway</h3>
+      <pre><code>openclaw gateway status</code></pre>
+
+      <h3>Redemarrer le gateway</h3>
+      <pre><code>openclaw gateway restart</code></pre>
+
+      <h3>Afficher le statut global</h3>
+      <pre><code>openclaw status</code></pre>
+
+      <h3>Diagnostic plus profond</h3>
+      <pre><code>openclaw status --deep</code></pre>
+    </section>
+
+    <section id="memoire">
+      <h2>Memoire</h2>
+      <h3>Verifier l'index memoire</h3>
+      <pre><code>openclaw memory status --index</code></pre>
+
+      <h3>Reconstruire l'index</h3>
+      <pre><code>openclaw memory index --force</code></pre>
+
+      <h3>Configuration actuelle</h3>
+      <pre><code>agents.defaults.memorySearch.provider = ollama
+agents.defaults.memorySearch.model = nomic-embed-text
+models.providers.ollama.baseUrl = http://127.0.0.1:11434</code></pre>
+
+      <h3>Reparer une erreur de quota OpenAI sur la memoire</h3>
+      <pre><code>ollama pull nomic-embed-text
+openclaw config patch --stdin
+openclaw memory index --force
+openclaw gateway restart</code></pre>
+      <div class="note">
+        Cette configuration evite que la recherche memoire depende du quota API OpenAI. Les embeddings de memoire passent par Ollama en local.
+      </div>
+    </section>
+
+    <section id="config">
+      <h2>Configuration</h2>
+      <p>Voir le fichier de configuration actif :</p>
+      <pre><code>openclaw config file</code></pre>
+
+      <p>Valider la configuration :</p>
+      <pre><code>openclaw config validate</code></pre>
+
+      <p>Afficher la configuration DeepSeek :</p>
+      <pre><code>openclaw config get models.providers.deepseek</code></pre>
+
+      <p>Afficher le modele principal et les fallbacks :</p>
+      <pre><code>openclaw config get agents.defaults.model</code></pre>
+    </section>
+
+    <section id="diagnostic">
+      <h2>Diagnostic rapide</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Probleme</th>
+            <th>Commande utile</th>
+            <th>Ce qu'il faut regarder</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Le dashboard ne repond pas</td>
+            <td><code>openclaw gateway status</code></td>
+            <td>Gateway running, connectivity probe ok.</td>
+          </tr>
+          <tr>
+            <td>DeepSeek ne fonctionne pas</td>
+            <td><code>openclaw models list --provider deepseek</code></td>
+            <td>La colonne Auth doit etre a yes.</td>
+          </tr>
+          <tr>
+            <td>OpenClaw utilise le mauvais modele</td>
+            <td><code>openclaw models status --plain</code></td>
+            <td>Le modele affiche doit correspondre au modele attendu.</td>
+          </tr>
+          <tr>
+            <td>La config semble incoherente</td>
+            <td><code>openclaw config validate</code></td>
+            <td>La commande doit retourner une config valide.</td>
+          </tr>
+          <tr>
+            <td>La memoire est en erreur</td>
+            <td><code>openclaw memory status --index</code></td>
+            <td>Verifier provider, modele, fichiers indexes et etat embeddings.</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section id="journal">
+      <h2>Commandes decouvertes</h2>
+      <p>Cette section sert a ajouter les commandes utiles au fur et a mesure.</p>
+      <table>
+        <thead>
+          <tr>
+            <th>Date</th>
+            <th>Commande</th>
+            <th>Usage</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>2026-06-17</td>
+            <td><code>openclaw config set models.providers.deepseek.apiKey "sk-..."</code></td>
+            <td>Enregistrer la cle API DeepSeek dans OpenClaw.</td>
+          </tr>
+          <tr>
+            <td>2026-06-17</td>
+            <td><code>openclaw models set deepseek/deepseek-v4-flash</code></td>
+            <td>Basculer le modele par defaut sur DeepSeek Flash.</td>
+          </tr>
+          <tr>
+            <td>2026-06-17</td>
+            <td><code>openclaw models set openai/gpt-5.5</code></td>
+            <td>Revenir au modele Codex / OpenAI principal.</td>
+          </tr>
+          <tr>
+            <td>2026-06-17</td>
+            <td><code>openclaw models fallbacks add deepseek/deepseek-v4-flash</code></td>
+            <td>Ajouter DeepSeek comme secours automatique.</td>
+          </tr>
+          <tr>
+            <td>2026-06-17</td>
+            <td><code>/model deepseek/deepseek-v4-flash</code></td>
+            <td>Changer le modele de la session courante depuis le chat.</td>
+          </tr>
+          <tr>
+            <td>2026-06-17</td>
+            <td><code>/models</code></td>
+            <td>Afficher les modeles disponibles depuis le chat.</td>
+          </tr>
+          <tr>
+            <td>2026-06-17</td>
+            <td><code>openclaw channels add --channel telegram --token "..."</code></td>
+            <td>Configurer un bot Telegram OpenClaw avec le token BotFather.</td>
+          </tr>
+          <tr>
+            <td>2026-06-17</td>
+            <td><code>openclaw pairing list telegram</code></td>
+            <td>Lister les demandes d'appairage Telegram en attente.</td>
+          </tr>
+          <tr>
+            <td>2026-06-17</td>
+            <td><code>openclaw pairing approve telegram &lt;CODE&gt;</code></td>
+            <td>Autoriser un utilisateur Telegram a discuter avec le bot.</td>
+          </tr>
+          <tr>
+            <td>2026-06-17</td>
+            <td><code>openclaw message send --channel telegram --target &lt;ID&gt; --message "..."</code></td>
+            <td>Envoyer un message Telegram de test depuis OpenClaw.</td>
+          </tr>
+          <tr>
+            <td>2026-06-17</td>
+            <td><code>openclaw sessions --active 120</code></td>
+            <td>Voir les conversations OpenClaw actives recemment.</td>
+          </tr>
+          <tr>
+            <td>2026-06-17</td>
+            <td><code>openclaw agents add invite-x --workspace "/chemin/vers/dossier" --non-interactive</code></td>
+            <td>Creer un agent OpenClaw separe pour un invite avec un workspace dedie.</td>
+          </tr>
+          <tr>
+            <td>2026-06-17</td>
+            <td><code>openclaw agents bind --agent invite-x --bind telegram:&lt;GROUP_ID&gt;</code></td>
+            <td>Router un groupe Telegram dedie vers l'agent invite.</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section id="configurations-documentees">
+      <h2>Configurations documentees</h2>
+      <p>Cette section sert a garder la trace des configurations OpenClaw mises en place au fil de l'eau.</p>
+      <table>
+        <thead>
+          <tr>
+            <th>Date</th>
+            <th>Configuration</th>
+            <th>Commande ou fichier</th>
+            <th>Resultat attendu</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>2026-06-17</td>
+            <td>Provider DeepSeek</td>
+            <td><code>models.providers.deepseek</code></td>
+            <td>Rendre DeepSeek disponible dans OpenClaw avec une cle API.</td>
+          </tr>
+          <tr>
+            <td>2026-06-17</td>
+            <td>Modele principal Codex</td>
+            <td><code>agents.defaults.model.primary = openai/gpt-5.5</code></td>
+            <td>Utiliser Codex / ChatGPT comme modele principal.</td>
+          </tr>
+          <tr>
+            <td>2026-06-17</td>
+            <td>Fallback automatique DeepSeek</td>
+            <td><code>agents.defaults.model.fallbacks = deepseek/deepseek-v4-flash</code></td>
+            <td>Basculer automatiquement sur DeepSeek Flash si Codex atteint une limite exploitable par le fallback.</td>
+          </tr>
+          <tr>
+            <td>2026-06-17</td>
+            <td>Memoire via Ollama</td>
+            <td><code>agents.defaults.memorySearch.provider = ollama</code></td>
+            <td>Utiliser des embeddings locaux pour la recherche memoire et eviter le quota OpenAI API.</td>
+          </tr>
+          <tr>
+            <td>2026-06-17</td>
+            <td>Preparation Telegram</td>
+            <td><code>channels.telegram</code></td>
+            <td>Preparer la connexion d'un bot Telegram OpenClaw via BotFather et appairage DM.</td>
+          </tr>
+          <tr>
+            <td>2026-06-17</td>
+            <td>Bot Telegram configure</td>
+            <td><code>@amsclawMM_bot</code></td>
+            <td>Bot Telegram ajoute a OpenClaw et pret pour l'appairage DM.</td>
+          </tr>
+          <tr>
+            <td>2026-06-17</td>
+            <td>Appairage Telegram DM</td>
+            <td><code>openclaw pairing approve telegram &lt;CODE&gt;</code></td>
+            <td>Autoriser le compte Telegram principal d'Ams et le declarer comme owner des commandes OpenClaw.</td>
+          </tr>
+          <tr>
+            <td>2026-06-17</td>
+            <td>Test Telegram aller-retour</td>
+            <td><code>openclaw message send --channel telegram</code></td>
+            <td>Confirmer que le Mac Mini peut envoyer un message Telegram vers le telephone d'Ams.</td>
+          </tr>
+          <tr>
+            <td>2026-06-17</td>
+            <td>Sessions Telegram paralleles</td>
+            <td><code>Telegram group topics</code></td>
+            <td>Utiliser un groupe Telegram prive avec topics pour isoler les conversations par sujet.</td>
+          </tr>
+          <tr>
+            <td>2026-06-17</td>
+            <td>Bot Telegram dans groupe prive</td>
+            <td><code>@amsclawMM_bot ping</code></td>
+            <td>Bot ajoute comme administrateur du groupe Telegram prive ; reponse validee dans un topic avec mention.</td>
+          </tr>
+          <tr>
+            <td>2026-06-17</td>
+            <td>Visibilite sessions Telegram</td>
+            <td><code>openclaw sessions --active 240</code></td>
+            <td>Confirmer qu'un topic Telegram cree une session OpenClaw de type <code>group</code>, visible dans le suivi des sessions.</td>
+          </tr>
+          <tr>
+            <td>2026-06-17</td>
+            <td>Reparation index memoire</td>
+            <td><code>openclaw memory index --force</code></td>
+            <td>Reconstruire l'index memoire apres changement de provider embeddings.</td>
+          </tr>
+          <tr>
+            <td>2026-06-17</td>
+            <td>Documentation agent invite limite</td>
+            <td><code>amsclaw/resources/GUIDE_OPENCLAW.html#agent-invite</code></td>
+            <td>Documenter la creation future d'un agent separe limite a un dossier Google Drive partage.</td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="note">
+        A chaque nouvelle configuration OpenClaw importante, ajouter ici la date, le sujet, le chemin de configuration ou la commande, puis le resultat attendu.
+      </div>
+    </section>
+
+    <section id="maj">
+      <h2>Mise a jour du guide</h2>
+      <p>Quand une nouvelle commande utile est decouverte, l'ajouter dans la section <strong>Commandes decouvertes</strong> avec la date, la commande et son usage.</p>
+      <p>Quand une nouvelle configuration OpenClaw est mise en place, l'ajouter dans la section <strong>Configurations documentees</strong>.</p>
+      <p class="small">Derniere mise a jour : 2026-06-17.</p>
+    </section>
+  </main>
+</body>
+</html>
